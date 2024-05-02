@@ -1,0 +1,55 @@
+name: digital_bookshelf_client
+description: "Digital bookshelf client"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  auto_route: ^6.1.0
+  flutter_bloc: ^8.1.3
+  flutter_svg: ^2.0.9
+  slang: ^3.25.0
+  slang_flutter: ^3.25.0
+  dart_mappable: ^4.2.0
+  flutter_secure_storage: ^9.0.0
+  shared_preferences: ^2.2.2
+#  global_configuration: ^2.0.0
+  infinite_scroll_pagination: ^4.0.0
+  flex_color_scheme: ^7.3.1
+  intl: ^0.18.1
+  http: ^1.2.1
+  meta: ^1.12.0
+  rxdart: ^0.27.7
+  talker: ^4.1.0
+  talker_flutter: ^4.1.0
+  web: ^0.5.1
+  fetch_client: ^1.1.0-wasm
+  file_picker: ^8.0.2
+  http_parser: ^4.0.2
+  form_validator: ^2.1.1
+  easy_loading_button: ^0.3.2
+  lru_cache:
+    git: https://github.com/Zekfad/lru_cache
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  auto_route_generator: ^6.1.0
+  slang_build_runner: ^3.25.0
+  dart_mappable_builder: ^4.2.0
+  build_runner:
+  zekfad_lints: ^2.0.0
+
+dependency_overrides:
+  meta: ^1.12.0
+
+flutter:
+  uses-material-design: true
