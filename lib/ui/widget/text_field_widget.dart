@@ -2,18 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class TextFieldWidget extends StatefulWidget {
-  final bool autocorrect;
-  final List<TextInputFormatter>? inputFormatters;
-  final String? labelText;
-  final TextInputType? keyboardType;
-  final bool obscureText;
-  final ValueChanged<String>? onChanged;
-  final String? Function(String?)? validator;
-  final Widget? suffixIcon;
-  final String? initText;
-  final bool enabled;
-  final int maxLines;
-  final InputDecoration? decoration;
 
   const TextFieldWidget({
     this.autocorrect = true,
@@ -30,6 +18,19 @@ class TextFieldWidget extends StatefulWidget {
     this.decoration,
     super.key,
   });
+
+  final bool autocorrect;
+  final List<TextInputFormatter>? inputFormatters;
+  final String? labelText;
+  final TextInputType? keyboardType;
+  final bool obscureText;
+  final ValueChanged<String>? onChanged;
+  final String? Function(String?)? validator;
+  final Widget? suffixIcon;
+  final String? initText;
+  final bool enabled;
+  final int maxLines;
+  final InputDecoration? decoration;
 
   @override
   State<TextFieldWidget> createState() => _TextFieldWidgetState();

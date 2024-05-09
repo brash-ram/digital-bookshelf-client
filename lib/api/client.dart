@@ -1,13 +1,13 @@
 import 'dart:io';
 
 import 'package:dart_mappable/dart_mappable.dart';
+import 'package:digital_bookshelf_client/api/api_exception.dart';
+import 'package:digital_bookshelf_client/api/auth_controller.dart';
+import 'package:digital_bookshelf_client/data/data.dart';
+import 'package:digital_bookshelf_client/logging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_parser/http_parser.dart';
-
-import '/logging.dart';
-import 'api_exception.dart';
-import 'auth_controller.dart';
 
 
 class Client {
@@ -69,7 +69,25 @@ class Client {
       );
     }
     try {
-      return MapperContainer.globals.fromJson<T>(response.body);
+      final data = MapperContainer.globals.fromJson<Response<T>>(response.body);
+      switch (data) {
+        case ResponseOk():
+          return data.result;
+        case ResponseError(:final message, :final code):
+          throw ApiException.withResponse(
+            'Error $code: $message',
+            data,
+            httpRequest: errorDetailsRequest,
+            httpResponse: response,
+          );
+        case ResponseInvalid():
+          throw ApiException.withResponse(
+            'Invalid server response',
+            data,
+            httpRequest: errorDetailsRequest,
+            httpResponse: response,
+          );
+      }
     } on FormatException catch(exception) {
       throw ApiException<Never>(
         'Invalid server response',
@@ -152,7 +170,7 @@ class Client {
       ) async {
     // assert(body == null || file == null, 'Cannot supply both text body and bytes body');
     final request = http.MultipartRequest(
-      "POST",
+      'POST',
       baseUri.replace(
         path: baseUri.path + path,
         queryParameters: queryParameters,
@@ -162,7 +180,7 @@ class Client {
     authController.authorizeMultipartRequest(request);
 
     final httpImage = http.MultipartFile.fromBytes('photos', await file.readAsBytes(),
-        contentType: MediaType.parse("image/png"), filename: file.path.split("/").last);
+        contentType: MediaType.parse('image/png'), filename: file.path.split('/').last,);
     request.files.add(httpImage);
     final http.Response response;
     try {

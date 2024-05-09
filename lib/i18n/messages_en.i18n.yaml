@@ -1,278 +1,5 @@
 app:
-  name: Short chain
-
-auth:
-  header:
-    welcome: Добро пожаловать
-    info: Введите адрес электронной почты и пароль
-    appBar:
-      signIn: Авторизация
-      signUp: Регистрация
-      personalData: Личные данные
-
-  footer:
-    noAccount: У вас нет учетной записи?
-  button:
-    logIn: Авторизоваться
-    logUp: Зарегистрироваться
-
-profile:
-  data:
-    typeProfile:
-      text: Частные лица могут продавать новые или б/у товары, приобретенные в розничных магазинах для собственного использования.
-      label: Тип профиля
-    person:
-      text: Эта информация являются публичной. Она видна другим пользователям сети Интернет.\nРазмещая свои персональные данные в данном разделе, вы раскрываете их неопределенному кругу лиц.
-    private:
-      text: Данные ниже видны только вам. Мы надежно храним эти данные и не показываем их другим пользователям.
-  button: Сохранить изменения
-  salesman:
-    documentsVerified: Документы проверены
-
-user:
-  person:
-    name: Имя
-    lastName: Фамилия
-    middleName: Отчество
-    birth: Дата рождения
-    gender: Пол
-  email: Email
-  phone: Телефон
-  password: Пароль
-
-enums:
-  gender:
-    label: Пол
-    male: Мужской
-    female: Женский
-  sortType:
-    popular: Популярные
-    cheap: Сначала дешевые
-    expensive: Сначала дорогие
-    highRating: Высокий рейтинг
-  typeProfile:
-    private: Частное лицо
-    legal: Юридическое лицо
-    any: Любое
-  deliveryType:
-    self: Самовывоз
-    delivery: Доставка
-    any: Самовывоз или доставка
-  paymentType:
-    label: Оплата
-    card: Картой
-    cash: Наличными
-    online: Онлайн
-    any: Любая
-  usedCondition:
-    likeNew: Как новый
-    great: Отличный
-    good: Хороший
-    any: Не имеет значения
-  contactMethod:
-    label: Способ связи с вами
-    message: Только сообщения
-    phone: Только звонки
-    any: Звонки и сообщения
-  reviewSortType:
-    positive: Сначала положительные
-    negative: Сначала отрицательные
-    popular: Популярные
-  offerType:
-    common: Обычная
-    possibleSwap: Возможен обмен
-    onlySwap: Только обмен
-    free: Отдам бесплатно
-  paymentService:
-    sbp: Система быстрых платежей
-    sberpay: SberPay
-    ym: ЮMoney
-    card: Картой онлайн
-
-
-catalog:
-  search:
-    hint: Искать товары и услуги
-  item:
-    auction: Аукцион
-    requests: запросов
-    offers: предложений
-    remains: Осталось
-    requestButton: Предложить цену
-    cartButton: В корзину
-    description: Описание
-    availability:
-      label: Наличие
-      some: несколько
-    contact:
-      write: Написать
-      call: Позвонить
-    info:
-      added: Добавлено
-      views: просмотров
-      complain: Пожаловаться на описание
-    offerPrice:
-      offerHeader: Предложение цены
-      offerText: Укажите вашу цену и срок действия вашего предложения. Если продавец примет ваши условия, мы пришлем уведомление об этом.
-      button: Отправить предложение
-      priceLabel: Сумма
-      timeLabel: Срок предложения
-      days: дней
-    reviews:
-      reviewsLabel: отзывов
-      onlyPhotoFilter: Только с фото
-
-  filter:
-    header: Фильтр
-    onlyNew: Только новые товары
-    onlyDelivery: Только с доставкой
-  characteristic:
-    label: Характеристики
-  review:
-    label: Отзывы о товаре
-
-personalAccount:
-  purchases:
-    label: Покупки
-
-    myPriceOffers:
-      title: Мои предложения цены
-      otherOffer: Другие пользователи предложили от $from до $to
-      youOfferTitle: Ваше предложение
-      youOfferPrice: Вы предложили купить этот товар за
-      youOfferTime: Предложение действует
-      acceptOffer: Продавец принял ваше предложение
-      rejectOffer: Продавец отказался от предложения
-      uploadButton: Обновить
-      buy: Оформить покупку
-      reject: Отказаться
-
-    offers: Заказы
-    purchasedItems: Купленные товары
-    favorites: Избранное
-    myReviews:
-      title: Мои отзывы и оценки
-      disadvants: Недостатки
-      advants: Преимущества
-      comment: Комментарий
-      photo: Фото
-  sales:
-    label: Продажи
-
-    myGoods:
-      title: Мои объявления
-      views: просмотров
-      expires: Истекает через $days дней
-      messages: сообщений
-      addSale: Добавить объявление
-
-    addItem:
-      title: Добавление объявления
-      goodState:
-        newState: Новое
-        usedState: Б/у
-      name: Название товара
-      nameInfo: Из названия должно быть понятно, что конкретно вы хотите купить.
-      category: Категория
-      categoryHint: Выберите категорию
-      categoryInfo: Выберите раздел каталога, в котором будет размещаться ваше объявление. Если не нашли подходящей категории, сообщите нам об этом.
-      categoryPopup: Выберите раздел каталога, в котором будет размещаться ваше объявление. Если не нашли подходящей категории, сообщите нам об этом.
-      categorySearch: Поиск по категориям
-      characteristics: Характеристики
-      brand: Бренд
-      imei: IMEI
-      imeiInfo: IMEI указан на обратной стороне устройства или на коробке
-      parametersTitle: Параметры и описание
-      state: Состояние
-      stateInfo: Новым может считаться товар только в упаковке и ни разу не использованный.
-      descriptionTitle: Описание объявления
-      descriptionInfo: Не указывайте в описании телефон и e-mail — для этого есть отдельные поля.
-      usedCondition: Состояние б/у
-      price: Цена
-      sale: Продажа
-      offersBelowPrice: Не принимать предложения ниже указанной стоимости
-      severalPieces: Несколько штук в наличии
-      severalPiecesInfo: Покупатели увидят, что вы продаёте несколько штук, упаковок или других единиц товара — и смогут купить больше одной.
-      offerTime: Срок объявления
-      renew: Продлевать автоматически
-      photo: Фото и видео
-      itemPhoto: Фотографии товара
-      video: Видео с YouTube или Rutube
-      place: Место сделки
-      placeAddress: Точное место сделки
-      deliveryAddressInfo: Объявление смогут найти покупатели, которые ищут товары в конкретном радиусе или районе.\nТочный адрес не помешает вашему предложению появиться в результатах поиска по городу, региону или всей России.
-      contact: Контакты
-      yourPhone: Ваш телефон
-      contactType: Способ связи с вами
-      post: Опубликовать объявление
-      saveDraft: Сохранить черновик
-      postInfo: Вы публикуете объявление и данные в нём, чтобы их мог посмотреть кто угодно в интернете.\nВы также соглашаетесь с правилами Short Chain.
-
-    offersFromBuyers: Предложения от покупателей
-    comments: Комментарии
-    mySales: Мои продажи
-    reviewsAboutMe: Отзывы обо мне
-  requests:
-    label: Запросы
-    myRequests:
-      title: Мои запросы
-      views: просмотров
-      expires: Истекает через $days дней
-      messages: сообщений
-      addRequest: Новый запрос
-      upTo: до
-    addRequest:
-      goodState:
-        newState: Только новое
-        usedState: Можно б/у
-      addTitle: Добавление запроса на покупку
-      nameGood: Название товара
-      nameInfo: Из названия должно быть понятно, что конкретно вы хотите купить.
-      parametersTitle: Параметры и описание
-      state: Состояние
-      stateInfo: Новым может считаться товар только в упаковке и ни разу не использованный.
-      descriptionTitle: Описание запроса
-      descriptionInfo: Не указывайте в описании телефон и e-mail — для этого есть отдельные поля.
-      usedCondition: Состояние б/у
-      maxPrice: Максимальная цена
-      severalPieces: Требуется несколько штук
-      numberPieces: Продавцы смогут предложить вам несколько единиц товара.
-      requestTime: Срок запроса
-      renew: Продлевать автоматически
-      place: Место сделки
-      delivery: Тип доставки
-      deliveryAddressTitle: Адрес доставки
-      deliveryAddressInfo: Объявление смогут найти покупатели, которые ищут товары в конкретном радиусе или районе.\nТочный адрес не помешает вашему предложению появиться в результатах поиска по городу, региону или всей России.
-      contact: Контакты
-      yourPhone: Ваш телефон
-      contactType: Способ связи с вами
-      post: Опубликовать объявление
-      saveDraft: Сохранить черновик
-      postInfo: Вы публикуете объявление и данные в нём, чтобы их мог посмотреть кто угодно в интернете.\nВы также соглашаетесь с правилами Short Chain.
-    answersForRequest: Ответы на мои запросы
-    myAnswers: Мои ответы
-    featuredQueries: Избранные запросы
-  account:
-    label: Аккаунт
-    personalData: Личные данные
-    messages: Сообщения
-    myAddresses: Мои адреса
-    supportRequests: Обращения в поддержку
-    notificationSettings: Настройки уведомлений
-    logout: Выйти из аккаунта
-
-cart:
-  header: Корзина
-  footerButton: Перейти к оформлению
-  selectAll: Выбрать все
-  deleteSelected: Удалить выбранное
-  selectItems: Выберете товары, которые хотите купить
-
-makingPurchase:
-  title: Оформление заказа
-  receiver: Получатель
-  makePurchase: Оформить покупку
-  makePurchaseInfo: При оформлении покупки вы сможете указать способ оплаты и доставки товара.
+  name: Digital bookshelf
 
 alert:
   unavailable:
@@ -291,25 +18,38 @@ validation:
 utils:
   ok: ОК
   no: Нет
-  address: Адрес
-  openMap: Открыть карту
-  active: Активные
-  archive: Архив
-  days: дней
-  imageUploadInfo: 'Вы можете загрузить 10 файлов с разрешением: jpg, jpeg, png, tiff и размером не более 10Мб каждый.'
-  imageLoading: Подождите пока загрузятся все изображения
-  items:
-    one: товар
-    few: товара
-    other: товаров
-  discount: Скидка
-  total: Итого
   failAuth: Неверный логин или пароль
 
-currency:
-  RUB: ₽
+user:
+  person:
+    name: Имя
+    lastName: Фамилия
+    middleName: Отчество
+    birth: Дата рождения
+    gender: Пол
+  email: Email
+  phone: Телефон
+  password: Пароль
 
-measureUnit:
-  short:
-    piece: шт.
+profile:
+  notAuthorized: Для доступа к профилю необходимо авторизоваться
+  goAuth: Авторизоваться
+  menu:
+    personal:
+      title: Учетная запись
+      data: Личные данные
 
+
+
+auth:
+  header:
+    welcome: Добро пожаловать
+    info: Введите адрес электронной почты и пароль
+    appBar:
+      signIn: Авторизация
+      signUp: Регистрация
+      personalData: Личные данные
+
+  button:
+    logIn: Войти
+    logUp: Зарегистрироваться

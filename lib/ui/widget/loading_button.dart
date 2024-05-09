@@ -15,10 +15,13 @@ class LoadingButton extends StatelessWidget {
   Widget build(BuildContext context) => EasyButton(
       type: EasyButtonType.elevated,
       idleStateWidget: child,
-      loadingStateWidget: const CircularProgressIndicator(
-        strokeWidth: 3.0,
-        valueColor: AlwaysStoppedAnimation<Color>(
-          Colors.white,
+      loadingStateWidget: const Padding(
+        padding: EdgeInsets.all(smallValue),
+        child: CircularProgressIndicator(
+          strokeWidth: 3.0,
+          valueColor: AlwaysStoppedAnimation<Color>(
+            Colors.white,
+          ),
         ),
       ),
       useWidthAnimation: false,

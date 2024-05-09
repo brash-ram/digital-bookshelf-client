@@ -1,10 +1,16 @@
+import 'package:digital_bookshelf_client/api/app_request_path.dart';
 import 'package:digital_bookshelf_client/api/client.dart';
+import 'package:digital_bookshelf_client/data/data.dart';
+import 'package:digital_bookshelf_client/data/user/jwt_tokens.dart';
 
 class ApiClient {
 
   ApiClient(this.client);
 
   final Client client;
+
+  Future<UserInfo> getMyProfileInfo() async =>
+      client.get(myProfilePath);
 
   // Future<Catalog> getCatalog(int categoryId) async =>
   //   client.post(getCatalogItems, body: {"categoryId": categoryId, 'page': 1});
@@ -57,7 +63,26 @@ class ApiClient {
   //   return await client.get(getUserInfoPath);
   // }
   //
-  // Future<TokenResponse> signIn(SignInRequest request) async {
-  //   return await client.post(signInPath, body: request.toMap());
-  // }
+  Future<JwtTokens> signIn(String username, String password) async => client.post(
+      signInPath,
+      body: {
+        'username' : username,
+        'password' : password,
+      },
+    );
+
+  Future<JwtTokens> signUp(String username, String password) async => client.post(
+      signUpPath,
+      body: {
+        'username' : username,
+        'password' : password,
+      },
+    );
+
+  Future<JwtTokens> refreshTokens(String refreshToken) async => client.post(
+      refreshTokensPath,
+      body: {
+        'refreshToken' : refreshToken,
+      },
+    );
 }

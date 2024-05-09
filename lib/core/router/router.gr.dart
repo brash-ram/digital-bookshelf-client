@@ -15,28 +15,10 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    EmptyRouterUser.name: (routeData) {
+    EmptyRouterHome.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: EmptyRouterUserPage(),
-      );
-    },
-    EmptyRouterCart.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: EmptyRouterCartPage(),
-      );
-    },
-    EmptyRouterCatalog.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: EmptyRouterCatalogPage(),
-      );
-    },
-    EmptyRouterCategory.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: EmptyRouterCategoryPage(),
+        child: const EmptyRouterHomePage(),
       );
     },
     AuthRoute.name: (routeData) {
@@ -45,61 +27,31 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const AuthScreen(),
       );
     },
+    HomeRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const HomeScreen(),
+      );
+    },
+    ProfileMenuRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const ProfileMenuScreen(),
+      );
+    },
   };
 }
 
 /// generated route for
-/// [EmptyRouterUserPage]
-class EmptyRouterUser extends PageRouteInfo<void> {
-  const EmptyRouterUser({List<PageRouteInfo>? children})
+/// [EmptyRouterHomePage]
+class EmptyRouterHome extends PageRouteInfo<void> {
+  const EmptyRouterHome({List<PageRouteInfo>? children})
       : super(
-          EmptyRouterUser.name,
+          EmptyRouterHome.name,
           initialChildren: children,
         );
 
-  static const String name = 'EmptyRouterUser';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [EmptyRouterCartPage]
-class EmptyRouterCart extends PageRouteInfo<void> {
-  const EmptyRouterCart({List<PageRouteInfo>? children})
-      : super(
-          EmptyRouterCart.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'EmptyRouterCart';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [EmptyRouterCatalogPage]
-class EmptyRouterCatalog extends PageRouteInfo<void> {
-  const EmptyRouterCatalog({List<PageRouteInfo>? children})
-      : super(
-          EmptyRouterCatalog.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'EmptyRouterCatalog';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [EmptyRouterCategoryPage]
-class EmptyRouterCategory extends PageRouteInfo<void> {
-  const EmptyRouterCategory({List<PageRouteInfo>? children})
-      : super(
-          EmptyRouterCategory.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'EmptyRouterCategory';
+  static const String name = 'EmptyRouterHome';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -114,6 +66,34 @@ class AuthRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'AuthRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [HomeScreen]
+class HomeRoute extends PageRouteInfo<void> {
+  const HomeRoute({List<PageRouteInfo>? children})
+      : super(
+          HomeRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'HomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ProfileMenuScreen]
+class ProfileMenuRoute extends PageRouteInfo<void> {
+  const ProfileMenuRoute({List<PageRouteInfo>? children})
+      : super(
+          ProfileMenuRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileMenuRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

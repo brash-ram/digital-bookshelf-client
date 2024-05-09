@@ -1,8 +1,9 @@
 import 'dart:async';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:meta/meta.dart';
+
 import 'package:digital_bookshelf_client/bloc/base/bloc_event.dart';
 import 'package:digital_bookshelf_client/bloc/base/bloc_state.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:meta/meta.dart';
 
 
 abstract class ModelBloc<T> extends Bloc<BlocEvent<T>, BlocState<T>> {

@@ -19,31 +19,27 @@ class AuthScreen extends StatelessWidget {
         ),
       );
     }
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          Translations.of(context).auth.header.appBar.signIn,
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const SizedBox(height: defaultValue),
-              Text(
-                Translations.of(context).auth.header.welcome,
-                style: Theme.of(context).textTheme.titleMedium?.copyWith(color: Colors.black),
-              ),
-              Text(
-                Translations.of(context).auth.header.info,
-                style: Theme.of(context).textTheme.titleSmall,
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: defaultValue),
-              const AuthForm(),
-            ],
+    return UnFocusKeyboardOutside(
+      child: Scaffold(
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: defaultValue),
+          child: Center(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  Translations.of(context).auth.header.welcome,
+                  style: Theme.of(context).textTheme.titleLarge?.copyWith(color: Colors.black),
+                ),
+                Text(
+                  Translations.of(context).auth.header.info,
+                  style: Theme.of(context).textTheme.titleMedium,
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(height: biggestValue),
+                const AuthForm(),
+              ],
+            ),
           ),
         ),
       ),

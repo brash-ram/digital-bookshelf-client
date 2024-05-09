@@ -1,15 +1,16 @@
-// import 'package:short_chain_mobile_client/api/api_repository.dart';
-// import 'package:short_chain_mobile_client/bloc/base/model_bloc.dart';
-// import 'package:short_chain_mobile_client/data/all.dart';
-//
-// class UserInfoBloc extends ModelBloc<UserInfo> {
-//   UserInfoBloc(this.api);
-//
-//   final ApiRepository api;
-//
-//   @override
-//   Stream<UserInfo> get dataStream => api.getUser();
-//
-//   @override
-//   Future<void> fetchNewData() async => api.fetchUser();
-// }
+import 'package:digital_bookshelf_client/api/api.dart';
+import 'package:digital_bookshelf_client/bloc/base/model_bloc.dart';
+import 'package:digital_bookshelf_client/data/data.dart';
+
+class UserInfoBloc extends ModelBloc<UserInfo> {
+  UserInfoBloc({required this.repository, this.id});
+
+  final ApiRepository repository;
+  final int? id;
+
+  @override
+  Stream<UserInfo> get dataStream => repository.getMyProfile();
+
+  @override
+  Future<void> fetchNewData() async => repository.fetchMyProfile();
+}
