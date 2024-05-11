@@ -14,6 +14,8 @@ class TextFieldWidget extends StatefulWidget {
     this.suffixIcon,
     this.initText,
     this.maxLines = 1,
+    this.minLines = 1,
+    this.maxLength = 255,
     this.enabled = true,
     this.decoration,
     super.key,
@@ -30,6 +32,8 @@ class TextFieldWidget extends StatefulWidget {
   final String? initText;
   final bool enabled;
   final int maxLines;
+  final int minLines;
+  final int? maxLength;
   final InputDecoration? decoration;
 
   @override
@@ -56,10 +60,21 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
     super.dispose();
   }
 
+
+  @override
+  void didUpdateWidget(TextFieldWidget oldWidget) {
+    if (widget.initText != null) {
+      controller.text = widget.initText!;
+    }
+    super.didUpdateWidget(oldWidget);
+  }
+
   @override
   Widget build(BuildContext context) => TextFormField(
       maxLines: widget.maxLines,
+      minLines: widget.minLines,
       enabled: widget.enabled,
+      maxLength: widget.maxLength,
       autocorrect: widget.autocorrect,
       controller: controller,
       decoration: widget.decoration ?? InputDecoration(
@@ -71,6 +86,8 @@ class _TextFieldWidgetState extends State<TextFieldWidget> {
         labelText: widget.labelText,
         hintStyle: Theme.of(context).textTheme.bodyLarge,
         contentPadding: const EdgeInsets.symmetric(horizontal: 8.0),
+        counterStyle: const TextStyle(height: double.minPositive,),
+        counterText: '',
       ),
       inputFormatters: widget.inputFormatters,
       keyboardType: widget.keyboardType,

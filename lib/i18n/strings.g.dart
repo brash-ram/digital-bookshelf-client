@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 64 (32 per locale)
+/// Strings: 120 (60 per locale)
 ///
-/// Built on 2024-05-09 at 18:11 UTC
+/// Built on 2024-05-11 at 12:04 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -153,7 +153,9 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final _StringsValidationEn validation = _StringsValidationEn._(_root);
 	late final _StringsUtilsEn utils = _StringsUtilsEn._(_root);
 	late final _StringsUserEn user = _StringsUserEn._(_root);
+	late final _StringsEnumsEn enums = _StringsEnumsEn._(_root);
 	late final _StringsProfileEn profile = _StringsProfileEn._(_root);
+	late final _StringsPersonalDataEn personalData = _StringsPersonalDataEn._(_root);
 	late final _StringsAuthEn auth = _StringsAuthEn._(_root);
 }
 
@@ -203,6 +205,9 @@ class _StringsUtilsEn {
 	String get ok => 'ОК';
 	String get no => 'Нет';
 	String get failAuth => 'Неверный логин или пароль';
+	String get fail => 'Упс... Что-то пошло не так.';
+	String get save => 'Сохранить';
+	late final _StringsUtilsDatePickerEn datePicker = _StringsUtilsDatePickerEn._(_root);
 }
 
 // Path: user
@@ -216,6 +221,18 @@ class _StringsUserEn {
 	String get email => 'Email';
 	String get phone => 'Телефон';
 	String get password => 'Пароль';
+	late final _StringsUserContactEn contact = _StringsUserContactEn._(_root);
+}
+
+// Path: enums
+class _StringsEnumsEn {
+	_StringsEnumsEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	late final _StringsEnumsShowBirthTypeEn showBirthType = _StringsEnumsShowBirthTypeEn._(_root);
+	late final _StringsEnumsGenderEn gender = _StringsEnumsGenderEn._(_root);
 }
 
 // Path: profile
@@ -228,6 +245,24 @@ class _StringsProfileEn {
 	String get notAuthorized => 'Для доступа к профилю необходимо авторизоваться';
 	String get goAuth => 'Авторизоваться';
 	late final _StringsProfileMenuEn menu = _StringsProfileMenuEn._(_root);
+}
+
+// Path: personalData
+class _StringsPersonalDataEn {
+	_StringsPersonalDataEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get mainInfo => 'Основная информация';
+	String get name => 'Имя и фамилия или псевдоним';
+	String get status => 'Статус';
+	String get birth => 'День рождения';
+	String get selectDateBirth => 'Выбрать день рождения';
+	String get sex => 'Пол';
+	String get about => 'О себе';
+	String get aboutInfo => 'Вашим подписчикам будет интересно узнать о вас...';
+	String get contact => 'Контакты';
 }
 
 // Path: auth
@@ -252,6 +287,22 @@ class _StringsAlertUnavailableEn {
 	String get content => 'Выбранный функционал пока недоступен.';
 }
 
+// Path: utils.datePicker
+class _StringsUtilsDatePickerEn {
+	_StringsUtilsDatePickerEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get helpText => 'Выберете день рождения';
+	String get cancelText => 'Отмена';
+	String get confirmText => 'Сохранить';
+	String get errorFormatText => 'Дата не входит в допустимый диапазон';
+	String get errorInvalidText => 'Неверный формат';
+	String get fieldHintText => 'Введите дату рождения';
+	String get fieldLabelText => 'День рождения';
+}
+
 // Path: user.person
 class _StringsUserPersonEn {
 	_StringsUserPersonEn._(this._root);
@@ -264,6 +315,43 @@ class _StringsUserPersonEn {
 	String get middleName => 'Отчество';
 	String get birth => 'Дата рождения';
 	String get gender => 'Пол';
+}
+
+// Path: user.contact
+class _StringsUserContactEn {
+	_StringsUserContactEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get vk => 'ВК';
+	String get email => 'Почта';
+	String get tg => 'Telegram';
+	String get site => 'Сайт';
+}
+
+// Path: enums.showBirthType
+class _StringsEnumsShowBirthTypeEn {
+	_StringsEnumsShowBirthTypeEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get show => 'Показывать';
+	String get showWithoutYear => 'Показывать без года';
+	String get notShow => 'Не показывать';
+}
+
+// Path: enums.gender
+class _StringsEnumsGenderEn {
+	_StringsEnumsGenderEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get male => 'Мужской';
+	String get female => 'Женский';
+	String get notShow => 'Не показывать';
 }
 
 // Path: profile.menu
@@ -351,7 +439,9 @@ class _StringsRu implements Translations {
 	@override late final _StringsValidationRu validation = _StringsValidationRu._(_root);
 	@override late final _StringsUtilsRu utils = _StringsUtilsRu._(_root);
 	@override late final _StringsUserRu user = _StringsUserRu._(_root);
+	@override late final _StringsEnumsRu enums = _StringsEnumsRu._(_root);
 	@override late final _StringsProfileRu profile = _StringsProfileRu._(_root);
+	@override late final _StringsPersonalDataRu personalData = _StringsPersonalDataRu._(_root);
 	@override late final _StringsAuthRu auth = _StringsAuthRu._(_root);
 }
 
@@ -401,6 +491,9 @@ class _StringsUtilsRu implements _StringsUtilsEn {
 	@override String get ok => 'ОК';
 	@override String get no => 'Нет';
 	@override String get failAuth => 'Неверный логин или пароль';
+	@override String get fail => 'Упс... Что-то пошло не так.';
+	@override String get save => 'Сохранить';
+	@override late final _StringsUtilsDatePickerRu datePicker = _StringsUtilsDatePickerRu._(_root);
 }
 
 // Path: user
@@ -414,6 +507,18 @@ class _StringsUserRu implements _StringsUserEn {
 	@override String get email => 'Email';
 	@override String get phone => 'Телефон';
 	@override String get password => 'Пароль';
+	@override late final _StringsUserContactRu contact = _StringsUserContactRu._(_root);
+}
+
+// Path: enums
+class _StringsEnumsRu implements _StringsEnumsEn {
+	_StringsEnumsRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override late final _StringsEnumsShowBirthTypeRu showBirthType = _StringsEnumsShowBirthTypeRu._(_root);
+	@override late final _StringsEnumsGenderRu gender = _StringsEnumsGenderRu._(_root);
 }
 
 // Path: profile
@@ -426,6 +531,24 @@ class _StringsProfileRu implements _StringsProfileEn {
 	@override String get notAuthorized => 'Для доступа к профилю необходимо авторизоваться';
 	@override String get goAuth => 'Авторизоваться';
 	@override late final _StringsProfileMenuRu menu = _StringsProfileMenuRu._(_root);
+}
+
+// Path: personalData
+class _StringsPersonalDataRu implements _StringsPersonalDataEn {
+	_StringsPersonalDataRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get mainInfo => 'Основная информация';
+	@override String get name => 'Имя и фамилия или псевдоним';
+	@override String get status => 'Статус';
+	@override String get birth => 'День рождения';
+	@override String get selectDateBirth => 'Выбрать день рождения';
+	@override String get sex => 'Пол';
+	@override String get about => 'О себе';
+	@override String get aboutInfo => 'Вашим подписчикам будет интересно узнать о вас...';
+	@override String get contact => 'Контакты';
 }
 
 // Path: auth
@@ -450,6 +573,22 @@ class _StringsAlertUnavailableRu implements _StringsAlertUnavailableEn {
 	@override String get content => 'Выбранный функционал пока недоступен.';
 }
 
+// Path: utils.datePicker
+class _StringsUtilsDatePickerRu implements _StringsUtilsDatePickerEn {
+	_StringsUtilsDatePickerRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get helpText => 'Выберете день рождения';
+	@override String get cancelText => 'Отмена';
+	@override String get confirmText => 'Сохранить';
+	@override String get errorFormatText => 'Дата не входит в допустимый диапазон';
+	@override String get errorInvalidText => 'Неверный формат';
+	@override String get fieldHintText => 'Введите дату рождения';
+	@override String get fieldLabelText => 'День рождения';
+}
+
 // Path: user.person
 class _StringsUserPersonRu implements _StringsUserPersonEn {
 	_StringsUserPersonRu._(this._root);
@@ -462,6 +601,43 @@ class _StringsUserPersonRu implements _StringsUserPersonEn {
 	@override String get middleName => 'Отчество';
 	@override String get birth => 'Дата рождения';
 	@override String get gender => 'Пол';
+}
+
+// Path: user.contact
+class _StringsUserContactRu implements _StringsUserContactEn {
+	_StringsUserContactRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get vk => 'ВК';
+	@override String get email => 'Почта';
+	@override String get tg => 'Telegram';
+	@override String get site => 'Сайт';
+}
+
+// Path: enums.showBirthType
+class _StringsEnumsShowBirthTypeRu implements _StringsEnumsShowBirthTypeEn {
+	_StringsEnumsShowBirthTypeRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get show => 'Показывать';
+	@override String get showWithoutYear => 'Показывать без года';
+	@override String get notShow => 'Не показывать';
+}
+
+// Path: enums.gender
+class _StringsEnumsGenderRu implements _StringsEnumsGenderEn {
+	_StringsEnumsGenderRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get male => 'Мужской';
+	@override String get female => 'Женский';
+	@override String get notShow => 'Не показывать';
 }
 
 // Path: profile.menu
@@ -539,6 +715,15 @@ extension on Translations {
 			case 'utils.ok': return 'ОК';
 			case 'utils.no': return 'Нет';
 			case 'utils.failAuth': return 'Неверный логин или пароль';
+			case 'utils.fail': return 'Упс... Что-то пошло не так.';
+			case 'utils.save': return 'Сохранить';
+			case 'utils.datePicker.helpText': return 'Выберете день рождения';
+			case 'utils.datePicker.cancelText': return 'Отмена';
+			case 'utils.datePicker.confirmText': return 'Сохранить';
+			case 'utils.datePicker.errorFormatText': return 'Дата не входит в допустимый диапазон';
+			case 'utils.datePicker.errorInvalidText': return 'Неверный формат';
+			case 'utils.datePicker.fieldHintText': return 'Введите дату рождения';
+			case 'utils.datePicker.fieldLabelText': return 'День рождения';
 			case 'user.person.name': return 'Имя';
 			case 'user.person.lastName': return 'Фамилия';
 			case 'user.person.middleName': return 'Отчество';
@@ -547,10 +732,29 @@ extension on Translations {
 			case 'user.email': return 'Email';
 			case 'user.phone': return 'Телефон';
 			case 'user.password': return 'Пароль';
+			case 'user.contact.vk': return 'ВК';
+			case 'user.contact.email': return 'Почта';
+			case 'user.contact.tg': return 'Telegram';
+			case 'user.contact.site': return 'Сайт';
+			case 'enums.showBirthType.show': return 'Показывать';
+			case 'enums.showBirthType.showWithoutYear': return 'Показывать без года';
+			case 'enums.showBirthType.notShow': return 'Не показывать';
+			case 'enums.gender.male': return 'Мужской';
+			case 'enums.gender.female': return 'Женский';
+			case 'enums.gender.notShow': return 'Не показывать';
 			case 'profile.notAuthorized': return 'Для доступа к профилю необходимо авторизоваться';
 			case 'profile.goAuth': return 'Авторизоваться';
 			case 'profile.menu.personal.title': return 'Учетная запись';
 			case 'profile.menu.personal.data': return 'Личные данные';
+			case 'personalData.mainInfo': return 'Основная информация';
+			case 'personalData.name': return 'Имя и фамилия или псевдоним';
+			case 'personalData.status': return 'Статус';
+			case 'personalData.birth': return 'День рождения';
+			case 'personalData.selectDateBirth': return 'Выбрать день рождения';
+			case 'personalData.sex': return 'Пол';
+			case 'personalData.about': return 'О себе';
+			case 'personalData.aboutInfo': return 'Вашим подписчикам будет интересно узнать о вас...';
+			case 'personalData.contact': return 'Контакты';
 			case 'auth.header.welcome': return 'Добро пожаловать';
 			case 'auth.header.info': return 'Введите адрес электронной почты и пароль';
 			case 'auth.header.appBar.signIn': return 'Авторизация';
@@ -579,6 +783,15 @@ extension on _StringsRu {
 			case 'utils.ok': return 'ОК';
 			case 'utils.no': return 'Нет';
 			case 'utils.failAuth': return 'Неверный логин или пароль';
+			case 'utils.fail': return 'Упс... Что-то пошло не так.';
+			case 'utils.save': return 'Сохранить';
+			case 'utils.datePicker.helpText': return 'Выберете день рождения';
+			case 'utils.datePicker.cancelText': return 'Отмена';
+			case 'utils.datePicker.confirmText': return 'Сохранить';
+			case 'utils.datePicker.errorFormatText': return 'Дата не входит в допустимый диапазон';
+			case 'utils.datePicker.errorInvalidText': return 'Неверный формат';
+			case 'utils.datePicker.fieldHintText': return 'Введите дату рождения';
+			case 'utils.datePicker.fieldLabelText': return 'День рождения';
 			case 'user.person.name': return 'Имя';
 			case 'user.person.lastName': return 'Фамилия';
 			case 'user.person.middleName': return 'Отчество';
@@ -587,10 +800,29 @@ extension on _StringsRu {
 			case 'user.email': return 'Email';
 			case 'user.phone': return 'Телефон';
 			case 'user.password': return 'Пароль';
+			case 'user.contact.vk': return 'ВК';
+			case 'user.contact.email': return 'Почта';
+			case 'user.contact.tg': return 'Telegram';
+			case 'user.contact.site': return 'Сайт';
+			case 'enums.showBirthType.show': return 'Показывать';
+			case 'enums.showBirthType.showWithoutYear': return 'Показывать без года';
+			case 'enums.showBirthType.notShow': return 'Не показывать';
+			case 'enums.gender.male': return 'Мужской';
+			case 'enums.gender.female': return 'Женский';
+			case 'enums.gender.notShow': return 'Не показывать';
 			case 'profile.notAuthorized': return 'Для доступа к профилю необходимо авторизоваться';
 			case 'profile.goAuth': return 'Авторизоваться';
 			case 'profile.menu.personal.title': return 'Учетная запись';
 			case 'profile.menu.personal.data': return 'Личные данные';
+			case 'personalData.mainInfo': return 'Основная информация';
+			case 'personalData.name': return 'Имя и фамилия или псевдоним';
+			case 'personalData.status': return 'Статус';
+			case 'personalData.birth': return 'День рождения';
+			case 'personalData.selectDateBirth': return 'Выбрать день рождения';
+			case 'personalData.sex': return 'Пол';
+			case 'personalData.about': return 'О себе';
+			case 'personalData.aboutInfo': return 'Вашим подписчикам будет интересно узнать о вас...';
+			case 'personalData.contact': return 'Контакты';
 			case 'auth.header.welcome': return 'Добро пожаловать';
 			case 'auth.header.info': return 'Введите адрес электронной почты и пароль';
 			case 'auth.header.appBar.signIn': return 'Авторизация';

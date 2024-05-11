@@ -3,6 +3,7 @@ import 'package:digital_bookshelf_client/api/repository.dart';
 import 'package:digital_bookshelf_client/core/storages/token_storage.dart';
 import 'package:digital_bookshelf_client/data/data.dart';
 import 'package:digital_bookshelf_client/data/user/jwt_tokens.dart';
+import 'package:digital_bookshelf_client/data/user/personal_data_refs.dart';
 
 class ApiRepository {
 
@@ -24,63 +25,6 @@ class ApiRepository {
       -1,
     );
 
-  // Future<void> fetchCategories(CategoriesTree tree) =>
-  //   repository.wrapFetchCall(
-  //     (id) async {
-  //       final categories = await client.getCategory();
-  //       tree.init(categories);
-  //       return tree.currentCategories;
-  //     },
-  //     -1,
-  //   );
-  //
-  // Stream<List<CategoryNode>> getCategories(CategoriesTree tree) =>
-  //   repository.createDataStream(
-  //     (id) async => fetchCategories(tree),
-  //     -1,
-  //   );
-  //
-  // Future<void> fetchItem(int id) =>
-  //   repository.wrapFetchCall(
-  //     (id) async {
-  //       final itemResponse = await client.getItem(id);
-  //       return itemResponse.result.toModel();
-  //     },
-  //     id,
-  //   );
-  //
-  // Stream<ItemModel> getItem(int id) =>
-  //   repository.createDataStream(
-  //     (id) async => fetchItem(id),
-  //     id,
-  //   );
-  //
-  // Future<void> fetchCart() =>
-  //   repository.wrapFetchCall(
-  //     (id) async {
-  //       return (await client.getCart()).toModel();
-  //     },
-  //     -1,
-  //   );
-  //
-  // Stream<List<ItemCartModel>> getCart() =>
-  //   repository.createDataStream(
-  //     (id) async => fetchCart(),
-  //     -1,
-  //   );
-  //
-  // Future<void> fetchUser() =>
-  //   repository.wrapFetchCall(
-  //     (id) async => (await client.getUserInfo()).result,
-  //     -1,
-  //   );
-  //
-  // Stream<UserInfo> getUser() =>
-  //   repository.createDataStream(
-  //     (id) async => fetchUser(),
-  //     -1,
-  //   );
-  //
   Future<bool> signIn(String username, String password) async {
     late JwtTokens response;
     try {
@@ -134,4 +78,10 @@ class ApiRepository {
 
     return Future.value(true);
   }
+
+  Future<bool> changeUserInfo(PersonalData data) async =>
+    repository.sendVoidRequest(() => client.changeUserData(data));
+
+  Future<bool> changeUserRefs(PersonalDataRefs data) async =>
+    repository.sendVoidRequest(() => client.changeUserRefs(data));
 }

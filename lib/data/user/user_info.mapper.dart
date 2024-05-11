@@ -35,6 +35,9 @@ class UserInfoMapper extends ClassMapperBase<UserInfo> {
       Field('showBirthType', _$showBirthType);
   static Gender _$gender(UserInfo v) => v.gender;
   static const Field<UserInfo, Gender> _f$gender = Field('gender', _$gender);
+  static DateTime? _$birth(UserInfo v) => v.birth;
+  static const Field<UserInfo, DateTime> _f$birth =
+      Field('birth', _$birth, opt: true);
   static String? _$lifeStatus(UserInfo v) => v.lifeStatus;
   static const Field<UserInfo, String> _f$lifeStatus =
       Field('lifeStatus', _$lifeStatus, opt: true);
@@ -61,6 +64,7 @@ class UserInfoMapper extends ClassMapperBase<UserInfo> {
     #name: _f$name,
     #showBirthType: _f$showBirthType,
     #gender: _f$gender,
+    #birth: _f$birth,
     #lifeStatus: _f$lifeStatus,
     #about: _f$about,
     #refVk: _f$refVk,
@@ -76,6 +80,7 @@ class UserInfoMapper extends ClassMapperBase<UserInfo> {
         name: data.dec(_f$name),
         showBirthType: data.dec(_f$showBirthType),
         gender: data.dec(_f$gender),
+        birth: data.dec(_f$birth),
         lifeStatus: data.dec(_f$lifeStatus),
         about: data.dec(_f$about),
         refVk: data.dec(_f$refVk),
@@ -140,6 +145,7 @@ abstract class UserInfoCopyWith<$R, $In extends UserInfo, $Out>
       String? name,
       ShowBirthType? showBirthType,
       Gender? gender,
+      DateTime? birth,
       String? lifeStatus,
       String? about,
       String? refVk,
@@ -167,6 +173,7 @@ class _UserInfoCopyWithImpl<$R, $Out>
           String? name,
           ShowBirthType? showBirthType,
           Gender? gender,
+          Object? birth = $none,
           Object? lifeStatus = $none,
           Object? about = $none,
           Object? refVk = $none,
@@ -179,6 +186,7 @@ class _UserInfoCopyWithImpl<$R, $Out>
         if (name != null) #name: name,
         if (showBirthType != null) #showBirthType: showBirthType,
         if (gender != null) #gender: gender,
+        if (birth != $none) #birth: birth,
         if (lifeStatus != $none) #lifeStatus: lifeStatus,
         if (about != $none) #about: about,
         if (refVk != $none) #refVk: refVk,
@@ -193,6 +201,7 @@ class _UserInfoCopyWithImpl<$R, $Out>
       name: data.get(#name, or: $value.name),
       showBirthType: data.get(#showBirthType, or: $value.showBirthType),
       gender: data.get(#gender, or: $value.gender),
+      birth: data.get(#birth, or: $value.birth),
       lifeStatus: data.get(#lifeStatus, or: $value.lifeStatus),
       about: data.get(#about, or: $value.about),
       refVk: data.get(#refVk, or: $value.refVk),

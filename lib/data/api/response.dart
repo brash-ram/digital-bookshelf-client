@@ -1,8 +1,11 @@
+import 'dart:ffi';
+
 import 'package:dart_mappable/dart_mappable.dart';
 
 part 'response_ok.dart';
 part 'response_invalid.dart';
 part 'response_error.dart';
+part 'response_empty.dart';
 part 'response.mapper.dart';
 
 

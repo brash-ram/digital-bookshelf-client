@@ -27,7 +27,7 @@ class LoadingButton extends StatelessWidget {
       useWidthAnimation: false,
       useEqualLoadingStateWidgetDimension: true,
       width: width ?? double.infinity,
-      height: height ?? 20.0,
+      height: height ?? 40.0,
       borderRadius: defaultValue,
       elevation: 0.0,
       buttonColor: color ?? Theme.of(context).primaryColor,

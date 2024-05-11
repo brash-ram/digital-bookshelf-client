@@ -39,6 +39,12 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ProfileMenuScreen(),
       );
     },
+    PersonalDataRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const PersonalDataScreen(),
+      );
+    },
   };
 }
 
@@ -94,6 +100,20 @@ class ProfileMenuRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'ProfileMenuRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [PersonalDataScreen]
+class PersonalDataRoute extends PageRouteInfo<void> {
+  const PersonalDataRoute({List<PageRouteInfo>? children})
+      : super(
+          PersonalDataRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'PersonalDataRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }

@@ -12,6 +12,7 @@ class UserInfo with UserInfoMappable {
     required this.name,
     required this.showBirthType,
     required this.gender,
+    this.birth,
     this.lifeStatus,
     this.about,
     this.refVk,
@@ -27,6 +28,8 @@ class UserInfo with UserInfoMappable {
   final String name;
 
   final ShowBirthType showBirthType;
+
+  final DateTime? birth;
 
   final Gender gender;
 

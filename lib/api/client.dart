@@ -73,6 +73,8 @@ class Client {
       switch (data) {
         case ResponseOk():
           return data.result;
+        case ResponseEmpty():
+          return data.result;
         case ResponseError(:final message, :final code):
           throw ApiException.withResponse(
             'Error $code: $message',

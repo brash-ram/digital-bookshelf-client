@@ -163,123 +163,14 @@ class Repository {
     }
   }
 
-  // Future<void> fetchGallery(int id) =>
-  //   _wrapFetchCall(
-  //     (id) async => client.getGallery(id),
-  //     id,
-  //   );
-  //
-  // Stream<Gallery> getGallery(int id) =>
-  //   _createDataStream(
-  //     (id) async => fetchGallery(id),
-  //     id,
-  //   );
-  //
-  // Future<void> fetchMeme(int galleryId, int memeId) =>
-  //   _wrapFetchCall(
-  //     (id) async => client.getMeme(galleryId, memeId),
-  //     memeId,
-  //     // (galleryId & 0xffff) << 16 | (memeId & 0xffff),
-  //   );
-  //
-  // Stream<Meme> getMeme(int galleryId, int memeId) =>
-  //   _createDataStream(
-  //     (id) async => fetchMeme(galleryId, memeId),
-  //     memeId,
-  //     // (galleryId & 0xffff) << 16 | (memeId & 0xffff),
-  //   );
-  //
-  // Future<void> fetchMemeTags(int galleryId, int memeId) =>
-  //   _wrapFetchCall(
-  //     (id) async => client.getMemeTags(galleryId, memeId),
-  //     memeId,
-  //   );
-  //
-  // Stream<List<MemeTag>> getMemeTags(int galleryId, int memeId) =>
-  //   _createDataStream(
-  //     (id) async => fetchMemeTags(galleryId, memeId),
-  //     memeId,
-  //   );
-  //
-  // Future<void> voteForMemeTag(int galleryId, int memeId, int tagId, VoteType? vote) async {
-  //   try {
-  //     _commitObject(memeId, await client.voteForMemeTag(galleryId, memeId, tagId, vote));
-  //   } catch (error, stackTrace) {
-  //     _commitError<List<MemeTag>>(memeId, error, stackTrace);
-  //     rethrow;
-  //   }
-  // }
-  //
-  // Future<void> fetchTenant(int id) =>
-  //   _wrapFetchCall(
-  //     (id) async => client.getTenant(id),
-  //     id,
-  //   );
-  //
-  // Stream<Tenant> getTenant(int id) =>
-  //   _createDataStream(
-  //     (id) async => fetchTenant(id),
-  //     id,
-  //   );
-  //
-  // Future<void> fetchMyTenantProfile() =>
-  //   _wrapFetchCall(
-  //     (id) async => client.getMyTenantProfile(),
-  //     -1,
-  //   );
-  //
-  // Stream<TenantProfile> getMyTenantProfile() =>
-  //   _createDataStream(
-  //     (id) async => fetchMyTenantProfile(),
-  //     -1,
-  //   );
-  //
-  // Future<void> fetchTenantProfile(int id) =>
-  //   _wrapFetchCall(
-  //     (id) async => client.getTenantProfile(id),
-  //     id,
-  //   );
-  //
-  // Stream<TenantProfile> getTenantProfile(int id) =>
-  //   _createDataStream(
-  //     (id) async => fetchTenantProfile(id),
-  //     id,
-  //   );
-  //
-  // Future<void> fetchAvailableGalleryNames() =>
-  //   _wrapFetchCall(
-  //     (id) async => client.getAvailableGalleryNames(),
-  //     -1,
-  //   );
-  //
-  // Stream<List<AvailableGalleryName>> getAvailableGalleryNames() =>
-  //   _createDataStream(
-  //     (id) async => fetchAvailableGalleryNames(),
-  //     -1,
-  //   );
-  //
-  // Uri getAssetUri(int assetId) => client.getAssetUri(assetId);
-  //
-  // Future<List<FeedItem>> getFeed(int offset, int limit, FeedType type) =>
-  //   client.getFeed(offset, limit, type);
-  //
-  // Future<List<FeedItem>> getGalleryMemes(int galleryId, int offset, int limit) =>
-  //   client.getGalleryMemes(galleryId, offset, limit);
-  //
-  // Future<AssetTemporaryTicket> uploadAsset(Uint8List data, AssetType type) =>
-  //   client.uploadAsset(data, type);
-  //
-  // Future<Meme> createMeme({
-  //   required RequestBodyCreateMeme meme,
-  //   required AssetTemporaryTicket assetTicket,
-  //   required int galleryId,
-  // }) async {
-  //   final newMeme = await client.createMeme(
-  //     meme: meme,
-  //     assetTicket: assetTicket,
-  //     galleryId: galleryId,
-  //   );
-  //   _commitObject(newMeme.id, newMeme);
-  //   return newMeme;
-  // }
+  Future<bool> sendVoidRequest(Future<void> Function() request) async {
+    try {
+      await request();
+    } catch (e, stackTrace) {
+      talker.error('Error on send void request', e, stackTrace);
+      return Future.value(false);
+    }
+
+    return Future.value(true);
+  }
 }

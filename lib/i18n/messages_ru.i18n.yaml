@@ -19,6 +19,16 @@ utils:
   ok: ОК
   no: Нет
   failAuth: Неверный логин или пароль
+  fail: Упс... Что-то пошло не так.
+  save: Сохранить
+  datePicker:
+    helpText: Выберете день рождения
+    cancelText: Отмена
+    confirmText: Сохранить
+    errorFormatText: Дата не входит в допустимый диапазон
+    errorInvalidText: Неверный формат
+    fieldHintText: Введите дату рождения
+    fieldLabelText: День рождения
 
 user:
   person:
@@ -30,6 +40,21 @@ user:
   email: Email
   phone: Телефон
   password: Пароль
+  contact:
+    vk: ВК
+    email: Почта
+    tg: Telegram
+    site: Сайт
+
+enums:
+  showBirthType:
+    show: Показывать
+    showWithoutYear: Показывать без года
+    notShow: Не показывать
+  gender:
+    male: Мужской
+    female: Женский
+    notShow: Не показывать
 
 profile:
   notAuthorized: Для доступа к профилю необходимо авторизоваться
@@ -39,7 +64,16 @@ profile:
       title: Учетная запись
       data: Личные данные
 
-
+personalData:
+  mainInfo: Основная информация
+  name: Имя и фамилия или псевдоним
+  status: Статус
+  birth: День рождения
+  selectDateBirth: Выбрать день рождения
+  sex: Пол
+  about: О себе
+  aboutInfo: Вашим подписчикам будет интересно узнать о вас...
+  contact: Контакты
 
 auth:
   header:

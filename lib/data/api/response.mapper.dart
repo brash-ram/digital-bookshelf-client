@@ -16,6 +16,7 @@ class ResponseMapper extends ClassMapperBase<Response> {
       ResponseOkMapper.ensureInitialized();
       ResponseInvalidMapper.ensureInitialized();
       ResponseErrorMapper.ensureInitialized();
+      ResponseEmptyMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -443,4 +444,134 @@ class _ResponseErrorCopyWithImpl<$R, $Out>
   ResponseErrorCopyWith<$R2, ResponseError, $Out2> $chain<$R2, $Out2>(
           Then<$Out2, $R2> t) =>
       _ResponseErrorCopyWithImpl($value, $cast, t);
+}
+
+class ResponseEmptyMapper extends SubClassMapperBase<ResponseEmpty> {
+  ResponseEmptyMapper._();
+
+  static ResponseEmptyMapper? _instance;
+  static ResponseEmptyMapper ensureInitialized() {
+    if (_instance == null) {
+      MapperContainer.globals.use(_instance = ResponseEmptyMapper._());
+      ResponseMapper.ensureInitialized().addSubMapper(_instance!);
+    }
+    return _instance!;
+  }
+
+  @override
+  final String id = 'ResponseEmpty';
+  @override
+  Function get typeFactory => <T>(f) => f<ResponseEmpty<T>>();
+
+  static dynamic _$result(ResponseEmpty v) => v.result;
+  static dynamic _arg$result<T>(f) => f<T>();
+  static const Field<ResponseEmpty, dynamic> _f$result =
+      Field('result', _$result, arg: _arg$result);
+  static bool _$isEmpty(ResponseEmpty v) => v.isEmpty;
+  static const Field<ResponseEmpty, bool> _f$isEmpty =
+      Field('isEmpty', _$isEmpty);
+  static bool _$isError(ResponseEmpty v) => v.isError;
+  static const Field<ResponseEmpty, bool> _f$isError =
+      Field('isError', _$isError, key: 'error');
+
+  @override
+  final MappableFields<ResponseEmpty> fields = const {
+    #result: _f$result,
+    #isEmpty: _f$isEmpty,
+    #isError: _f$isError,
+  };
+
+  @override
+  final String discriminatorKey = 'type';
+  @override
+  final dynamic discriminatorValue = ResponseEmpty._checkType;
+  @override
+  late final ClassMapperBase superMapper = ResponseMapper.ensureInitialized();
+
+  static ResponseEmpty<T> _instantiate<T>(DecodingData data) {
+    return ResponseEmpty(
+        result: data.dec(_f$result), isEmpty: data.dec(_f$isEmpty));
+  }
+
+  @override
+  final Function instantiate = _instantiate;
+
+  static ResponseEmpty<T> fromMap<T>(Map<String, dynamic> map) {
+    return ensureInitialized().decodeMap<ResponseEmpty<T>>(map);
+  }
+
+  static ResponseEmpty<T> fromJson<T>(String json) {
+    return ensureInitialized().decodeJson<ResponseEmpty<T>>(json);
+  }
+}
+
+mixin ResponseEmptyMappable<T> {
+  String toJson() {
+    return ResponseEmptyMapper.ensureInitialized()
+        .encodeJson<ResponseEmpty<T>>(this as ResponseEmpty<T>);
+  }
+
+  Map<String, dynamic> toMap() {
+    return ResponseEmptyMapper.ensureInitialized()
+        .encodeMap<ResponseEmpty<T>>(this as ResponseEmpty<T>);
+  }
+
+  ResponseEmptyCopyWith<ResponseEmpty<T>, ResponseEmpty<T>, ResponseEmpty<T>, T>
+      get copyWith => _ResponseEmptyCopyWithImpl(
+          this as ResponseEmpty<T>, $identity, $identity);
+  @override
+  String toString() {
+    return ResponseEmptyMapper.ensureInitialized()
+        .stringifyValue(this as ResponseEmpty<T>);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return ResponseEmptyMapper.ensureInitialized()
+        .equalsValue(this as ResponseEmpty<T>, other);
+  }
+
+  @override
+  int get hashCode {
+    return ResponseEmptyMapper.ensureInitialized()
+        .hashValue(this as ResponseEmpty<T>);
+  }
+}
+
+extension ResponseEmptyValueCopy<$R, $Out, T>
+    on ObjectCopyWith<$R, ResponseEmpty<T>, $Out> {
+  ResponseEmptyCopyWith<$R, ResponseEmpty<T>, $Out, T> get $asResponseEmpty =>
+      $base.as((v, t, t2) => _ResponseEmptyCopyWithImpl(v, t, t2));
+}
+
+abstract class ResponseEmptyCopyWith<$R, $In extends ResponseEmpty<T>, $Out, T>
+    implements ResponseCopyWith<$R, $In, $Out, T> {
+  @override
+  $R call({T? result, bool? isEmpty});
+  ResponseEmptyCopyWith<$R2, $In, $Out2, T> $chain<$R2, $Out2>(
+      Then<$Out2, $R2> t);
+}
+
+class _ResponseEmptyCopyWithImpl<$R, $Out, T>
+    extends ClassCopyWithBase<$R, ResponseEmpty<T>, $Out>
+    implements ResponseEmptyCopyWith<$R, ResponseEmpty<T>, $Out, T> {
+  _ResponseEmptyCopyWithImpl(super.value, super.then, super.then2);
+
+  @override
+  late final ClassMapperBase<ResponseEmpty> $mapper =
+      ResponseEmptyMapper.ensureInitialized();
+  @override
+  $R call({T? result, bool? isEmpty}) => $apply(FieldCopyWithData({
+        if (result != null) #result: result,
+        if (isEmpty != null) #isEmpty: isEmpty
+      }));
+  @override
+  ResponseEmpty<T> $make(CopyWithData data) => ResponseEmpty(
+      result: data.get(#result, or: $value.result),
+      isEmpty: data.get(#isEmpty, or: $value.isEmpty));
+
+  @override
+  ResponseEmptyCopyWith<$R2, ResponseEmpty<T>, $Out2, T> $chain<$R2, $Out2>(
+          Then<$Out2, $R2> t) =>
+      _ResponseEmptyCopyWithImpl($value, $cast, t);
 }
