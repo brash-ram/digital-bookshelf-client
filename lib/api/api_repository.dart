@@ -84,4 +84,7 @@ class ApiRepository {
 
   Future<bool> changeUserRefs(PersonalDataRefs data) async =>
     repository.sendVoidRequest(() => client.changeUserRefs(data));
+
+  Future<bool> becomeAuthor() async =>
+    repository.sendVoidRequest(client.becomeAuthor);
 }

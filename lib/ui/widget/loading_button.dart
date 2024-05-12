@@ -3,17 +3,26 @@ import 'package:easy_loading_button/easy_loading_button.dart';
 import 'package:flutter/material.dart';
 
 class LoadingButton extends StatelessWidget {
-  const LoadingButton({required this.child, this.onPressed, super.key, this.color, this.height, this.width});
+  const LoadingButton({
+    required this.child,
+    this.onPressed,
+    super.key,
+    this.color,
+    this.height,
+    this.width,
+    this.type = EasyButtonType.elevated,
+  });
 
   final Widget child;
   final Color? color;
   final double? height;
   final double? width;
   final void Function()? onPressed;
+  final EasyButtonType type;
 
   @override
   Widget build(BuildContext context) => EasyButton(
-      type: EasyButtonType.elevated,
+      type: type,
       idleStateWidget: child,
       loadingStateWidget: const Padding(
         padding: EdgeInsets.all(smallValue),

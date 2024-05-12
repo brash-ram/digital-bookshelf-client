@@ -6,6 +6,7 @@ part 'role.mapper.dart';
 enum Role {
   @MappableValue('ADMIN') admin,
   @MappableValue('USER') user,
+  @MappableValue('AUTHOR') author,
   @MappableValue('LOW_MODERATOR') lowModerator,
   @MappableValue('HIGH_MODERATOR') highModerator,
   @MappableValue('BANNED') banned,

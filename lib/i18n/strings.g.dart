@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 120 (60 per locale)
+/// Strings: 126 (63 per locale)
 ///
-/// Built on 2024-05-11 at 12:04 UTC
+/// Built on 2024-05-12 at 13:58 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -177,6 +177,9 @@ class _StringsAlertEn {
 
 	// Translations
 	late final _StringsAlertUnavailableEn unavailable = _StringsAlertUnavailableEn._(_root);
+	late final _StringsAlertConfirmEn confirm = _StringsAlertConfirmEn._(_root);
+	String get confirmBecomeAuthor => 'Подтвердите переход аккаунта в статус "Автор".\nОбратный переход невозможен!';
+	String get helloAuthor => 'Теперь вы Автор!';
 }
 
 // Path: validation
@@ -207,6 +210,8 @@ class _StringsUtilsEn {
 	String get failAuth => 'Неверный логин или пароль';
 	String get fail => 'Упс... Что-то пошло не так.';
 	String get save => 'Сохранить';
+	String get cancel => 'Отмена';
+	String get becomeAuthor => 'Стать автором';
 	late final _StringsUtilsDatePickerEn datePicker = _StringsUtilsDatePickerEn._(_root);
 }
 
@@ -287,6 +292,16 @@ class _StringsAlertUnavailableEn {
 	String get content => 'Выбранный функционал пока недоступен.';
 }
 
+// Path: alert.confirm
+class _StringsAlertConfirmEn {
+	_StringsAlertConfirmEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Подтвердите действие';
+}
+
 // Path: utils.datePicker
 class _StringsUtilsDatePickerEn {
 	_StringsUtilsDatePickerEn._(this._root);
@@ -295,7 +310,6 @@ class _StringsUtilsDatePickerEn {
 
 	// Translations
 	String get helpText => 'Выберете день рождения';
-	String get cancelText => 'Отмена';
 	String get confirmText => 'Сохранить';
 	String get errorFormatText => 'Дата не входит в допустимый диапазон';
 	String get errorInvalidText => 'Неверный формат';
@@ -361,7 +375,7 @@ class _StringsProfileMenuEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	late final _StringsProfileMenuPersonalEn personal = _StringsProfileMenuPersonalEn._(_root);
+	String get personal => 'Учетная запись';
 }
 
 // Path: auth.header
@@ -385,17 +399,6 @@ class _StringsAuthButtonEn {
 	// Translations
 	String get logIn => 'Войти';
 	String get logUp => 'Зарегистрироваться';
-}
-
-// Path: profile.menu.personal
-class _StringsProfileMenuPersonalEn {
-	_StringsProfileMenuPersonalEn._(this._root);
-
-	final Translations _root; // ignore: unused_field
-
-	// Translations
-	String get title => 'Учетная запись';
-	String get data => 'Личные данные';
 }
 
 // Path: auth.header.appBar
@@ -463,6 +466,9 @@ class _StringsAlertRu implements _StringsAlertEn {
 
 	// Translations
 	@override late final _StringsAlertUnavailableRu unavailable = _StringsAlertUnavailableRu._(_root);
+	@override late final _StringsAlertConfirmRu confirm = _StringsAlertConfirmRu._(_root);
+	@override String get confirmBecomeAuthor => 'Подтвердите переход аккаунта в статус "Автор".\nОбратный переход невозможен!';
+	@override String get helloAuthor => 'Теперь вы Автор!';
 }
 
 // Path: validation
@@ -493,6 +499,8 @@ class _StringsUtilsRu implements _StringsUtilsEn {
 	@override String get failAuth => 'Неверный логин или пароль';
 	@override String get fail => 'Упс... Что-то пошло не так.';
 	@override String get save => 'Сохранить';
+	@override String get cancel => 'Отмена';
+	@override String get becomeAuthor => 'Стать автором';
 	@override late final _StringsUtilsDatePickerRu datePicker = _StringsUtilsDatePickerRu._(_root);
 }
 
@@ -573,6 +581,16 @@ class _StringsAlertUnavailableRu implements _StringsAlertUnavailableEn {
 	@override String get content => 'Выбранный функционал пока недоступен.';
 }
 
+// Path: alert.confirm
+class _StringsAlertConfirmRu implements _StringsAlertConfirmEn {
+	_StringsAlertConfirmRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Подтвердите действие';
+}
+
 // Path: utils.datePicker
 class _StringsUtilsDatePickerRu implements _StringsUtilsDatePickerEn {
 	_StringsUtilsDatePickerRu._(this._root);
@@ -581,7 +599,6 @@ class _StringsUtilsDatePickerRu implements _StringsUtilsDatePickerEn {
 
 	// Translations
 	@override String get helpText => 'Выберете день рождения';
-	@override String get cancelText => 'Отмена';
 	@override String get confirmText => 'Сохранить';
 	@override String get errorFormatText => 'Дата не входит в допустимый диапазон';
 	@override String get errorInvalidText => 'Неверный формат';
@@ -647,7 +664,7 @@ class _StringsProfileMenuRu implements _StringsProfileMenuEn {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override late final _StringsProfileMenuPersonalRu personal = _StringsProfileMenuPersonalRu._(_root);
+	@override String get personal => 'Учетная запись';
 }
 
 // Path: auth.header
@@ -673,17 +690,6 @@ class _StringsAuthButtonRu implements _StringsAuthButtonEn {
 	@override String get logUp => 'Зарегистрироваться';
 }
 
-// Path: profile.menu.personal
-class _StringsProfileMenuPersonalRu implements _StringsProfileMenuPersonalEn {
-	_StringsProfileMenuPersonalRu._(this._root);
-
-	@override final _StringsRu _root; // ignore: unused_field
-
-	// Translations
-	@override String get title => 'Учетная запись';
-	@override String get data => 'Личные данные';
-}
-
 // Path: auth.header.appBar
 class _StringsAuthHeaderAppBarRu implements _StringsAuthHeaderAppBarEn {
 	_StringsAuthHeaderAppBarRu._(this._root);
@@ -705,6 +711,9 @@ extension on Translations {
 			case 'app.name': return 'Digital bookshelf';
 			case 'alert.unavailable.title': return 'Недоступен';
 			case 'alert.unavailable.content': return 'Выбранный функционал пока недоступен.';
+			case 'alert.confirm.title': return 'Подтвердите действие';
+			case 'alert.confirmBecomeAuthor': return 'Подтвердите переход аккаунта в статус "Автор".\nОбратный переход невозможен!';
+			case 'alert.helloAuthor': return 'Теперь вы Автор!';
 			case 'validation.IsValidEmail': return 'Неверный формат адреса электронной почты';
 			case 'validation.IsValidPhone': return 'Неверный формат адреса номера телефона';
 			case 'validation.NotBlank': return 'Должно быть не пустое значение';
@@ -717,8 +726,9 @@ extension on Translations {
 			case 'utils.failAuth': return 'Неверный логин или пароль';
 			case 'utils.fail': return 'Упс... Что-то пошло не так.';
 			case 'utils.save': return 'Сохранить';
+			case 'utils.cancel': return 'Отмена';
+			case 'utils.becomeAuthor': return 'Стать автором';
 			case 'utils.datePicker.helpText': return 'Выберете день рождения';
-			case 'utils.datePicker.cancelText': return 'Отмена';
 			case 'utils.datePicker.confirmText': return 'Сохранить';
 			case 'utils.datePicker.errorFormatText': return 'Дата не входит в допустимый диапазон';
 			case 'utils.datePicker.errorInvalidText': return 'Неверный формат';
@@ -744,8 +754,7 @@ extension on Translations {
 			case 'enums.gender.notShow': return 'Не показывать';
 			case 'profile.notAuthorized': return 'Для доступа к профилю необходимо авторизоваться';
 			case 'profile.goAuth': return 'Авторизоваться';
-			case 'profile.menu.personal.title': return 'Учетная запись';
-			case 'profile.menu.personal.data': return 'Личные данные';
+			case 'profile.menu.personal': return 'Учетная запись';
 			case 'personalData.mainInfo': return 'Основная информация';
 			case 'personalData.name': return 'Имя и фамилия или псевдоним';
 			case 'personalData.status': return 'Статус';
@@ -773,6 +782,9 @@ extension on _StringsRu {
 			case 'app.name': return 'Digital bookshelf';
 			case 'alert.unavailable.title': return 'Недоступен';
 			case 'alert.unavailable.content': return 'Выбранный функционал пока недоступен.';
+			case 'alert.confirm.title': return 'Подтвердите действие';
+			case 'alert.confirmBecomeAuthor': return 'Подтвердите переход аккаунта в статус "Автор".\nОбратный переход невозможен!';
+			case 'alert.helloAuthor': return 'Теперь вы Автор!';
 			case 'validation.IsValidEmail': return 'Неверный формат адреса электронной почты';
 			case 'validation.IsValidPhone': return 'Неверный формат адреса номера телефона';
 			case 'validation.NotBlank': return 'Должно быть не пустое значение';
@@ -785,8 +797,9 @@ extension on _StringsRu {
 			case 'utils.failAuth': return 'Неверный логин или пароль';
 			case 'utils.fail': return 'Упс... Что-то пошло не так.';
 			case 'utils.save': return 'Сохранить';
+			case 'utils.cancel': return 'Отмена';
+			case 'utils.becomeAuthor': return 'Стать автором';
 			case 'utils.datePicker.helpText': return 'Выберете день рождения';
-			case 'utils.datePicker.cancelText': return 'Отмена';
 			case 'utils.datePicker.confirmText': return 'Сохранить';
 			case 'utils.datePicker.errorFormatText': return 'Дата не входит в допустимый диапазон';
 			case 'utils.datePicker.errorInvalidText': return 'Неверный формат';
@@ -812,8 +825,7 @@ extension on _StringsRu {
 			case 'enums.gender.notShow': return 'Не показывать';
 			case 'profile.notAuthorized': return 'Для доступа к профилю необходимо авторизоваться';
 			case 'profile.goAuth': return 'Авторизоваться';
-			case 'profile.menu.personal.title': return 'Учетная запись';
-			case 'profile.menu.personal.data': return 'Личные данные';
+			case 'profile.menu.personal': return 'Учетная запись';
 			case 'personalData.mainInfo': return 'Основная информация';
 			case 'personalData.name': return 'Имя и фамилия или псевдоним';
 			case 'personalData.status': return 'Статус';

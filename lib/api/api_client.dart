@@ -45,4 +45,8 @@ class ApiClient {
       changeUserRefsPath,
       body: data.toMap(),
     );
+
+  Future<void> becomeAuthor() async => client.get(
+      becomeAuthorPath,
+    );
 }

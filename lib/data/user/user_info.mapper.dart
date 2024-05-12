@@ -16,6 +16,7 @@ class UserInfoMapper extends ClassMapperBase<UserInfo> {
       ImageModelMapper.ensureInitialized();
       ShowBirthTypeMapper.ensureInitialized();
       GenderMapper.ensureInitialized();
+      RoleMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -35,6 +36,8 @@ class UserInfoMapper extends ClassMapperBase<UserInfo> {
       Field('showBirthType', _$showBirthType);
   static Gender _$gender(UserInfo v) => v.gender;
   static const Field<UserInfo, Gender> _f$gender = Field('gender', _$gender);
+  static List<Role> _$roles(UserInfo v) => v.roles;
+  static const Field<UserInfo, List<Role>> _f$roles = Field('roles', _$roles);
   static DateTime? _$birth(UserInfo v) => v.birth;
   static const Field<UserInfo, DateTime> _f$birth =
       Field('birth', _$birth, opt: true);
@@ -64,6 +67,7 @@ class UserInfoMapper extends ClassMapperBase<UserInfo> {
     #name: _f$name,
     #showBirthType: _f$showBirthType,
     #gender: _f$gender,
+    #roles: _f$roles,
     #birth: _f$birth,
     #lifeStatus: _f$lifeStatus,
     #about: _f$about,
@@ -80,6 +84,7 @@ class UserInfoMapper extends ClassMapperBase<UserInfo> {
         name: data.dec(_f$name),
         showBirthType: data.dec(_f$showBirthType),
         gender: data.dec(_f$gender),
+        roles: data.dec(_f$roles),
         birth: data.dec(_f$birth),
         lifeStatus: data.dec(_f$lifeStatus),
         about: data.dec(_f$about),
@@ -139,12 +144,14 @@ extension UserInfoValueCopy<$R, $Out> on ObjectCopyWith<$R, UserInfo, $Out> {
 abstract class UserInfoCopyWith<$R, $In extends UserInfo, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   ImageModelCopyWith<$R, ImageModel, ImageModel> get profileImage;
+  ListCopyWith<$R, Role, ObjectCopyWith<$R, Role, Role>> get roles;
   $R call(
       {int? id,
       ImageModel? profileImage,
       String? name,
       ShowBirthType? showBirthType,
       Gender? gender,
+      List<Role>? roles,
       DateTime? birth,
       String? lifeStatus,
       String? about,
@@ -167,12 +174,17 @@ class _UserInfoCopyWithImpl<$R, $Out>
   ImageModelCopyWith<$R, ImageModel, ImageModel> get profileImage =>
       $value.profileImage.copyWith.$chain((v) => call(profileImage: v));
   @override
+  ListCopyWith<$R, Role, ObjectCopyWith<$R, Role, Role>> get roles =>
+      ListCopyWith($value.roles, (v, t) => ObjectCopyWith(v, $identity, t),
+          (v) => call(roles: v));
+  @override
   $R call(
           {int? id,
           ImageModel? profileImage,
           String? name,
           ShowBirthType? showBirthType,
           Gender? gender,
+          List<Role>? roles,
           Object? birth = $none,
           Object? lifeStatus = $none,
           Object? about = $none,
@@ -186,6 +198,7 @@ class _UserInfoCopyWithImpl<$R, $Out>
         if (name != null) #name: name,
         if (showBirthType != null) #showBirthType: showBirthType,
         if (gender != null) #gender: gender,
+        if (roles != null) #roles: roles,
         if (birth != $none) #birth: birth,
         if (lifeStatus != $none) #lifeStatus: lifeStatus,
         if (about != $none) #about: about,
@@ -201,6 +214,7 @@ class _UserInfoCopyWithImpl<$R, $Out>
       name: data.get(#name, or: $value.name),
       showBirthType: data.get(#showBirthType, or: $value.showBirthType),
       gender: data.get(#gender, or: $value.gender),
+      roles: data.get(#roles, or: $value.roles),
       birth: data.get(#birth, or: $value.birth),
       lifeStatus: data.get(#lifeStatus, or: $value.lifeStatus),
       about: data.get(#about, or: $value.about),

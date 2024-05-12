@@ -12,6 +12,7 @@ class UserInfo with UserInfoMappable {
     required this.name,
     required this.showBirthType,
     required this.gender,
+    required this.roles,
     this.birth,
     this.lifeStatus,
     this.about,
@@ -22,6 +23,8 @@ class UserInfo with UserInfoMappable {
   });
 
   final int id;
+
+  final List<Role> roles;
 
   final ImageModel profileImage;
 

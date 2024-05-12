@@ -18,14 +18,19 @@ class ProfileMenuList extends StatelessWidget {
           left: defaultValue,
         ),
         child: Text(
-          Translations.of(context).profile.menu.personal.title,
+          Translations.of(context).profile.menu.personal,
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
       ProfileMenuListItem(
         onPressed: () async => AutoRouter.of(context).navigate(const PersonalDataRoute()),
         icon: const Icon(Icons.settings),
-        text: Translations.of(context).profile.menu.personal.data,
+        text: Translations.of(context).personalData.mainInfo,
+      ),
+      ProfileMenuListItem(
+        onPressed: () async => AutoRouter.of(context).navigate(const PersonalDataRefsRoute()),
+        icon: const Icon(Icons.alternate_email),
+        text: Translations.of(context).personalData.contact,
       ),
     ],
   );

@@ -41,7 +41,7 @@ class _PersonalDataBirthFieldState extends State<PersonalDataBirthField> {
                 firstDate: DateTime(1900),
                 lastDate: DateTime(DateTime.now().year - 5),
                 helpText: T.utils.datePicker.helpText,
-                cancelText: T.utils.datePicker.cancelText,
+                cancelText: T.utils.cancel,
                 confirmText: T.utils.datePicker.confirmText,
                 errorFormatText: T.utils.datePicker.errorFormatText,
                 errorInvalidText: T.utils.datePicker.errorInvalidText,

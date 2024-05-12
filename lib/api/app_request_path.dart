@@ -4,3 +4,4 @@ const signUpPath = '/api/public/auth/signUp';
 const refreshTokensPath = '/api/public/auth/refresh';
 const changeUserInfoPath = '/api/private/user/change/info';
 const changeUserRefsPath = '/api/private/user/change/refs';
+const becomeAuthorPath = '/api/private/user/change/author';

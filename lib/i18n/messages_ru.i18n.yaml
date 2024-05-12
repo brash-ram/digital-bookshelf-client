@@ -5,6 +5,10 @@ alert:
   unavailable:
     title: Недоступен
     content: Выбранный функционал пока недоступен.
+  confirm:
+    title: Подтвердите действие
+  confirmBecomeAuthor: Подтвердите переход аккаунта в статус "Автор".\nОбратный переход невозможен!
+  helloAuthor: Теперь вы Автор!
 
 validation:
   IsValidEmail: Неверный формат адреса электронной почты
@@ -21,9 +25,10 @@ utils:
   failAuth: Неверный логин или пароль
   fail: Упс... Что-то пошло не так.
   save: Сохранить
+  cancel: Отмена
+  becomeAuthor: Стать автором
   datePicker:
     helpText: Выберете день рождения
-    cancelText: Отмена
     confirmText: Сохранить
     errorFormatText: Дата не входит в допустимый диапазон
     errorInvalidText: Неверный формат
@@ -60,9 +65,7 @@ profile:
   notAuthorized: Для доступа к профилю необходимо авторизоваться
   goAuth: Авторизоваться
   menu:
-    personal:
-      title: Учетная запись
-      data: Личные данные
+    personal: Учетная запись
 
 personalData:
   mainInfo: Основная информация

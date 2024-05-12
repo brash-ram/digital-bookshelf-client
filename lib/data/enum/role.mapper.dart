@@ -29,6 +29,8 @@ class RoleMapper extends EnumMapper<Role> {
         return Role.admin;
       case 'USER':
         return Role.user;
+      case 'AUTHOR':
+        return Role.author;
       case 'LOW_MODERATOR':
         return Role.lowModerator;
       case 'HIGH_MODERATOR':
@@ -51,6 +53,8 @@ class RoleMapper extends EnumMapper<Role> {
         return 'ADMIN';
       case Role.user:
         return 'USER';
+      case Role.author:
+        return 'AUTHOR';
       case Role.lowModerator:
         return 'LOW_MODERATOR';
       case Role.highModerator:
