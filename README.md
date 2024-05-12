@@ -1,16 +1,52 @@
-# digital_bookshelf_client
 
-Digital bookshelf client
+# Digital bookshelf
 
-## Getting Started
+### [Сервер](https://github.com/brash-ram/digital-bookshelf)
 
-This project is a starting point for a Flutter application.
+## Используемые технологии
 
-A few resources to get you started if this is your first Flutter project:
+- Dart
+- Flutter
+- Bloc
+- Slang
+- Dart mappable
+- Auto route
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## Реализованная функциональность
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Окно профиля при неавторизированном доступе
+
+`Для дооступа к приложение авторазация не обязательна`
+
+<img src="./images/1.png" alt="image" width="400">
+
+### Окно авторизации
+
+На этом экране можно как войти так и зарегистрироваться,
+реализована валидация, в том числе ответов от сервера.
+
+<img src="./images/2.png" alt="image" width="400">
+
+### Окно моего профиля
+
+На экране расположено основное меню действий пользователя.
+В верхней части экрана случайно-генерируемое изображение котика и имя пользователя.
+
+<img src="./images/3.png" alt="image" width="400">
+
+### Окно изменения основной информации пользователя
+
+На данном экране можно изменить основную информацию пользователя.
+Внизу формы имеется кнопка для переключения пользователя в статус автора.
+
+`По умолчанию пользователь не является автором.
+Для него недоступен функционал по добавлению книг и всему что с этим связано.`
+
+<img src="./images/4.png" alt="image" width="400">
+
+### Окно изменения контактов
+
+На данном экране можно изменить ссылки на страницу пользователя в
+разных внешних ресурсах.
+
+<img src="./images/5.png" alt="image" width="400">
