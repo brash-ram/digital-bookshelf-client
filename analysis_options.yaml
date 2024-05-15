@@ -6,3 +6,4 @@ linter:
     avoid_relative_lib_imports: true
     prefer_relative_imports: false
     diagnostic_describe_all_properties: false
+    sort_pub_dependencies: false

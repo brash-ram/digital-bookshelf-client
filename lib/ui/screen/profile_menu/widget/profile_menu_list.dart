@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:digital_bookshelf_client/core/router/router.dart';
 import 'package:digital_bookshelf_client/styles.dart';
+import 'package:digital_bookshelf_client/ui/screen/profile_menu/widget/profile_menu_admin.dart';
 import 'package:digital_bookshelf_client/ui/screen/profile_menu/widget/profile_menu_list_item.dart';
 import 'package:flutter/material.dart';
 
@@ -32,6 +32,7 @@ class ProfileMenuList extends StatelessWidget {
         icon: const Icon(Icons.alternate_email),
         text: Translations.of(context).personalData.contact,
       ),
+      const ProfileMenuAdmin(),
     ],
   );
 }

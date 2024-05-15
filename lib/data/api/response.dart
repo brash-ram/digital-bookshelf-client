@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:dart_mappable/dart_mappable.dart';
 
 part 'response_ok.dart';

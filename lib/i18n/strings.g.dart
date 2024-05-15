@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 126 (63 per locale)
+/// Strings: 134 (67 per locale)
 ///
-/// Built on 2024-05-12 at 13:58 UTC
+/// Built on 2024-05-15 at 19:36 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -157,6 +157,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final _StringsProfileEn profile = _StringsProfileEn._(_root);
 	late final _StringsPersonalDataEn personalData = _StringsPersonalDataEn._(_root);
 	late final _StringsAuthEn auth = _StringsAuthEn._(_root);
+	late final _StringsGenreEn genre = _StringsGenreEn._(_root);
 }
 
 // Path: app
@@ -281,6 +282,18 @@ class _StringsAuthEn {
 	late final _StringsAuthButtonEn button = _StringsAuthButtonEn._(_root);
 }
 
+// Path: genre
+class _StringsGenreEn {
+	_StringsGenreEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get newGenre => 'Новый жанр';
+	String get title => 'Жанр';
+	String get menuTitle => 'Список жанров';
+}
+
 // Path: alert.unavailable
 class _StringsAlertUnavailableEn {
 	_StringsAlertUnavailableEn._(this._root);
@@ -376,6 +389,7 @@ class _StringsProfileMenuEn {
 
 	// Translations
 	String get personal => 'Учетная запись';
+	String get admin => 'Администрирование';
 }
 
 // Path: auth.header
@@ -446,6 +460,7 @@ class _StringsRu implements Translations {
 	@override late final _StringsProfileRu profile = _StringsProfileRu._(_root);
 	@override late final _StringsPersonalDataRu personalData = _StringsPersonalDataRu._(_root);
 	@override late final _StringsAuthRu auth = _StringsAuthRu._(_root);
+	@override late final _StringsGenreRu genre = _StringsGenreRu._(_root);
 }
 
 // Path: app
@@ -570,6 +585,18 @@ class _StringsAuthRu implements _StringsAuthEn {
 	@override late final _StringsAuthButtonRu button = _StringsAuthButtonRu._(_root);
 }
 
+// Path: genre
+class _StringsGenreRu implements _StringsGenreEn {
+	_StringsGenreRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get newGenre => 'Новый жанр';
+	@override String get title => 'Жанр';
+	@override String get menuTitle => 'Список жанров';
+}
+
 // Path: alert.unavailable
 class _StringsAlertUnavailableRu implements _StringsAlertUnavailableEn {
 	_StringsAlertUnavailableRu._(this._root);
@@ -665,6 +692,7 @@ class _StringsProfileMenuRu implements _StringsProfileMenuEn {
 
 	// Translations
 	@override String get personal => 'Учетная запись';
+	@override String get admin => 'Администрирование';
 }
 
 // Path: auth.header
@@ -755,6 +783,7 @@ extension on Translations {
 			case 'profile.notAuthorized': return 'Для доступа к профилю необходимо авторизоваться';
 			case 'profile.goAuth': return 'Авторизоваться';
 			case 'profile.menu.personal': return 'Учетная запись';
+			case 'profile.menu.admin': return 'Администрирование';
 			case 'personalData.mainInfo': return 'Основная информация';
 			case 'personalData.name': return 'Имя и фамилия или псевдоним';
 			case 'personalData.status': return 'Статус';
@@ -771,6 +800,9 @@ extension on Translations {
 			case 'auth.header.appBar.personalData': return 'Личные данные';
 			case 'auth.button.logIn': return 'Войти';
 			case 'auth.button.logUp': return 'Зарегистрироваться';
+			case 'genre.newGenre': return 'Новый жанр';
+			case 'genre.title': return 'Жанр';
+			case 'genre.menuTitle': return 'Список жанров';
 			default: return null;
 		}
 	}
@@ -826,6 +858,7 @@ extension on _StringsRu {
 			case 'profile.notAuthorized': return 'Для доступа к профилю необходимо авторизоваться';
 			case 'profile.goAuth': return 'Авторизоваться';
 			case 'profile.menu.personal': return 'Учетная запись';
+			case 'profile.menu.admin': return 'Администрирование';
 			case 'personalData.mainInfo': return 'Основная информация';
 			case 'personalData.name': return 'Имя и фамилия или псевдоним';
 			case 'personalData.status': return 'Статус';
@@ -842,6 +875,9 @@ extension on _StringsRu {
 			case 'auth.header.appBar.personalData': return 'Личные данные';
 			case 'auth.button.logIn': return 'Войти';
 			case 'auth.button.logUp': return 'Зарегистрироваться';
+			case 'genre.newGenre': return 'Новый жанр';
+			case 'genre.title': return 'Жанр';
+			case 'genre.menuTitle': return 'Список жанров';
 			default: return null;
 		}
 	}

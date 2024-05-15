@@ -16,4 +16,3 @@ extension FormattedToString on DateTime {
 extension EnumGetter on Translations {
   String getEnum<T extends Enum>(String enumName, T value) => this['enums.$enumName.${value.name}'] as String;
 }
-

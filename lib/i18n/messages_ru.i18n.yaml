@@ -66,6 +66,7 @@ profile:
   goAuth: Авторизоваться
   menu:
     personal: Учетная запись
+    admin: Администрирование
 
 personalData:
   mainInfo: Основная информация
@@ -90,3 +91,8 @@ auth:
   button:
     logIn: Войти
     logUp: Зарегистрироваться
+
+genre:
+  newGenre: Новый жанр
+  title: Жанр
+  menuTitle: Список жанров

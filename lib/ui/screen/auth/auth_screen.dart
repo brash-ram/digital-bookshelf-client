@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:digital_bookshelf_client/api/auth_controller.dart';
 import 'package:digital_bookshelf_client/styles.dart';
 import 'package:digital_bookshelf_client/ui/screen/auth/widget/auth_form.dart';
 import 'package:flutter/material.dart';

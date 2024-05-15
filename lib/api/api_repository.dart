@@ -2,7 +2,6 @@ import 'package:digital_bookshelf_client/api/api_client.dart';
 import 'package:digital_bookshelf_client/api/repository.dart';
 import 'package:digital_bookshelf_client/core/storages/token_storage.dart';
 import 'package:digital_bookshelf_client/data/data.dart';
-import 'package:digital_bookshelf_client/data/user/jwt_tokens.dart';
 import 'package:digital_bookshelf_client/data/user/personal_data_refs.dart';
 
 class ApiRepository {
@@ -22,6 +21,18 @@ class ApiRepository {
   Stream<UserInfo> getMyProfile() =>
     repository.createDataStream(
       (id) async => fetchMyProfile(),
+      -1,
+    );
+
+  Future<void> fetchGenres() =>
+    repository.wrapFetchCall(
+      (id) async => client.getGenres(),
+      -1,
+    );
+
+  Stream<List<String>> getGenres() =>
+    repository.createDataStream(
+      (id) async => fetchGenres(),
       -1,
     );
 
@@ -87,4 +98,10 @@ class ApiRepository {
 
   Future<bool> becomeAuthor() async =>
     repository.sendVoidRequest(client.becomeAuthor);
+
+  Future<bool> addGenre(String name) async =>
+    repository.sendVoidRequest(() => client.addGenre(name));
+
+  Future<bool> deleteGenre(String name) async =>
+    repository.sendVoidRequest(() => client.deleteGenre(name));
 }

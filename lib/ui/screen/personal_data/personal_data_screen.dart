@@ -1,8 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:digital_bookshelf_client/bloc/user_info_bloc.dart';
-import 'package:digital_bookshelf_client/data/data.dart';
-import 'package:digital_bookshelf_client/data/user/personal_data_refs.dart';
 import 'package:digital_bookshelf_client/styles.dart';
 import 'package:digital_bookshelf_client/ui/screen/personal_data/widget/personal_data_form.dart';
 import 'package:digital_bookshelf_client/ui/widget/model_bloc_data_selector.dart';

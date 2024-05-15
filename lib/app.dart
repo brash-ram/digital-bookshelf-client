@@ -9,13 +9,13 @@ if (dart.library.js) 'core/http/client_web.dart';
 import 'package:digital_bookshelf_client/core/router/router.dart';
 import 'package:digital_bookshelf_client/core/storages/secure_storage.dart';
 import 'package:digital_bookshelf_client/core/storages/token_storage.dart';
+import 'package:digital_bookshelf_client/init_auth.dart';
 import 'package:digital_bookshelf_client/logging.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:talker_flutter/talker_flutter.dart';
 
 class MyApp extends StatelessWidget {
@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MultiRepositoryProvider(
       providers: [
-        RepositoryProvider(
-          create: (context) => AuthController(),
+        RepositoryProvider.value(
+          value: AuthController(),
         ),
         RepositoryProvider(
           create: (context) => createClient(),
@@ -55,9 +55,8 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: Builder(
-        builder: (context) {
-          final appRouter = AppRouter();
-          return MaterialApp.router(
+        builder: (context) => InitAuth(
+          child: MaterialApp.router(
             debugShowCheckedModeBanner: false,
             title: 'Digital bookshelf',
             theme: FlexThemeData.light(
@@ -70,13 +69,14 @@ class MyApp extends StatelessWidget {
             // ),
             localizationsDelegates: GlobalMaterialLocalizations.delegates,
             // locale: TranslationProvider.of(context).flutterLocale,
-            routerConfig: appRouter.config(
-              navigatorObservers: () => [
+            routerConfig: AppRouter().config(
+              navigatorObservers: () =>
+              [
                 TalkerRouteObserver(talker),
               ],
             ),
-          );
-        },
+          ),
+        ),
       ),
     );
 }

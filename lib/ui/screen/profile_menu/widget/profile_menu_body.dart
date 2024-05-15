@@ -1,5 +1,4 @@
 import 'package:digital_bookshelf_client/bloc/user_info_bloc.dart';
-import 'package:digital_bookshelf_client/data/data.dart';
 import 'package:digital_bookshelf_client/styles.dart';
 import 'package:digital_bookshelf_client/ui/screen/profile_menu/widget/profile_menu_header.dart';
 import 'package:digital_bookshelf_client/ui/screen/profile_menu/widget/profile_menu_list.dart';
@@ -18,7 +17,7 @@ class ProfileMenuBody extends StatelessWidget {
           SizedBox(height: bigValue,),
           ProfileMenuHeader(),
           SizedBox(height: biggestValue,),
-          ProfileMenuList()
+          ProfileMenuList(),
         ],
       ),
     ),

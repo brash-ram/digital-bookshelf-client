@@ -1,5 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:digital_bookshelf_client/api/api.dart';
 import 'package:digital_bookshelf_client/bloc/user_info_bloc.dart';
 import 'package:digital_bookshelf_client/styles.dart';
 import 'package:digital_bookshelf_client/ui/screen/profile_menu/widget/profile_menu_auth.dart';

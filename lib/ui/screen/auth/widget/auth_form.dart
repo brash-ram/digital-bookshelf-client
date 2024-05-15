@@ -1,6 +1,4 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:digital_bookshelf_client/api/api.dart';
-import 'package:digital_bookshelf_client/core/router/router.dart';
 import 'package:digital_bookshelf_client/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -62,7 +60,7 @@ class _AuthFormState extends State<AuthForm> {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(Translations.of(context).utils.failAuth),
-                      )
+                      ),
                     );
                   }
                 }
@@ -94,7 +92,7 @@ class _AuthFormState extends State<AuthForm> {
                     ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text(Translations.of(context).utils.failAuth),
-                        )
+                        ),
                     );
                   }
                 }

@@ -11,7 +11,7 @@ class ConfirmDialogWidget extends StatelessWidget {
     title: Center(
       child: Text(
         Translations.of(context).alert.confirm.title,
-      )
+      ),
     ),
     content: Text(
       message,

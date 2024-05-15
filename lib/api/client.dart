@@ -25,14 +25,14 @@ class Client {
 
   Future<T> request<T, B>(
     String path, {
-      String method = 'GET',
+      String methodName = 'GET',
       Map<String, String> queryParameters = const {},
       Map<String, String> headers = const {},
       B? body,
       Uint8List? bodyBytes,
     }
   ) async {
-    method = method.toUpperCase();
+    final method = methodName.toUpperCase();
     assert(body == null || bodyBytes == null, 'Cannot supply both text body and bytes body');
     assert(
       switch(method) {
@@ -134,7 +134,7 @@ class Client {
   }) =>
     request<T, B>(
       path,
-      method: 'POST',
+      methodName: 'POST',
       headers: {
         'content-type': 'application/json',
         ...headers,
@@ -151,7 +151,7 @@ class Client {
   }) =>
     request<T, Never>(
       path,
-      method: 'POST',
+      methodName: 'POST',
       headers: {
         'content-type': 'application/octet-stream',
         ...headers,

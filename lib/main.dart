@@ -9,7 +9,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // LocaleSettings.setLocale(AppLocale.ru);
   LocaleSettings.useDeviceLocale();
-  await GlobalConfiguration().loadFromAsset("GlobalConfig");
+  await GlobalConfiguration().loadFromAsset('GlobalConfig');
   runApp(
       TranslationProvider(child: const MyApp()),
   );

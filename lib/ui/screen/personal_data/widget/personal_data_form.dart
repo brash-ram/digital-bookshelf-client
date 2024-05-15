@@ -1,7 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:digital_bookshelf_client/api/api.dart';
 import 'package:digital_bookshelf_client/bloc/user_info_bloc.dart';
-import 'package:digital_bookshelf_client/data/data.dart';
 import 'package:digital_bookshelf_client/styles.dart';
 import 'package:digital_bookshelf_client/ui/screen/personal_data/widget/personal_data_birth_field.dart';
 import 'package:digital_bookshelf_client/ui/widget/dropdown_widget.dart';
@@ -9,7 +7,6 @@ import 'package:digital_bookshelf_client/ui/widget/form_widget/named_field.dart'
 import 'package:digital_bookshelf_client/ui/widget/model_bloc_data_selector.dart';
 import 'package:digital_bookshelf_client/ui/widget/role_widget.dart';
 import 'package:easy_loading_button/easy_loading_button.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
