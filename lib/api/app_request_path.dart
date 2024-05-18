@@ -8,3 +8,10 @@ const becomeAuthorPath = '/api/private/user/change/author';
 const getGenresPath = '/api/public/genre/all';
 const addGenrePath = '/api/admin/genre';
 const deleteGenrePath = '/api/admin/genre/delete';
+
+const mySeriesPath = '/api/private/bookSeries/my';
+const bookSeriesPath = '/api/public/bookSeries/';
+const addSeriesPath = '/api/private/bookSeries';
+const updateSeriesPath = '/api/private/bookSeries/update';
+const deleteSeriesPath = '/api/private/bookSeries/delete';
+const getSeriesPath = '/api/public/bookSeries/';

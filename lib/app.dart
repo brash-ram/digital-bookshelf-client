@@ -1,3 +1,4 @@
+import 'package:digital_bookshelf_client/api/api.dart';
 import 'package:digital_bookshelf_client/api/api_client.dart';
 import 'package:digital_bookshelf_client/api/api_repository.dart';
 import 'package:digital_bookshelf_client/api/auth_controller.dart';
@@ -52,6 +53,9 @@ class MyApp extends StatelessWidget {
         ),
         RepositoryProvider(
           create: (context) => ApiRepository(context.read(), context.read(), context.read()),
+        ),
+        RepositoryProvider(
+          create: (context) => ApiBlocRepository(context.read(), context.read()),
         ),
       ],
       child: Builder(

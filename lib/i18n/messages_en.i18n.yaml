@@ -8,6 +8,7 @@ alert:
   confirm:
     title: Подтвердите действие
   confirmBecomeAuthor: Подтвердите переход аккаунта в статус "Автор".\nОбратный переход невозможен!
+  confirmDelete: Подтвердите что хотите удалить данный ресурс.
   helloAuthor: Теперь вы Автор!
 
 validation:
@@ -51,6 +52,21 @@ user:
     tg: Telegram
     site: Сайт
 
+book:
+  name: Название
+  description: Описание
+  tag: Тег
+  genre: Жанр
+  priceType: Тип цены
+  price: Цена
+
+bookSeries:
+  title: Цикл книг
+  listTitle: Циклы книг
+  numberBooks: Количество книг
+  name: Название
+  description: Описание
+
 enums:
   showBirthType:
     show: Показывать
@@ -61,12 +77,30 @@ enums:
     female: Женский
     notShow: Не показывать
 
+addBook:
+  title: Добавить книгу
+  changeTitle: Обновить книгу
+  bookFile: Выберите файл книги
+  bookExtensions: Доступные расширения файлов книг - FB2, EPUB, PDF
+  bookCover: Выберите обложку для книги
+
 profile:
   notAuthorized: Для доступа к профилю необходимо авторизоваться
   goAuth: Авторизоваться
   menu:
-    personal: Учетная запись
-    admin: Администрирование
+    personal:
+      title: Учетная запись
+      main: Основная информация
+      contact: Контакты
+    admin:
+      title: Администрирование
+      genres: Список жанров
+    author:
+      title: Возможности автора
+      bookSeries: Мои циклы книг
+      addBookSeries: Добавить цикл книг
+      books: Мои книги
+      addBook: Добавить книгу
 
 personalData:
   mainInfo: Основная информация

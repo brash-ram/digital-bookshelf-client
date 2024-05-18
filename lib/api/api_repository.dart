@@ -12,30 +12,6 @@ class ApiRepository {
   final ApiClient client;
   final TokenStorage tokenStorage;
 
-  Future<void> fetchMyProfile() =>
-    repository.wrapFetchCall(
-      (id) async => client.getMyProfileInfo(),
-      -1,
-    );
-
-  Stream<UserInfo> getMyProfile() =>
-    repository.createDataStream(
-      (id) async => fetchMyProfile(),
-      -1,
-    );
-
-  Future<void> fetchGenres() =>
-    repository.wrapFetchCall(
-      (id) async => client.getGenres(),
-      -1,
-    );
-
-  Stream<List<String>> getGenres() =>
-    repository.createDataStream(
-      (id) async => fetchGenres(),
-      -1,
-    );
-
   Future<bool> signIn(String username, String password) async {
     late JwtTokens response;
     try {
@@ -104,4 +80,13 @@ class ApiRepository {
 
   Future<bool> deleteGenre(String name) async =>
     repository.sendVoidRequest(() => client.deleteGenre(name));
+
+  Future<bool> addBookSeries(String name, String description) async =>
+    repository.sendVoidRequest(() => client.addBookSeries(name, description));
+
+  Future<bool> updateBookSeries(SimpleBookSeries series) async =>
+    repository.sendVoidRequest(() => client.updateBookSeries(series));
+
+  Future<bool> deleteBookSeries(int id) async =>
+    repository.sendVoidRequest(() => client.deleteBookSeries(id));
 }

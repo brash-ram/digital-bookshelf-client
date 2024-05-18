@@ -4,7 +4,7 @@ import 'package:digital_bookshelf_client/bloc/base/model_bloc.dart';
 class GenreListBloc extends ModelBloc<List<String>> {
   GenreListBloc({required this.repository});
 
-  final ApiRepository repository;
+  final ApiBlocRepository repository;
 
   @override
   Stream<List<String>> get dataStream => repository.getGenres();

@@ -3,8 +3,8 @@ import 'package:digital_bookshelf_client/styles.dart';
 import 'package:digital_bookshelf_client/ui/screen/profile_menu/widget/profile_menu_list_item.dart';
 import 'package:flutter/material.dart';
 
-class ProfileMenuAdmin extends StatelessWidget {
-  const ProfileMenuAdmin({super.key});
+class PersonalMenu extends StatelessWidget {
+  const PersonalMenu({super.key});
 
   @override
   Widget build(BuildContext context) => Column(
@@ -18,14 +18,19 @@ class ProfileMenuAdmin extends StatelessWidget {
           left: defaultValue,
         ),
         child: Text(
-          Translations.of(context).profile.menu.admin,
+          Translations.of(context).profile.menu.personal.title,
           style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
       ProfileMenuListItem(
-        onPressed: () async => AutoRouter.of(context).navigate(const GenreListRoute()),
-        icon: const Icon(Icons.list_alt),
-        text: Translations.of(context).genre.menuTitle,
+        onPressed: () async => AutoRouter.of(context).navigate(const PersonalDataRoute()),
+        icon: const Icon(Icons.settings),
+        text: Translations.of(context).profile.menu.personal.main,
+      ),
+      ProfileMenuListItem(
+        onPressed: () async => AutoRouter.of(context).navigate(const PersonalDataRefsRoute()),
+        icon: const Icon(Icons.alternate_email),
+        text: Translations.of(context).profile.menu.personal.contact,
       ),
     ],
   );

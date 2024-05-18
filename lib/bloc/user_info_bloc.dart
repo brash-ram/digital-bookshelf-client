@@ -6,7 +6,7 @@ import 'package:digital_bookshelf_client/data/data.dart';
 class UserInfoBloc extends ModelBloc<UserInfo> {
   UserInfoBloc({required this.repository, this.id});
 
-  final ApiRepository repository;
+  final ApiBlocRepository repository;
   final int? id;
 
   @override

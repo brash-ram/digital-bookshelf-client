@@ -62,4 +62,37 @@ class ApiClient {
       deleteGenrePath,
       queryParameters: {'name' : name},
     );
+
+  Future<List<BookSeries>> myBookSeries() async => client.get(mySeriesPath,);
+
+  Future<List<BookSeries>> getBookSeriesByAuthor(int authorId) async => client.get('$getSeriesPath/$authorId',);
+
+  Future<BookSeries> getBookSeries(int id) async => client.get('$bookSeriesPath/$id',);
+
+  Future<void> deleteBookSeries(int id) async =>
+      client.post(
+        deleteSeriesPath,
+        queryParameters: {
+          'id' : id.toString(),
+        },
+      );
+
+  Future<void> addBookSeries(String name, String description) async =>
+      client.post(
+        addSeriesPath,
+        queryParameters: {
+          'name' : name,
+          'description' : description,
+        },
+      );
+
+  Future<void> updateBookSeries(SimpleBookSeries series) async =>
+      client.post(
+        updateSeriesPath,
+        queryParameters: {
+          'id' : series.id.toString(),
+          'name' : series.name,
+          'description' : series.description,
+        },
+      );
 }

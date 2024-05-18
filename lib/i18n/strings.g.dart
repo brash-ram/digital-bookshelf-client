@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 134 (67 per locale)
+/// Strings: 184 (92 per locale)
 ///
-/// Built on 2024-05-15 at 19:36 UTC
+/// Built on 2024-05-18 at 16:39 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -153,7 +153,10 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final _StringsValidationEn validation = _StringsValidationEn._(_root);
 	late final _StringsUtilsEn utils = _StringsUtilsEn._(_root);
 	late final _StringsUserEn user = _StringsUserEn._(_root);
+	late final _StringsBookEn book = _StringsBookEn._(_root);
+	late final _StringsBookSeriesEn bookSeries = _StringsBookSeriesEn._(_root);
 	late final _StringsEnumsEn enums = _StringsEnumsEn._(_root);
+	late final _StringsAddBookEn addBook = _StringsAddBookEn._(_root);
 	late final _StringsProfileEn profile = _StringsProfileEn._(_root);
 	late final _StringsPersonalDataEn personalData = _StringsPersonalDataEn._(_root);
 	late final _StringsAuthEn auth = _StringsAuthEn._(_root);
@@ -180,6 +183,7 @@ class _StringsAlertEn {
 	late final _StringsAlertUnavailableEn unavailable = _StringsAlertUnavailableEn._(_root);
 	late final _StringsAlertConfirmEn confirm = _StringsAlertConfirmEn._(_root);
 	String get confirmBecomeAuthor => 'Подтвердите переход аккаунта в статус "Автор".\nОбратный переход невозможен!';
+	String get confirmDelete => 'Подтвердите что хотите удалить данный ресурс.';
 	String get helloAuthor => 'Теперь вы Автор!';
 }
 
@@ -230,6 +234,35 @@ class _StringsUserEn {
 	late final _StringsUserContactEn contact = _StringsUserContactEn._(_root);
 }
 
+// Path: book
+class _StringsBookEn {
+	_StringsBookEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get name => 'Название';
+	String get description => 'Описание';
+	String get tag => 'Тег';
+	String get genre => 'Жанр';
+	String get priceType => 'Тип цены';
+	String get price => 'Цена';
+}
+
+// Path: bookSeries
+class _StringsBookSeriesEn {
+	_StringsBookSeriesEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Цикл книг';
+	String get listTitle => 'Циклы книг';
+	String get numberBooks => 'Количество книг';
+	String get name => 'Название';
+	String get description => 'Описание';
+}
+
 // Path: enums
 class _StringsEnumsEn {
 	_StringsEnumsEn._(this._root);
@@ -239,6 +272,20 @@ class _StringsEnumsEn {
 	// Translations
 	late final _StringsEnumsShowBirthTypeEn showBirthType = _StringsEnumsShowBirthTypeEn._(_root);
 	late final _StringsEnumsGenderEn gender = _StringsEnumsGenderEn._(_root);
+}
+
+// Path: addBook
+class _StringsAddBookEn {
+	_StringsAddBookEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Добавить книгу';
+	String get changeTitle => 'Обновить книгу';
+	String get bookFile => 'Выберите файл книги';
+	String get bookExtensions => 'Доступные расширения файлов книг - FB2, EPUB, PDF';
+	String get bookCover => 'Выберите обложку для книги';
 }
 
 // Path: profile
@@ -388,8 +435,9 @@ class _StringsProfileMenuEn {
 	final Translations _root; // ignore: unused_field
 
 	// Translations
-	String get personal => 'Учетная запись';
-	String get admin => 'Администрирование';
+	late final _StringsProfileMenuPersonalEn personal = _StringsProfileMenuPersonalEn._(_root);
+	late final _StringsProfileMenuAdminEn admin = _StringsProfileMenuAdminEn._(_root);
+	late final _StringsProfileMenuAuthorEn author = _StringsProfileMenuAuthorEn._(_root);
 }
 
 // Path: auth.header
@@ -413,6 +461,43 @@ class _StringsAuthButtonEn {
 	// Translations
 	String get logIn => 'Войти';
 	String get logUp => 'Зарегистрироваться';
+}
+
+// Path: profile.menu.personal
+class _StringsProfileMenuPersonalEn {
+	_StringsProfileMenuPersonalEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Учетная запись';
+	String get main => 'Основная информация';
+	String get contact => 'Контакты';
+}
+
+// Path: profile.menu.admin
+class _StringsProfileMenuAdminEn {
+	_StringsProfileMenuAdminEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Администрирование';
+	String get genres => 'Список жанров';
+}
+
+// Path: profile.menu.author
+class _StringsProfileMenuAuthorEn {
+	_StringsProfileMenuAuthorEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get title => 'Возможности автора';
+	String get bookSeries => 'Мои циклы книг';
+	String get addBookSeries => 'Добавить цикл книг';
+	String get books => 'Мои книги';
+	String get addBook => 'Добавить книгу';
 }
 
 // Path: auth.header.appBar
@@ -456,7 +541,10 @@ class _StringsRu implements Translations {
 	@override late final _StringsValidationRu validation = _StringsValidationRu._(_root);
 	@override late final _StringsUtilsRu utils = _StringsUtilsRu._(_root);
 	@override late final _StringsUserRu user = _StringsUserRu._(_root);
+	@override late final _StringsBookRu book = _StringsBookRu._(_root);
+	@override late final _StringsBookSeriesRu bookSeries = _StringsBookSeriesRu._(_root);
 	@override late final _StringsEnumsRu enums = _StringsEnumsRu._(_root);
+	@override late final _StringsAddBookRu addBook = _StringsAddBookRu._(_root);
 	@override late final _StringsProfileRu profile = _StringsProfileRu._(_root);
 	@override late final _StringsPersonalDataRu personalData = _StringsPersonalDataRu._(_root);
 	@override late final _StringsAuthRu auth = _StringsAuthRu._(_root);
@@ -483,6 +571,7 @@ class _StringsAlertRu implements _StringsAlertEn {
 	@override late final _StringsAlertUnavailableRu unavailable = _StringsAlertUnavailableRu._(_root);
 	@override late final _StringsAlertConfirmRu confirm = _StringsAlertConfirmRu._(_root);
 	@override String get confirmBecomeAuthor => 'Подтвердите переход аккаунта в статус "Автор".\nОбратный переход невозможен!';
+	@override String get confirmDelete => 'Подтвердите что хотите удалить данный ресурс.';
 	@override String get helloAuthor => 'Теперь вы Автор!';
 }
 
@@ -533,6 +622,35 @@ class _StringsUserRu implements _StringsUserEn {
 	@override late final _StringsUserContactRu contact = _StringsUserContactRu._(_root);
 }
 
+// Path: book
+class _StringsBookRu implements _StringsBookEn {
+	_StringsBookRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get name => 'Название';
+	@override String get description => 'Описание';
+	@override String get tag => 'Тег';
+	@override String get genre => 'Жанр';
+	@override String get priceType => 'Тип цены';
+	@override String get price => 'Цена';
+}
+
+// Path: bookSeries
+class _StringsBookSeriesRu implements _StringsBookSeriesEn {
+	_StringsBookSeriesRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Цикл книг';
+	@override String get listTitle => 'Циклы книг';
+	@override String get numberBooks => 'Количество книг';
+	@override String get name => 'Название';
+	@override String get description => 'Описание';
+}
+
 // Path: enums
 class _StringsEnumsRu implements _StringsEnumsEn {
 	_StringsEnumsRu._(this._root);
@@ -542,6 +660,20 @@ class _StringsEnumsRu implements _StringsEnumsEn {
 	// Translations
 	@override late final _StringsEnumsShowBirthTypeRu showBirthType = _StringsEnumsShowBirthTypeRu._(_root);
 	@override late final _StringsEnumsGenderRu gender = _StringsEnumsGenderRu._(_root);
+}
+
+// Path: addBook
+class _StringsAddBookRu implements _StringsAddBookEn {
+	_StringsAddBookRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Добавить книгу';
+	@override String get changeTitle => 'Обновить книгу';
+	@override String get bookFile => 'Выберите файл книги';
+	@override String get bookExtensions => 'Доступные расширения файлов книг - FB2, EPUB, PDF';
+	@override String get bookCover => 'Выберите обложку для книги';
 }
 
 // Path: profile
@@ -691,8 +823,9 @@ class _StringsProfileMenuRu implements _StringsProfileMenuEn {
 	@override final _StringsRu _root; // ignore: unused_field
 
 	// Translations
-	@override String get personal => 'Учетная запись';
-	@override String get admin => 'Администрирование';
+	@override late final _StringsProfileMenuPersonalRu personal = _StringsProfileMenuPersonalRu._(_root);
+	@override late final _StringsProfileMenuAdminRu admin = _StringsProfileMenuAdminRu._(_root);
+	@override late final _StringsProfileMenuAuthorRu author = _StringsProfileMenuAuthorRu._(_root);
 }
 
 // Path: auth.header
@@ -718,6 +851,43 @@ class _StringsAuthButtonRu implements _StringsAuthButtonEn {
 	@override String get logUp => 'Зарегистрироваться';
 }
 
+// Path: profile.menu.personal
+class _StringsProfileMenuPersonalRu implements _StringsProfileMenuPersonalEn {
+	_StringsProfileMenuPersonalRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Учетная запись';
+	@override String get main => 'Основная информация';
+	@override String get contact => 'Контакты';
+}
+
+// Path: profile.menu.admin
+class _StringsProfileMenuAdminRu implements _StringsProfileMenuAdminEn {
+	_StringsProfileMenuAdminRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Администрирование';
+	@override String get genres => 'Список жанров';
+}
+
+// Path: profile.menu.author
+class _StringsProfileMenuAuthorRu implements _StringsProfileMenuAuthorEn {
+	_StringsProfileMenuAuthorRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get title => 'Возможности автора';
+	@override String get bookSeries => 'Мои циклы книг';
+	@override String get addBookSeries => 'Добавить цикл книг';
+	@override String get books => 'Мои книги';
+	@override String get addBook => 'Добавить книгу';
+}
+
 // Path: auth.header.appBar
 class _StringsAuthHeaderAppBarRu implements _StringsAuthHeaderAppBarEn {
 	_StringsAuthHeaderAppBarRu._(this._root);
@@ -741,6 +911,7 @@ extension on Translations {
 			case 'alert.unavailable.content': return 'Выбранный функционал пока недоступен.';
 			case 'alert.confirm.title': return 'Подтвердите действие';
 			case 'alert.confirmBecomeAuthor': return 'Подтвердите переход аккаунта в статус "Автор".\nОбратный переход невозможен!';
+			case 'alert.confirmDelete': return 'Подтвердите что хотите удалить данный ресурс.';
 			case 'alert.helloAuthor': return 'Теперь вы Автор!';
 			case 'validation.IsValidEmail': return 'Неверный формат адреса электронной почты';
 			case 'validation.IsValidPhone': return 'Неверный формат адреса номера телефона';
@@ -774,16 +945,40 @@ extension on Translations {
 			case 'user.contact.email': return 'Почта';
 			case 'user.contact.tg': return 'Telegram';
 			case 'user.contact.site': return 'Сайт';
+			case 'book.name': return 'Название';
+			case 'book.description': return 'Описание';
+			case 'book.tag': return 'Тег';
+			case 'book.genre': return 'Жанр';
+			case 'book.priceType': return 'Тип цены';
+			case 'book.price': return 'Цена';
+			case 'bookSeries.title': return 'Цикл книг';
+			case 'bookSeries.listTitle': return 'Циклы книг';
+			case 'bookSeries.numberBooks': return 'Количество книг';
+			case 'bookSeries.name': return 'Название';
+			case 'bookSeries.description': return 'Описание';
 			case 'enums.showBirthType.show': return 'Показывать';
 			case 'enums.showBirthType.showWithoutYear': return 'Показывать без года';
 			case 'enums.showBirthType.notShow': return 'Не показывать';
 			case 'enums.gender.male': return 'Мужской';
 			case 'enums.gender.female': return 'Женский';
 			case 'enums.gender.notShow': return 'Не показывать';
+			case 'addBook.title': return 'Добавить книгу';
+			case 'addBook.changeTitle': return 'Обновить книгу';
+			case 'addBook.bookFile': return 'Выберите файл книги';
+			case 'addBook.bookExtensions': return 'Доступные расширения файлов книг - FB2, EPUB, PDF';
+			case 'addBook.bookCover': return 'Выберите обложку для книги';
 			case 'profile.notAuthorized': return 'Для доступа к профилю необходимо авторизоваться';
 			case 'profile.goAuth': return 'Авторизоваться';
-			case 'profile.menu.personal': return 'Учетная запись';
-			case 'profile.menu.admin': return 'Администрирование';
+			case 'profile.menu.personal.title': return 'Учетная запись';
+			case 'profile.menu.personal.main': return 'Основная информация';
+			case 'profile.menu.personal.contact': return 'Контакты';
+			case 'profile.menu.admin.title': return 'Администрирование';
+			case 'profile.menu.admin.genres': return 'Список жанров';
+			case 'profile.menu.author.title': return 'Возможности автора';
+			case 'profile.menu.author.bookSeries': return 'Мои циклы книг';
+			case 'profile.menu.author.addBookSeries': return 'Добавить цикл книг';
+			case 'profile.menu.author.books': return 'Мои книги';
+			case 'profile.menu.author.addBook': return 'Добавить книгу';
 			case 'personalData.mainInfo': return 'Основная информация';
 			case 'personalData.name': return 'Имя и фамилия или псевдоним';
 			case 'personalData.status': return 'Статус';
@@ -816,6 +1011,7 @@ extension on _StringsRu {
 			case 'alert.unavailable.content': return 'Выбранный функционал пока недоступен.';
 			case 'alert.confirm.title': return 'Подтвердите действие';
 			case 'alert.confirmBecomeAuthor': return 'Подтвердите переход аккаунта в статус "Автор".\nОбратный переход невозможен!';
+			case 'alert.confirmDelete': return 'Подтвердите что хотите удалить данный ресурс.';
 			case 'alert.helloAuthor': return 'Теперь вы Автор!';
 			case 'validation.IsValidEmail': return 'Неверный формат адреса электронной почты';
 			case 'validation.IsValidPhone': return 'Неверный формат адреса номера телефона';
@@ -849,16 +1045,40 @@ extension on _StringsRu {
 			case 'user.contact.email': return 'Почта';
 			case 'user.contact.tg': return 'Telegram';
 			case 'user.contact.site': return 'Сайт';
+			case 'book.name': return 'Название';
+			case 'book.description': return 'Описание';
+			case 'book.tag': return 'Тег';
+			case 'book.genre': return 'Жанр';
+			case 'book.priceType': return 'Тип цены';
+			case 'book.price': return 'Цена';
+			case 'bookSeries.title': return 'Цикл книг';
+			case 'bookSeries.listTitle': return 'Циклы книг';
+			case 'bookSeries.numberBooks': return 'Количество книг';
+			case 'bookSeries.name': return 'Название';
+			case 'bookSeries.description': return 'Описание';
 			case 'enums.showBirthType.show': return 'Показывать';
 			case 'enums.showBirthType.showWithoutYear': return 'Показывать без года';
 			case 'enums.showBirthType.notShow': return 'Не показывать';
 			case 'enums.gender.male': return 'Мужской';
 			case 'enums.gender.female': return 'Женский';
 			case 'enums.gender.notShow': return 'Не показывать';
+			case 'addBook.title': return 'Добавить книгу';
+			case 'addBook.changeTitle': return 'Обновить книгу';
+			case 'addBook.bookFile': return 'Выберите файл книги';
+			case 'addBook.bookExtensions': return 'Доступные расширения файлов книг - FB2, EPUB, PDF';
+			case 'addBook.bookCover': return 'Выберите обложку для книги';
 			case 'profile.notAuthorized': return 'Для доступа к профилю необходимо авторизоваться';
 			case 'profile.goAuth': return 'Авторизоваться';
-			case 'profile.menu.personal': return 'Учетная запись';
-			case 'profile.menu.admin': return 'Администрирование';
+			case 'profile.menu.personal.title': return 'Учетная запись';
+			case 'profile.menu.personal.main': return 'Основная информация';
+			case 'profile.menu.personal.contact': return 'Контакты';
+			case 'profile.menu.admin.title': return 'Администрирование';
+			case 'profile.menu.admin.genres': return 'Список жанров';
+			case 'profile.menu.author.title': return 'Возможности автора';
+			case 'profile.menu.author.bookSeries': return 'Мои циклы книг';
+			case 'profile.menu.author.addBookSeries': return 'Добавить цикл книг';
+			case 'profile.menu.author.books': return 'Мои книги';
+			case 'profile.menu.author.addBook': return 'Добавить книгу';
 			case 'personalData.mainInfo': return 'Основная информация';
 			case 'personalData.name': return 'Имя и фамилия или псевдоним';
 			case 'personalData.status': return 'Статус';
