@@ -5,6 +5,7 @@ const refreshTokensPath = '/api/public/auth/refresh';
 const changeUserInfoPath = '/api/private/user/change/info';
 const changeUserRefsPath = '/api/private/user/change/refs';
 const becomeAuthorPath = '/api/private/user/change/author';
+
 const getGenresPath = '/api/public/genre/all';
 const addGenrePath = '/api/admin/genre';
 const deleteGenrePath = '/api/admin/genre/delete';
@@ -15,3 +16,13 @@ const addSeriesPath = '/api/private/bookSeries';
 const updateSeriesPath = '/api/private/bookSeries/update';
 const deleteSeriesPath = '/api/private/bookSeries/delete';
 const getSeriesPath = '/api/public/bookSeries/';
+
+const addBookPath = '/api/private/book/add';
+const uploadBookFilePath = '/api/private/book/upload';
+const uploadImageFilePath = '/api/private/image/book';
+const getBookPath = '/api/private/book/';
+const getMyBooksPath = '/api/private/book/my';
+const getAuthorBooksPath = '/api/private/book/author/';
+
+
+const getTagsPath = '/api/public/tag/all';

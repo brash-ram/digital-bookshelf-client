@@ -1,39 +1,50 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dart_mappable/dart_mappable.dart';
-import 'package:digital_bookshelf_client/bloc/user_info_bloc.dart';
+import 'package:digital_bookshelf_client/bloc/book_series_bloc.dart';
+import 'package:digital_bookshelf_client/bloc/genre_list_bloc.dart';
+import 'package:digital_bookshelf_client/bloc/tag_bloc.dart';
 import 'package:digital_bookshelf_client/styles.dart';
-import 'package:digital_bookshelf_client/ui/screen/personal_data/widget/personal_data_form.dart';
-import 'package:digital_bookshelf_client/ui/widget/model_bloc_data_selector.dart';
+import 'package:digital_bookshelf_client/ui/screen/add_book/widget/new_book_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 @RoutePage()
 class AddBookScreen extends StatelessWidget {
-  const AddBookScreen({super.key});
+  const AddBookScreen({super.key, this.book});
+
+  final NewBook? book;
 
   @override
   Widget build(BuildContext context) =>
-      UnFocusKeyboardOutside(
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text(
-              Translations.of(context).personalData.mainInfo,
-            ),
+      MultiRepositoryProvider(
+        providers: [
+          RepositoryProvider.value(
+            value: book ?? NewBook(),
           ),
-          body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.all(defaultValue),
-              child: BlocProvider.value(
-                value: UserInfoBloc(repository: context.read()),
-                child: ModelBlocDataSelector<UserInfoBloc, UserInfo, UserInfo>(
-                  selector: (e) => e,
-                  builder: (context, data) => RefreshIndicator(
-                    onRefresh: () async => context.read<UserInfoBloc>().update(),
-                    child: RepositoryProvider.value(
-                      value: MapperContainer.globals.fromValue<PersonalData>(data.toMap()),
-                      child: const PersonalDataForm(),
-                    ),
-                  ),
+          RepositoryProvider.value(
+            value: BookFiles(),
+          ),
+          BlocProvider.value(
+            value: GenreListBloc(repository: context.read()),
+          ),
+          BlocProvider.value(
+            value: BookSeriesBloc(repository: context.read()),
+          ),
+          BlocProvider.value(
+            value: TagBloc(repository: context.read()),
+          ),
+        ],
+        child: UnFocusKeyboardOutside(
+          child: Scaffold(
+            appBar: AppBar(
+              title: Text(
+                Translations.of(context).addBook.title,
+              ),
+            ),
+            body: const SafeArea(
+              child: Padding(
+                padding: EdgeInsets.all(smallestValue),
+                child: SingleChildScrollView(
+                  child: NewBookForm(),
                 ),
               ),
             ),

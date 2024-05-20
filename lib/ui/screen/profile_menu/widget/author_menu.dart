@@ -1,6 +1,5 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:digital_bookshelf_client/styles.dart';
-import 'package:digital_bookshelf_client/ui/screen/list_book_series/list_book_series_screen.dart';
 import 'package:digital_bookshelf_client/ui/screen/profile_menu/widget/profile_menu_list_item.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +33,7 @@ class AuthorMenu extends StatelessWidget {
         text: Translations.of(context).profile.menu.author.bookSeries,
       ),
       ProfileMenuListItem(
-        onPressed: () async => AutoRouter.of(context).navigate(const GenreListRoute()),
+        onPressed: () async => AutoRouter.of(context).navigate(AddBookRoute()),
         icon: const Icon(Icons.add),
         text: Translations.of(context).profile.menu.author.addBook,
       ),

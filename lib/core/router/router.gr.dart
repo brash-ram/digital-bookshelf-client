@@ -16,9 +16,14 @@ abstract class _$AppRouter extends RootStackRouter {
   @override
   final Map<String, PageFactory> pagesMap = {
     AddBookRoute.name: (routeData) {
+      final args = routeData.argsAs<AddBookRouteArgs>(
+          orElse: () => const AddBookRouteArgs());
       return AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const AddBookScreen(),
+        child: AddBookScreen(
+          key: args.key,
+          book: args.book,
+        ),
       );
     },
     AddBookSeriesRoute.name: (routeData) {
@@ -36,6 +41,16 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const AuthScreen(),
+      );
+    },
+    BookRoute.name: (routeData) {
+      final args = routeData.argsAs<BookRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: BookScreen(
+          id: args.id,
+          key: args.key,
+        ),
       );
     },
     EmptyRouterHome.name: (routeData) {
@@ -90,16 +105,40 @@ abstract class _$AppRouter extends RootStackRouter {
 
 /// generated route for
 /// [AddBookScreen]
-class AddBookRoute extends PageRouteInfo<void> {
-  const AddBookRoute({List<PageRouteInfo>? children})
-      : super(
+class AddBookRoute extends PageRouteInfo<AddBookRouteArgs> {
+  AddBookRoute({
+    Key? key,
+    NewBook? book,
+    List<PageRouteInfo>? children,
+  }) : super(
           AddBookRoute.name,
+          args: AddBookRouteArgs(
+            key: key,
+            book: book,
+          ),
           initialChildren: children,
         );
 
   static const String name = 'AddBookRoute';
 
-  static const PageInfo<void> page = PageInfo<void>(name);
+  static const PageInfo<AddBookRouteArgs> page =
+      PageInfo<AddBookRouteArgs>(name);
+}
+
+class AddBookRouteArgs {
+  const AddBookRouteArgs({
+    this.key,
+    this.book,
+  });
+
+  final Key? key;
+
+  final NewBook? book;
+
+  @override
+  String toString() {
+    return 'AddBookRouteArgs{key: $key, book: $book}';
+  }
 }
 
 /// generated route for
@@ -152,6 +191,43 @@ class AuthRoute extends PageRouteInfo<void> {
   static const String name = 'AuthRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [BookScreen]
+class BookRoute extends PageRouteInfo<BookRouteArgs> {
+  BookRoute({
+    required int id,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          BookRoute.name,
+          args: BookRouteArgs(
+            id: id,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'BookRoute';
+
+  static const PageInfo<BookRouteArgs> page = PageInfo<BookRouteArgs>(name);
+}
+
+class BookRouteArgs {
+  const BookRouteArgs({
+    required this.id,
+    this.key,
+  });
+
+  final int id;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'BookRouteArgs{id: $id, key: $key}';
+  }
 }
 
 /// generated route for

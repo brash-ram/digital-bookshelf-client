@@ -1,3 +1,13 @@
 {
-  "imageUrl" : "http://10.0.2.2:8080/api/public/image/user/"
+  "imageUrl" : "http://10.0.2.2:8080/api/public/image/user/",
+  "allowedImageExtensions" : [
+    "jpg",
+    "jpeg",
+    "png"
+  ],
+  "allowedBookExtensions" : [
+    "fb2",
+    "epub",
+    "pdf"
+  ]
 }

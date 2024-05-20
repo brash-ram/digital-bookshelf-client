@@ -12,24 +12,24 @@ class AddBookSeriesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) =>
-      RepositoryProvider.value(
-        value: series ?? SimpleBookSeries(id: -1),
-        child: UnFocusKeyboardOutside(
-          child: Scaffold(
-            appBar: AppBar(
-              title: Text(
-                Translations.of(context).bookSeries.title,
-              ),
+    RepositoryProvider.value(
+      value: series ?? SimpleBookSeries(id: -1),
+      child: UnFocusKeyboardOutside(
+        child: Scaffold(
+          appBar: AppBar(
+            title: Text(
+              Translations.of(context).bookSeries.title,
             ),
-            body: const SafeArea(
-              child: Padding(
-                padding: EdgeInsets.all(smallestValue),
-                child: SingleChildScrollView(
-                  child: AddSeriesScreen(),
-                ),
+          ),
+          body: const SafeArea(
+            child: Padding(
+              padding: EdgeInsets.all(smallestValue),
+              child: SingleChildScrollView(
+                child: AddSeriesScreen(),
               ),
             ),
           ),
         ),
-      );
+      ),
+    );
 }

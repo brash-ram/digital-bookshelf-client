@@ -57,8 +57,11 @@ book:
   description: Описание
   tag: Тег
   genre: Жанр
+  tags: Теги
+  genres: Жанры
   priceType: Тип цены
   price: Цена
+  bookSeries: Цикл
 
 bookSeries:
   title: Цикл книг
@@ -76,13 +79,22 @@ enums:
     male: Мужской
     female: Женский
     notShow: Не показывать
+  priceType:
+    selling: Продажа
+    free: Бесплатно
 
 addBook:
   title: Добавить книгу
   changeTitle: Обновить книгу
-  bookFile: Выберите файл книги
+  addBookFile: Выбрать файл книги
+  addBookCover: Выбрать обложку для книги
+  changeBookFile: Изменить файл книги
+  changeBookCover: Изменить обложку для книги
+  bookUploaded: (Книга загружена)
+  imageExtensions: Доступные расширения изображений - JPG, JPEG, PNG
   bookExtensions: Доступные расширения файлов книг - FB2, EPUB, PDF
-  bookCover: Выберите обложку для книги
+  invalidBookExtension: Выбран файл с недоступным расширением
+  fail: Возникла ошибка при загрузке книги!
 
 profile:
   notAuthorized: Для доступа к профилю необходимо авторизоваться

@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:dart_mappable/dart_mappable.dart';
 import 'package:digital_bookshelf_client/api/api_exception.dart';
 import 'package:digital_bookshelf_client/api/auth_controller.dart';
@@ -7,7 +5,6 @@ import 'package:digital_bookshelf_client/data/data.dart';
 import 'package:digital_bookshelf_client/logging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-import 'package:http_parser/http_parser.dart';
 
 
 class Client {
@@ -162,12 +159,12 @@ class Client {
     .then((value) => value);
 
 
-  Future<T> postMultipart<T, B>(
-      String path,
-      File file, {
-        Map<String, String> queryParameters = const {},
-        Map<String, String> headers = const {},
-        // B? body,
+  Future<T> postMultipart<T>(
+      String path, {
+      required Uint8List fileContent,
+      required String field,
+      Map<String, String> queryParameters = const {},
+      Map<String, String> headers = const {},
       }
       ) async {
     // assert(body == null || file == null, 'Cannot supply both text body and bytes body');
@@ -181,10 +178,14 @@ class Client {
     request.headers.addAll(headers);
     authController.authorizeMultipartRequest(request);
 
-    final httpImage = http.MultipartFile.fromBytes('photos', await file.readAsBytes(),
-        contentType: MediaType.parse('image/png'), filename: file.path.split('/').last,);
-    request.files.add(httpImage);
+    final httpFile = http.MultipartFile.fromBytes(
+      field,
+      fileContent,
+    );
+    request.files.add(httpFile);
+
     final http.Response response;
+
     try {
       response = await http.Response.fromStream(await client.send(request));
     } on http.ClientException catch(exception) {
@@ -193,101 +194,43 @@ class Client {
         innerException: exception,
       );
     }
+
     try {
-      return MapperContainer.globals.fromJson<T>(response.body);
+      final data = MapperContainer.globals.fromJson<Response<T>>(response.body);
+      switch (data) {
+        case ResponseOk():
+          return data.result;
+        case ResponseEmpty():
+          return data.result;
+        case ResponseError(:final message, :final code):
+          throw ApiException.withResponse(
+            'Error $code: $message',
+            data,
+          );
+        case ResponseInvalid():
+          throw ApiException.withResponse(
+            'Invalid server response',
+            data,
+          );
+      }
     } on FormatException catch(exception) {
       throw ApiException<Never>(
         'Invalid server response',
         innerException: exception,
-        httpResponse: response,
       );
     } on MapperException catch(exception, stackTrace) {
       talker.verbose('Failed to decode server response.', exception, stackTrace);
       throw ApiException<Never>(
         'Invalid server response',
         innerException: exception,
-        httpResponse: response,
       );
     } on Exception catch(exception, stackTrace) {
       talker.verbose('Invalid server response', exception, stackTrace);
       throw ApiException<Never>(
         'Invalid server response',
         innerException: exception,
-        httpResponse: response,
       );
     }
   }
 
-
-// Future<Gallery> getGallery(int id) =>
-  //   _get('/gallery/$id');
-
-  // Future<Meme> createMeme({
-  //   required RequestBodyCreateMeme meme,
-  //   required AssetTemporaryTicket assetTicket,
-  //   required int galleryId,
-  // }) async =>
-  //   _post(
-  //     '/meme/create',
-  //     body: meme,
-  //     queryParameters: {
-  //       'asset': assetTicket.temporaryTicket,
-  //       'gallery_id': galleryId.toString(),
-  //     },
-  //   );
-  //
-  // Future<Meme> getMeme(int galleryId, int memeId) async =>
-  //   _get('/meme/${galleryId}_$memeId');
-  //
-  // Future<List<MemeTag>> getMemeTags(int galleryId, int memeId) =>
-  //   _get('/meme/${galleryId}_$memeId/tags');
-  //
-  // Future<List<MemeTag>> voteForMemeTag(int galleryId, int memeId, int tagId, VoteType? vote) =>
-  //   _post('/meme/${galleryId}_$memeId/vote/$tagId', body: RequestBodyVote(type: vote));
-  //
-  // Future<TenantProfile> getMyTenantProfile() =>
-  //   _get('/tenant/my_profile');
-  //
-  // Future<Tenant> getTenant(int id) =>
-  //   _get('/tenant/$id');
-  //
-  // Future<TenantProfile> getTenantProfile(int id) =>
-  //   _get('/tenant/$id/profile');
-  //
-  // Future<List<FeedItem>> getFeed(int offset, int limit, FeedType type) =>
-  //   _get(
-  //     type == FeedType.latest
-  //       ? '/feed/public'
-  //       : '/feed/recommended',
-  //     queryParameters: {
-  //       'offset': offset.toString(),
-  //       'limit': limit.toString(),
-  //     },
-  //   );
-  //
-  // Future<List<FeedItem>> getGalleryMemes(int galleryId, int offset, int limit) =>
-  //     _get(
-  //       '/feed/gallery/$galleryId',
-  //       queryParameters: {
-  //       'offset': offset.toString(),
-  //       'limit': limit.toString(),
-  //       },
-  //     );
-  //
-  // Future<List<AvailableGalleryName>> getAvailableGalleryNames() =>
-  //   _get('/gallery/available_names');
-  //
-  // Future<AssetTemporaryTicket> uploadAsset(Uint8List data, AssetType type) =>
-  //   _postBinary(
-  //     '/asset/upload',
-  //     bodyBytes: data,
-  //     queryParameters: const { 'type': 'IMAGE' },
-  //   );
-  //
-  // Uri getAssetUri(int assetId) => baseUri.replace(
-  //   path: '${baseUri.path}/asset/$assetId',
-  // );
-  //
-  // Future<AuthResult> auth(int telegramUserId, RequestBodyAuth bodyAuth) =>
-  //   _post('/service/tg/external_user/$telegramUserId/auth', body: bodyAuth);
 }

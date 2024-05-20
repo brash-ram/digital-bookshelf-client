@@ -1,7 +1,4 @@
 import 'package:digital_bookshelf_client/api/api.dart';
-import 'package:digital_bookshelf_client/api/api_client.dart';
-import 'package:digital_bookshelf_client/api/api_repository.dart';
-import 'package:digital_bookshelf_client/api/auth_controller.dart';
 import 'package:digital_bookshelf_client/api/client.dart';
 import 'package:digital_bookshelf_client/api/repository.dart';
 import 'package:digital_bookshelf_client/core/http/client_io.dart'
@@ -37,6 +34,7 @@ class MyApp extends StatelessWidget {
         RepositoryProvider(
           create: (context) => Client(
             baseUri: Uri.http('10.0.2.2:8080'),
+            // baseUri: Uri.http('10.0.2.2:8080'),
             // baseUri: Uri.http('127.0.0.1:8080', 'api/v1'),
             client: context.read(),
             authController: context.read(),

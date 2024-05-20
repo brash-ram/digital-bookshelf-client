@@ -1,7 +1,6 @@
 import 'package:auto_route/annotations.dart';
 import 'package:digital_bookshelf_client/bloc/book_series_bloc.dart';
 import 'package:digital_bookshelf_client/styles.dart';
-import 'package:digital_bookshelf_client/ui/screen/add_book_series/widget/add_series_body.dart';
 import 'package:digital_bookshelf_client/ui/screen/list_book_series/widget/list_book_series.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

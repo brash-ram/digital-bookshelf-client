@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 184 (92 per locale)
+/// Strings: 206 (103 per locale)
 ///
-/// Built on 2024-05-18 at 16:39 UTC
+/// Built on 2024-05-20 at 19:12 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -14,6 +14,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:slang/builder/model/node.dart';
 import 'package:slang_flutter/slang_flutter.dart';
+
 export 'package:slang_flutter/slang_flutter.dart';
 
 const AppLocale _baseLocale = AppLocale.en;
@@ -245,8 +246,11 @@ class _StringsBookEn {
 	String get description => 'Описание';
 	String get tag => 'Тег';
 	String get genre => 'Жанр';
+	String get tags => 'Теги';
+	String get genres => 'Жанры';
 	String get priceType => 'Тип цены';
 	String get price => 'Цена';
+	String get bookSeries => 'Цикл';
 }
 
 // Path: bookSeries
@@ -272,6 +276,7 @@ class _StringsEnumsEn {
 	// Translations
 	late final _StringsEnumsShowBirthTypeEn showBirthType = _StringsEnumsShowBirthTypeEn._(_root);
 	late final _StringsEnumsGenderEn gender = _StringsEnumsGenderEn._(_root);
+	late final _StringsEnumsPriceTypeEn priceType = _StringsEnumsPriceTypeEn._(_root);
 }
 
 // Path: addBook
@@ -283,9 +288,15 @@ class _StringsAddBookEn {
 	// Translations
 	String get title => 'Добавить книгу';
 	String get changeTitle => 'Обновить книгу';
-	String get bookFile => 'Выберите файл книги';
+	String get addBookFile => 'Выбрать файл книги';
+	String get addBookCover => 'Выбрать обложку для книги';
+	String get changeBookFile => 'Изменить файл книги';
+	String get changeBookCover => 'Изменить обложку для книги';
+	String get bookUploaded => '(Книга загружена)';
+	String get imageExtensions => 'Доступные расширения изображений - JPG, JPEG, PNG';
 	String get bookExtensions => 'Доступные расширения файлов книг - FB2, EPUB, PDF';
-	String get bookCover => 'Выберите обложку для книги';
+	String get invalidBookExtension => 'Выбран файл с недоступным расширением';
+	String get fail => 'Возникла ошибка при загрузке книги!';
 }
 
 // Path: profile
@@ -426,6 +437,17 @@ class _StringsEnumsGenderEn {
 	String get male => 'Мужской';
 	String get female => 'Женский';
 	String get notShow => 'Не показывать';
+}
+
+// Path: enums.priceType
+class _StringsEnumsPriceTypeEn {
+	_StringsEnumsPriceTypeEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get selling => 'Продажа';
+	String get free => 'Бесплатно';
 }
 
 // Path: profile.menu
@@ -633,8 +655,11 @@ class _StringsBookRu implements _StringsBookEn {
 	@override String get description => 'Описание';
 	@override String get tag => 'Тег';
 	@override String get genre => 'Жанр';
+	@override String get tags => 'Теги';
+	@override String get genres => 'Жанры';
 	@override String get priceType => 'Тип цены';
 	@override String get price => 'Цена';
+	@override String get bookSeries => 'Цикл';
 }
 
 // Path: bookSeries
@@ -660,6 +685,7 @@ class _StringsEnumsRu implements _StringsEnumsEn {
 	// Translations
 	@override late final _StringsEnumsShowBirthTypeRu showBirthType = _StringsEnumsShowBirthTypeRu._(_root);
 	@override late final _StringsEnumsGenderRu gender = _StringsEnumsGenderRu._(_root);
+	@override late final _StringsEnumsPriceTypeRu priceType = _StringsEnumsPriceTypeRu._(_root);
 }
 
 // Path: addBook
@@ -671,9 +697,15 @@ class _StringsAddBookRu implements _StringsAddBookEn {
 	// Translations
 	@override String get title => 'Добавить книгу';
 	@override String get changeTitle => 'Обновить книгу';
-	@override String get bookFile => 'Выберите файл книги';
+	@override String get addBookFile => 'Выбрать файл книги';
+	@override String get addBookCover => 'Выбрать обложку для книги';
+	@override String get changeBookFile => 'Изменить файл книги';
+	@override String get changeBookCover => 'Изменить обложку для книги';
+	@override String get bookUploaded => '(Книга загружена)';
+	@override String get imageExtensions => 'Доступные расширения изображений - JPG, JPEG, PNG';
 	@override String get bookExtensions => 'Доступные расширения файлов книг - FB2, EPUB, PDF';
-	@override String get bookCover => 'Выберите обложку для книги';
+	@override String get invalidBookExtension => 'Выбран файл с недоступным расширением';
+	@override String get fail => 'Возникла ошибка при загрузке книги!';
 }
 
 // Path: profile
@@ -816,6 +848,17 @@ class _StringsEnumsGenderRu implements _StringsEnumsGenderEn {
 	@override String get notShow => 'Не показывать';
 }
 
+// Path: enums.priceType
+class _StringsEnumsPriceTypeRu implements _StringsEnumsPriceTypeEn {
+	_StringsEnumsPriceTypeRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get selling => 'Продажа';
+	@override String get free => 'Бесплатно';
+}
+
 // Path: profile.menu
 class _StringsProfileMenuRu implements _StringsProfileMenuEn {
 	_StringsProfileMenuRu._(this._root);
@@ -949,8 +992,11 @@ extension on Translations {
 			case 'book.description': return 'Описание';
 			case 'book.tag': return 'Тег';
 			case 'book.genre': return 'Жанр';
+			case 'book.tags': return 'Теги';
+			case 'book.genres': return 'Жанры';
 			case 'book.priceType': return 'Тип цены';
 			case 'book.price': return 'Цена';
+			case 'book.bookSeries': return 'Цикл';
 			case 'bookSeries.title': return 'Цикл книг';
 			case 'bookSeries.listTitle': return 'Циклы книг';
 			case 'bookSeries.numberBooks': return 'Количество книг';
@@ -962,11 +1008,19 @@ extension on Translations {
 			case 'enums.gender.male': return 'Мужской';
 			case 'enums.gender.female': return 'Женский';
 			case 'enums.gender.notShow': return 'Не показывать';
+			case 'enums.priceType.selling': return 'Продажа';
+			case 'enums.priceType.free': return 'Бесплатно';
 			case 'addBook.title': return 'Добавить книгу';
 			case 'addBook.changeTitle': return 'Обновить книгу';
-			case 'addBook.bookFile': return 'Выберите файл книги';
+			case 'addBook.addBookFile': return 'Выбрать файл книги';
+			case 'addBook.addBookCover': return 'Выбрать обложку для книги';
+			case 'addBook.changeBookFile': return 'Изменить файл книги';
+			case 'addBook.changeBookCover': return 'Изменить обложку для книги';
+			case 'addBook.bookUploaded': return '(Книга загружена)';
+			case 'addBook.imageExtensions': return 'Доступные расширения изображений - JPG, JPEG, PNG';
 			case 'addBook.bookExtensions': return 'Доступные расширения файлов книг - FB2, EPUB, PDF';
-			case 'addBook.bookCover': return 'Выберите обложку для книги';
+			case 'addBook.invalidBookExtension': return 'Выбран файл с недоступным расширением';
+			case 'addBook.fail': return 'Возникла ошибка при загрузке книги!';
 			case 'profile.notAuthorized': return 'Для доступа к профилю необходимо авторизоваться';
 			case 'profile.goAuth': return 'Авторизоваться';
 			case 'profile.menu.personal.title': return 'Учетная запись';
@@ -1049,8 +1103,11 @@ extension on _StringsRu {
 			case 'book.description': return 'Описание';
 			case 'book.tag': return 'Тег';
 			case 'book.genre': return 'Жанр';
+			case 'book.tags': return 'Теги';
+			case 'book.genres': return 'Жанры';
 			case 'book.priceType': return 'Тип цены';
 			case 'book.price': return 'Цена';
+			case 'book.bookSeries': return 'Цикл';
 			case 'bookSeries.title': return 'Цикл книг';
 			case 'bookSeries.listTitle': return 'Циклы книг';
 			case 'bookSeries.numberBooks': return 'Количество книг';
@@ -1062,11 +1119,19 @@ extension on _StringsRu {
 			case 'enums.gender.male': return 'Мужской';
 			case 'enums.gender.female': return 'Женский';
 			case 'enums.gender.notShow': return 'Не показывать';
+			case 'enums.priceType.selling': return 'Продажа';
+			case 'enums.priceType.free': return 'Бесплатно';
 			case 'addBook.title': return 'Добавить книгу';
 			case 'addBook.changeTitle': return 'Обновить книгу';
-			case 'addBook.bookFile': return 'Выберите файл книги';
+			case 'addBook.addBookFile': return 'Выбрать файл книги';
+			case 'addBook.addBookCover': return 'Выбрать обложку для книги';
+			case 'addBook.changeBookFile': return 'Изменить файл книги';
+			case 'addBook.changeBookCover': return 'Изменить обложку для книги';
+			case 'addBook.bookUploaded': return '(Книга загружена)';
+			case 'addBook.imageExtensions': return 'Доступные расширения изображений - JPG, JPEG, PNG';
 			case 'addBook.bookExtensions': return 'Доступные расширения файлов книг - FB2, EPUB, PDF';
-			case 'addBook.bookCover': return 'Выберите обложку для книги';
+			case 'addBook.invalidBookExtension': return 'Выбран файл с недоступным расширением';
+			case 'addBook.fail': return 'Возникла ошибка при загрузке книги!';
 			case 'profile.notAuthorized': return 'Для доступа к профилю необходимо авторизоваться';
 			case 'profile.goAuth': return 'Авторизоваться';
 			case 'profile.menu.personal.title': return 'Учетная запись';

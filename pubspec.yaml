@@ -39,6 +39,7 @@ dependencies:
   lru_cache:
     git: https://github.com/Zekfad/lru_cache
   flutter_blurhash: ^0.8.2
+  flutter_awesome_select: ^6.5.0
 
 dev_dependencies:
   flutter_test:

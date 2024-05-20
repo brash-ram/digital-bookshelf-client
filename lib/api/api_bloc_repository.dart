@@ -45,4 +45,28 @@ class ApiBlocRepository {
         authorId,
       );
 
+  Future<void> fetchBooks(int authorId) =>
+      repository.wrapFetchCall(
+        (id) async => id == -1 ? client.myBooks() : client.getBooksByAuthor(id),
+        authorId,
+      );
+
+  Stream<List<BookSeries>> getBooks(int authorId) =>
+      repository.createDataStream(
+        (id) async => fetchBooks(id),
+        authorId,
+      );
+
+  Future<void> fetchTags() =>
+      repository.wrapFetchCall(
+        (id) async => client.getAllTags(),
+        -2,
+      );
+
+  Stream<List<String>> getTags() =>
+      repository.createDataStream(
+        (id) async => fetchTags(),
+        -2,
+      );
+
 }

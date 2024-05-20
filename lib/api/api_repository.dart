@@ -89,4 +89,17 @@ class ApiRepository {
 
   Future<bool> deleteBookSeries(int id) async =>
     repository.sendVoidRequest(() => client.deleteBookSeries(id));
+
+  Future<int> addBook(NewBook book, BookFiles files) async {
+    final imageId = await client.uploadImageFile(files.coverFile);
+    book
+      ..cover = imageId
+      ..extension = files.bookFile.extension;
+
+    final bookId = await client.addBook(book);
+
+    await client.uploadBookFile(files.bookFile, bookId);
+
+    return bookId;
+  }
 }

@@ -65,7 +65,7 @@ class PersonalDataRefsForm extends StatelessWidget {
               final result = await context.read<ApiRepository>().changeUserRefs(refs);
               if (context.mounted) {
                 if (result) {
-                  await AutoRouter.of(context).pop();
+                  await AutoRouter.of(context).maybePop();
                 } else {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
