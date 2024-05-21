@@ -28,6 +28,7 @@ utils:
   save: Сохранить
   cancel: Отмена
   becomeAuthor: Стать автором
+  price: Цена
   datePicker:
     helpText: Выберете день рождения
     confirmText: Сохранить
@@ -104,6 +105,7 @@ profile:
       title: Учетная запись
       main: Основная информация
       contact: Контакты
+      logout: Выйти из аккаунта
     admin:
       title: Администрирование
       genres: Список жанров
@@ -142,3 +144,6 @@ genre:
   newGenre: Новый жанр
   title: Жанр
   menuTitle: Список жанров
+
+currency:
+  RUB: ₽

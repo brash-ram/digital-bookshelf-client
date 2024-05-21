@@ -9,17 +9,14 @@ class ProfileMenuBody extends StatelessWidget {
   const ProfileMenuBody({super.key});
 
   @override
-  Widget build(BuildContext context) => ModelBlocDataSelector<UserInfoBloc, UserInfo, UserInfo>(
-    selector: (e) => e,
-    builder: (context, data) => const SingleChildScrollView(
-      child: Column(
-        children: [
-          SizedBox(height: bigValue,),
-          ProfileMenuHeader(),
-          SizedBox(height: biggestValue,),
-          ProfileMenuList(),
-        ],
-      ),
+  Widget build(BuildContext context) => const SingleChildScrollView(
+    child: Column(
+      children: [
+        SizedBox(height: bigValue,),
+        ProfileMenuHeader(),
+        SizedBox(height: biggestValue,),
+        ProfileMenuList(),
+      ],
     ),
   );
 }

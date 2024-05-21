@@ -52,9 +52,12 @@ class _AuthFormState extends State<AuthForm> {
                 final result = await context.read<ApiRepository>().signIn(
                   email,
                   password,
+                  context
                 );
                 if (context.mounted) {
+                  final c = context.read<AuthController>();
                   if (result) {
+                    AutoRouter.of(context).removeUntil((route) => true);
                     await AutoRouter.of(context).replace(const HomeRoute());
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
@@ -84,9 +87,11 @@ class _AuthFormState extends State<AuthForm> {
                 final result = await context.read<ApiRepository>().signUp(
                   email,
                   password,
+                  context
                 );
                 if (context.mounted) {
                   if (result) {
+                    AutoRouter.of(context).removeUntil((route) => true);
                     await AutoRouter.of(context).replace(const HomeRoute());
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(

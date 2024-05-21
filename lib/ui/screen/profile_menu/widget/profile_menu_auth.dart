@@ -19,8 +19,10 @@ class ProfileMenuAuth extends StatelessWidget {
         ),
         const SizedBox(height: defaultValue,),
         ElevatedButton(
-          onPressed: () async =>
-              AutoRouter.of(context).replaceAll([const AuthRoute()]),
+          onPressed: () async {
+            AutoRouter.of(context).removeUntil((route) => true);
+            await AutoRouter.of(context).push(const AuthRoute());
+          },
           child: Text(
             Translations.of(context).profile.goAuth,
             style: Theme.of(context).textTheme.titleLarge,

@@ -5,6 +5,7 @@ import 'package:digital_bookshelf_client/ui/screen/add_book/add_book_screen.dart
 import 'package:digital_bookshelf_client/ui/screen/add_book_series/add_book_series_screen.dart';
 import 'package:digital_bookshelf_client/ui/screen/auth/auth_screen.dart';
 import 'package:digital_bookshelf_client/ui/screen/book/book_screen.dart';
+import 'package:digital_bookshelf_client/ui/screen/book_list/book_list_screen.dart';
 import 'package:digital_bookshelf_client/ui/screen/genre_list/genre_list_screen.dart';
 import 'package:digital_bookshelf_client/ui/screen/home/home_screen.dart';
 import 'package:digital_bookshelf_client/ui/screen/list_book_series/list_book_series_screen.dart';
@@ -28,13 +29,14 @@ class AppRouter extends _$AppRouter {
       initial: true,
       children: [
         AutoRoute(page: EmptyRouterHome.page, path: 'menu', children: [
-          AutoRoute(page: ProfileMenuRoute.page, path: ''),
+          AutoRoute(page: ProfileMenuRoute.page, path: '', initial: true),
           AutoRoute(page: PersonalDataRoute.page, path: 'personal'),
           AutoRoute(page: PersonalDataRefsRoute.page, path: 'personal_refs'),
           AutoRoute(page: GenreListRoute.page, path: 'genres'),
           AutoRoute(page: AddBookSeriesRoute.page, path: 'addBookSeries'),
           AutoRoute(page: ListBookSeriesRoute.page, path: 'bookSeries'),
           AutoRoute(page: AddBookRoute.page, path: 'addBook'),
+          AutoRoute(page: BookListRoute.page, path: 'books'),
         ],
         ),
       ],

@@ -30,9 +30,9 @@ class TokenStorage {
     return accessToken != null;
   }
 
-  Future<void> removeTokens() {
-    secureStorage.remove(key: accessToken,);
-    return secureStorage.remove(key: refreshToken,);
+  Future<void> removeTokens() async {
+    await secureStorage.remove(key: accessToken,);
+    await secureStorage.remove(key: refreshToken,);
   }
 
   Future<void> clear() => Future.wait([

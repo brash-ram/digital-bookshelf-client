@@ -96,9 +96,9 @@ class ApiClient {
         },
       );
 
-  Future<List<Book>> myBooks() async => client.get(getMyBooksPath,);
+  Future<List<BookListItem>> myBooks() async => client.get(getMyBooksPath,);
 
-  Future<List<Book>> getBooksByAuthor(int authorId) async => client.get('$getAuthorBooksPath/$authorId',);
+  Future<List<BookListItem>> getBooksByAuthor(int authorId) async => client.get('$getAuthorBooksPath/$authorId',);
 
   Future<Book> getBook(int id) async => client.get('$getBookPath/$id',);
 

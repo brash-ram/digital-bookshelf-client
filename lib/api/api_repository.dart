@@ -1,18 +1,21 @@
-import 'package:digital_bookshelf_client/api/api_client.dart';
+import 'package:digital_bookshelf_client/api/api.dart';
 import 'package:digital_bookshelf_client/api/repository.dart';
 import 'package:digital_bookshelf_client/core/storages/token_storage.dart';
 import 'package:digital_bookshelf_client/data/data.dart';
 import 'package:digital_bookshelf_client/data/user/personal_data_refs.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ApiRepository {
 
-  ApiRepository(this.repository, this.client, this.tokenStorage);
+  ApiRepository(this.repository, this.client, this.tokenStorage, this.controller);
 
   final Repository repository;
   final ApiClient client;
   final TokenStorage tokenStorage;
+  final AuthController controller;
 
-  Future<bool> signIn(String username, String password) async {
+  Future<bool> signIn(String username, String password, BuildContext context) async {
     late JwtTokens response;
     try {
       response = await client.signIn(username, password);
@@ -23,12 +26,13 @@ class ApiRepository {
     await tokenStorage.storeAccessToken(response.accessToken);
     await tokenStorage.storeRefreshToken(response.refreshToken);
 
-    client.client.authController.token = response.accessToken;
+    if (context.mounted)
+      context.read<AuthController>().token = response.accessToken;
 
     return Future.value(true);
   }
 
-  Future<bool> signUp(String username, String password) async {
+  Future<bool> signUp(String username, String password, BuildContext context) async {
     late JwtTokens response;
     try {
       response = await client.signUp(username, password);
@@ -39,7 +43,7 @@ class ApiRepository {
     await tokenStorage.storeAccessToken(response.accessToken);
     await tokenStorage.storeRefreshToken(response.refreshToken);
 
-    client.client.authController.token = response.accessToken;
+    controller.token = response.accessToken;
 
     return Future.value(true);
   }

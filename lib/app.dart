@@ -22,8 +22,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) => MultiRepositoryProvider(
       providers: [
-        RepositoryProvider.value(
-          value: AuthController(),
+        RepositoryProvider(
+          create: (context) => AuthController(),
         ),
         RepositoryProvider(
           create: (context) => createClient(),
@@ -50,7 +50,12 @@ class MyApp extends StatelessWidget {
           create: (context) => ApiClient(context.read()),
         ),
         RepositoryProvider(
-          create: (context) => ApiRepository(context.read(), context.read(), context.read()),
+          create: (context) => ApiRepository(
+              context.read(),
+              context.read(),
+              context.read(),
+              context.read(),
+          ),
         ),
         RepositoryProvider(
           create: (context) => ApiBlocRepository(context.read(), context.read()),

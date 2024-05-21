@@ -13,7 +13,6 @@ class NewBookMapper extends ClassMapperBase<NewBook> {
   static NewBookMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = NewBookMapper._());
-      PriceTypeMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -23,61 +22,51 @@ class NewBookMapper extends ClassMapperBase<NewBook> {
 
   static int _$id(NewBook v) => v.id;
   static const Field<NewBook, int> _f$id =
-      Field('id', _$id, opt: true, def: -1);
+      Field('id', _$id, mode: FieldMode.member);
   static int _$cover(NewBook v) => v.cover;
   static const Field<NewBook, int> _f$cover =
-      Field('cover', _$cover, opt: true, def: -1);
-  static List<String> _$genres(NewBook v) => v.genres;
-  static const Field<NewBook, List<String>> _f$genres =
-      Field('genres', _$genres, opt: true, def: const []);
-  static List<String> _$tags(NewBook v) => v.tags;
-  static const Field<NewBook, List<String>> _f$tags =
-      Field('tags', _$tags, opt: true, def: const []);
-  static int _$seriesId(NewBook v) => v.seriesId;
-  static const Field<NewBook, int> _f$seriesId =
-      Field('seriesId', _$seriesId, opt: true, def: -1);
-  static String _$name(NewBook v) => v.name;
-  static const Field<NewBook, String> _f$name =
-      Field('name', _$name, opt: true, def: '');
+      Field('cover', _$cover, mode: FieldMode.member);
   static String _$extension(NewBook v) => v.extension;
   static const Field<NewBook, String> _f$extension =
-      Field('extension', _$extension, opt: true, def: '');
+      Field('extension', _$extension, mode: FieldMode.member);
+  static List<String> _$genres(NewBook v) => v.genres;
+  static const Field<NewBook, List<String>> _f$genres =
+      Field('genres', _$genres, mode: FieldMode.member);
+  static List<String> _$tags(NewBook v) => v.tags;
+  static const Field<NewBook, List<String>> _f$tags =
+      Field('tags', _$tags, mode: FieldMode.member);
+  static int _$seriesId(NewBook v) => v.seriesId;
+  static const Field<NewBook, int> _f$seriesId =
+      Field('seriesId', _$seriesId, mode: FieldMode.member);
+  static String _$name(NewBook v) => v.name;
+  static const Field<NewBook, String> _f$name =
+      Field('name', _$name, mode: FieldMode.member);
   static String _$description(NewBook v) => v.description;
   static const Field<NewBook, String> _f$description =
-      Field('description', _$description, opt: true, def: '');
+      Field('description', _$description, mode: FieldMode.member);
   static PriceType _$priceType(NewBook v) => v.priceType;
   static const Field<NewBook, PriceType> _f$priceType =
-      Field('priceType', _$priceType, opt: true, def: PriceType.selling);
+      Field('priceType', _$priceType, mode: FieldMode.member);
   static int _$price(NewBook v) => v.price;
   static const Field<NewBook, int> _f$price =
-      Field('price', _$price, opt: true, def: 0);
+      Field('price', _$price, mode: FieldMode.member);
 
   @override
   final MappableFields<NewBook> fields = const {
     #id: _f$id,
     #cover: _f$cover,
+    #extension: _f$extension,
     #genres: _f$genres,
     #tags: _f$tags,
     #seriesId: _f$seriesId,
     #name: _f$name,
-    #extension: _f$extension,
     #description: _f$description,
     #priceType: _f$priceType,
     #price: _f$price,
   };
 
   static NewBook _instantiate(DecodingData data) {
-    return NewBook(
-        id: data.dec(_f$id),
-        cover: data.dec(_f$cover),
-        genres: data.dec(_f$genres),
-        tags: data.dec(_f$tags),
-        seriesId: data.dec(_f$seriesId),
-        name: data.dec(_f$name),
-        extension: data.dec(_f$extension),
-        description: data.dec(_f$description),
-        priceType: data.dec(_f$priceType),
-        price: data.dec(_f$price));
+    return NewBook();
   }
 
   @override
@@ -129,19 +118,7 @@ extension NewBookValueCopy<$R, $Out> on ObjectCopyWith<$R, NewBook, $Out> {
 
 abstract class NewBookCopyWith<$R, $In extends NewBook, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
-  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get genres;
-  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get tags;
-  $R call(
-      {int? id,
-      int? cover,
-      List<String>? genres,
-      List<String>? tags,
-      int? seriesId,
-      String? name,
-      String? extension,
-      String? description,
-      PriceType? priceType,
-      int? price});
+  $R call();
   NewBookCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -154,49 +131,9 @@ class _NewBookCopyWithImpl<$R, $Out>
   late final ClassMapperBase<NewBook> $mapper =
       NewBookMapper.ensureInitialized();
   @override
-  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get genres =>
-      ListCopyWith($value.genres, (v, t) => ObjectCopyWith(v, $identity, t),
-          (v) => call(genres: v));
+  $R call() => $apply(FieldCopyWithData({}));
   @override
-  ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get tags =>
-      ListCopyWith($value.tags, (v, t) => ObjectCopyWith(v, $identity, t),
-          (v) => call(tags: v));
-  @override
-  $R call(
-          {int? id,
-          int? cover,
-          List<String>? genres,
-          List<String>? tags,
-          int? seriesId,
-          String? name,
-          String? extension,
-          String? description,
-          PriceType? priceType,
-          int? price}) =>
-      $apply(FieldCopyWithData({
-        if (id != null) #id: id,
-        if (cover != null) #cover: cover,
-        if (genres != null) #genres: genres,
-        if (tags != null) #tags: tags,
-        if (seriesId != null) #seriesId: seriesId,
-        if (name != null) #name: name,
-        if (extension != null) #extension: extension,
-        if (description != null) #description: description,
-        if (priceType != null) #priceType: priceType,
-        if (price != null) #price: price
-      }));
-  @override
-  NewBook $make(CopyWithData data) => NewBook(
-      id: data.get(#id, or: $value.id),
-      cover: data.get(#cover, or: $value.cover),
-      genres: data.get(#genres, or: $value.genres),
-      tags: data.get(#tags, or: $value.tags),
-      seriesId: data.get(#seriesId, or: $value.seriesId),
-      name: data.get(#name, or: $value.name),
-      extension: data.get(#extension, or: $value.extension),
-      description: data.get(#description, or: $value.description),
-      priceType: data.get(#priceType, or: $value.priceType),
-      price: data.get(#price, or: $value.price));
+  NewBook $make(CopyWithData data) => NewBook();
 
   @override
   NewBookCopyWith<$R2, NewBook, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t) =>

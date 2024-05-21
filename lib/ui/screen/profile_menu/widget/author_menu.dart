@@ -23,7 +23,7 @@ class AuthorMenu extends StatelessWidget {
         ),
       ),
       ProfileMenuListItem(
-        onPressed: () async => AutoRouter.of(context).navigate(const GenreListRoute()),
+        onPressed: () async => AutoRouter.of(context).navigate(BookListRoute()),
         icon: const Icon(Icons.library_books),
         text: Translations.of(context).profile.menu.author.books,
       ),

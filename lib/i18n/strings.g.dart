@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 206 (103 per locale)
+/// Strings: 212 (106 per locale)
 ///
-/// Built on 2024-05-20 at 19:12 UTC
+/// Built on 2024-05-20 at 21:51 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -14,7 +14,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:slang/builder/model/node.dart';
 import 'package:slang_flutter/slang_flutter.dart';
-
 export 'package:slang_flutter/slang_flutter.dart';
 
 const AppLocale _baseLocale = AppLocale.en;
@@ -162,6 +161,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final _StringsPersonalDataEn personalData = _StringsPersonalDataEn._(_root);
 	late final _StringsAuthEn auth = _StringsAuthEn._(_root);
 	late final _StringsGenreEn genre = _StringsGenreEn._(_root);
+	late final _StringsCurrencyEn currency = _StringsCurrencyEn._(_root);
 }
 
 // Path: app
@@ -218,6 +218,7 @@ class _StringsUtilsEn {
 	String get save => 'Сохранить';
 	String get cancel => 'Отмена';
 	String get becomeAuthor => 'Стать автором';
+	String get price => 'Цена';
 	late final _StringsUtilsDatePickerEn datePicker = _StringsUtilsDatePickerEn._(_root);
 }
 
@@ -350,6 +351,16 @@ class _StringsGenreEn {
 	String get newGenre => 'Новый жанр';
 	String get title => 'Жанр';
 	String get menuTitle => 'Список жанров';
+}
+
+// Path: currency
+class _StringsCurrencyEn {
+	_StringsCurrencyEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get RUB => '₽';
 }
 
 // Path: alert.unavailable
@@ -495,6 +506,7 @@ class _StringsProfileMenuPersonalEn {
 	String get title => 'Учетная запись';
 	String get main => 'Основная информация';
 	String get contact => 'Контакты';
+	String get logout => 'Выйти из аккаунта';
 }
 
 // Path: profile.menu.admin
@@ -571,6 +583,7 @@ class _StringsRu implements Translations {
 	@override late final _StringsPersonalDataRu personalData = _StringsPersonalDataRu._(_root);
 	@override late final _StringsAuthRu auth = _StringsAuthRu._(_root);
 	@override late final _StringsGenreRu genre = _StringsGenreRu._(_root);
+	@override late final _StringsCurrencyRu currency = _StringsCurrencyRu._(_root);
 }
 
 // Path: app
@@ -627,6 +640,7 @@ class _StringsUtilsRu implements _StringsUtilsEn {
 	@override String get save => 'Сохранить';
 	@override String get cancel => 'Отмена';
 	@override String get becomeAuthor => 'Стать автором';
+	@override String get price => 'Цена';
 	@override late final _StringsUtilsDatePickerRu datePicker = _StringsUtilsDatePickerRu._(_root);
 }
 
@@ -759,6 +773,16 @@ class _StringsGenreRu implements _StringsGenreEn {
 	@override String get newGenre => 'Новый жанр';
 	@override String get title => 'Жанр';
 	@override String get menuTitle => 'Список жанров';
+}
+
+// Path: currency
+class _StringsCurrencyRu implements _StringsCurrencyEn {
+	_StringsCurrencyRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get RUB => '₽';
 }
 
 // Path: alert.unavailable
@@ -904,6 +928,7 @@ class _StringsProfileMenuPersonalRu implements _StringsProfileMenuPersonalEn {
 	@override String get title => 'Учетная запись';
 	@override String get main => 'Основная информация';
 	@override String get contact => 'Контакты';
+	@override String get logout => 'Выйти из аккаунта';
 }
 
 // Path: profile.menu.admin
@@ -970,6 +995,7 @@ extension on Translations {
 			case 'utils.save': return 'Сохранить';
 			case 'utils.cancel': return 'Отмена';
 			case 'utils.becomeAuthor': return 'Стать автором';
+			case 'utils.price': return 'Цена';
 			case 'utils.datePicker.helpText': return 'Выберете день рождения';
 			case 'utils.datePicker.confirmText': return 'Сохранить';
 			case 'utils.datePicker.errorFormatText': return 'Дата не входит в допустимый диапазон';
@@ -1026,6 +1052,7 @@ extension on Translations {
 			case 'profile.menu.personal.title': return 'Учетная запись';
 			case 'profile.menu.personal.main': return 'Основная информация';
 			case 'profile.menu.personal.contact': return 'Контакты';
+			case 'profile.menu.personal.logout': return 'Выйти из аккаунта';
 			case 'profile.menu.admin.title': return 'Администрирование';
 			case 'profile.menu.admin.genres': return 'Список жанров';
 			case 'profile.menu.author.title': return 'Возможности автора';
@@ -1052,6 +1079,7 @@ extension on Translations {
 			case 'genre.newGenre': return 'Новый жанр';
 			case 'genre.title': return 'Жанр';
 			case 'genre.menuTitle': return 'Список жанров';
+			case 'currency.RUB': return '₽';
 			default: return null;
 		}
 	}
@@ -1081,6 +1109,7 @@ extension on _StringsRu {
 			case 'utils.save': return 'Сохранить';
 			case 'utils.cancel': return 'Отмена';
 			case 'utils.becomeAuthor': return 'Стать автором';
+			case 'utils.price': return 'Цена';
 			case 'utils.datePicker.helpText': return 'Выберете день рождения';
 			case 'utils.datePicker.confirmText': return 'Сохранить';
 			case 'utils.datePicker.errorFormatText': return 'Дата не входит в допустимый диапазон';
@@ -1137,6 +1166,7 @@ extension on _StringsRu {
 			case 'profile.menu.personal.title': return 'Учетная запись';
 			case 'profile.menu.personal.main': return 'Основная информация';
 			case 'profile.menu.personal.contact': return 'Контакты';
+			case 'profile.menu.personal.logout': return 'Выйти из аккаунта';
 			case 'profile.menu.admin.title': return 'Администрирование';
 			case 'profile.menu.admin.genres': return 'Список жанров';
 			case 'profile.menu.author.title': return 'Возможности автора';
@@ -1163,6 +1193,7 @@ extension on _StringsRu {
 			case 'genre.newGenre': return 'Новый жанр';
 			case 'genre.title': return 'Жанр';
 			case 'genre.menuTitle': return 'Список жанров';
+			case 'currency.RUB': return '₽';
 			default: return null;
 		}
 	}

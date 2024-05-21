@@ -51,7 +51,7 @@ class ApiBlocRepository {
         authorId,
       );
 
-  Stream<List<BookSeries>> getBooks(int authorId) =>
+  Stream<List<BookListItem>> getBooks(int authorId) =>
       repository.createDataStream(
         (id) async => fetchBooks(id),
         authorId,

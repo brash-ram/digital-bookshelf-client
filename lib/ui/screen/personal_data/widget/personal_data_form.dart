@@ -125,7 +125,9 @@ class PersonalDataForm extends StatelessWidget {
                 final result = await context.read<ApiRepository>().changeUserInfo(model);
                 if (context.mounted) {
                   if (result) {
-                    await AutoRouter.of(context).maybePop();
+                    await context.read<UserInfoBloc>().update();
+                    if (context.mounted)
+                      await AutoRouter.of(context).maybePop();
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
