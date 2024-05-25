@@ -59,6 +59,9 @@ class UserInfoMapper extends ClassMapperBase<UserInfo> {
   static String? _$refEmail(UserInfo v) => v.refEmail;
   static const Field<UserInfo, String> _f$refEmail =
       Field('refEmail', _$refEmail, opt: true);
+  static int? _$authorInfoId(UserInfo v) => v.authorInfoId;
+  static const Field<UserInfo, int> _f$authorInfoId =
+      Field('authorInfoId', _$authorInfoId, opt: true);
 
   @override
   final MappableFields<UserInfo> fields = const {
@@ -75,6 +78,7 @@ class UserInfoMapper extends ClassMapperBase<UserInfo> {
     #refTg: _f$refTg,
     #refSite: _f$refSite,
     #refEmail: _f$refEmail,
+    #authorInfoId: _f$authorInfoId,
   };
 
   static UserInfo _instantiate(DecodingData data) {
@@ -91,7 +95,8 @@ class UserInfoMapper extends ClassMapperBase<UserInfo> {
         refVk: data.dec(_f$refVk),
         refTg: data.dec(_f$refTg),
         refSite: data.dec(_f$refSite),
-        refEmail: data.dec(_f$refEmail));
+        refEmail: data.dec(_f$refEmail),
+        authorInfoId: data.dec(_f$authorInfoId));
   }
 
   @override
@@ -158,7 +163,8 @@ abstract class UserInfoCopyWith<$R, $In extends UserInfo, $Out>
       String? refVk,
       String? refTg,
       String? refSite,
-      String? refEmail});
+      String? refEmail,
+      int? authorInfoId});
   UserInfoCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -191,7 +197,8 @@ class _UserInfoCopyWithImpl<$R, $Out>
           Object? refVk = $none,
           Object? refTg = $none,
           Object? refSite = $none,
-          Object? refEmail = $none}) =>
+          Object? refEmail = $none,
+          Object? authorInfoId = $none}) =>
       $apply(FieldCopyWithData({
         if (id != null) #id: id,
         if (profileImage != null) #profileImage: profileImage,
@@ -205,7 +212,8 @@ class _UserInfoCopyWithImpl<$R, $Out>
         if (refVk != $none) #refVk: refVk,
         if (refTg != $none) #refTg: refTg,
         if (refSite != $none) #refSite: refSite,
-        if (refEmail != $none) #refEmail: refEmail
+        if (refEmail != $none) #refEmail: refEmail,
+        if (authorInfoId != $none) #authorInfoId: authorInfoId
       }));
   @override
   UserInfo $make(CopyWithData data) => UserInfo(
@@ -221,7 +229,8 @@ class _UserInfoCopyWithImpl<$R, $Out>
       refVk: data.get(#refVk, or: $value.refVk),
       refTg: data.get(#refTg, or: $value.refTg),
       refSite: data.get(#refSite, or: $value.refSite),
-      refEmail: data.get(#refEmail, or: $value.refEmail));
+      refEmail: data.get(#refEmail, or: $value.refEmail),
+      authorInfoId: data.get(#authorInfoId, or: $value.authorInfoId));
 
   @override
   UserInfoCopyWith<$R2, UserInfo, $Out2> $chain<$R2, $Out2>(

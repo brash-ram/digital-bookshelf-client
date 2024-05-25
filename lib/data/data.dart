@@ -4,6 +4,7 @@ library data.all;
 import 'package:dart_mappable/dart_mappable.dart';
 
 export 'api/response.dart';
+export 'author/author_info.dart';
 export 'book/book.dart';
 export 'book/book_files.dart';
 export 'book/book_list_item.dart';

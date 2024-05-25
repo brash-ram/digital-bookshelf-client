@@ -18,7 +18,7 @@ class AddBookScreen extends StatelessWidget {
       MultiRepositoryProvider(
         providers: [
           RepositoryProvider.value(
-            value: book ?? NewBook(),
+            value: book ?? NewBook(genres: [], tags: []),
           ),
           RepositoryProvider.value(
             value: BookFiles(),

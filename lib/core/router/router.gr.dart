@@ -111,6 +111,17 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const ProfileMenuScreen(),
       );
     },
+    ProfileRoute.name: (routeData) {
+      final args = routeData.argsAs<ProfileRouteArgs>(
+          orElse: () => const ProfileRouteArgs());
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: ProfileScreen(
+          key: args.key,
+          userId: args.userId,
+        ),
+      );
+    },
   };
 }
 
@@ -399,4 +410,42 @@ class ProfileMenuRoute extends PageRouteInfo<void> {
   static const String name = 'ProfileMenuRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [ProfileScreen]
+class ProfileRoute extends PageRouteInfo<ProfileRouteArgs> {
+  ProfileRoute({
+    Key? key,
+    int? userId,
+    List<PageRouteInfo>? children,
+  }) : super(
+          ProfileRoute.name,
+          args: ProfileRouteArgs(
+            key: key,
+            userId: userId,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'ProfileRoute';
+
+  static const PageInfo<ProfileRouteArgs> page =
+      PageInfo<ProfileRouteArgs>(name);
+}
+
+class ProfileRouteArgs {
+  const ProfileRouteArgs({
+    this.key,
+    this.userId,
+  });
+
+  final Key? key;
+
+  final int? userId;
+
+  @override
+  String toString() {
+    return 'ProfileRouteArgs{key: $key, userId: $userId}';
+  }
 }

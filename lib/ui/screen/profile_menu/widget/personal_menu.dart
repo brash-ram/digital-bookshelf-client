@@ -25,6 +25,11 @@ class PersonalMenu extends StatelessWidget {
         ),
       ),
       ProfileMenuListItem(
+        onPressed: () async => AutoRouter.of(context).navigate(ProfileRoute()),
+        icon: const Icon(Icons.person),
+        text: Translations.of(context).profile.menu.personal.myProfile,
+      ),
+      ProfileMenuListItem(
         onPressed: () async => AutoRouter.of(context).navigate(const PersonalDataRoute()),
         icon: const Icon(Icons.settings),
         text: Translations.of(context).profile.menu.personal.main,

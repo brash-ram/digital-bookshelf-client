@@ -11,6 +11,7 @@ import 'package:digital_bookshelf_client/ui/screen/home/home_screen.dart';
 import 'package:digital_bookshelf_client/ui/screen/list_book_series/list_book_series_screen.dart';
 import 'package:digital_bookshelf_client/ui/screen/personal_data/personal_data_screen.dart';
 import 'package:digital_bookshelf_client/ui/screen/personal_data_refs/personal_data_refs_screen.dart';
+import 'package:digital_bookshelf_client/ui/screen/profile/profile_screen.dart';
 import 'package:digital_bookshelf_client/ui/screen/profile_menu/profile_menu_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -37,6 +38,8 @@ class AppRouter extends _$AppRouter {
           AutoRoute(page: ListBookSeriesRoute.page, path: 'bookSeries'),
           AutoRoute(page: AddBookRoute.page, path: 'addBook'),
           AutoRoute(page: BookListRoute.page, path: 'books'),
+          AutoRoute(page: BookRoute.page, path: 'book'),
+          AutoRoute(page: ProfileRoute.page, path: 'profile'),
         ],
         ),
       ],

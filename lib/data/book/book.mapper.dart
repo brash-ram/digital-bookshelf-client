@@ -13,8 +13,9 @@ class BookMapper extends ClassMapperBase<Book> {
   static BookMapper ensureInitialized() {
     if (_instance == null) {
       MapperContainer.globals.use(_instance = BookMapper._());
-      SimpleBookSeriesMapper.ensureInitialized();
+      ImageModelMapper.ensureInitialized();
       PriceTypeMapper.ensureInitialized();
+      SimpleBookSeriesMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -28,17 +29,14 @@ class BookMapper extends ClassMapperBase<Book> {
   static const Field<Book, int> _f$authorId = Field('authorId', _$authorId);
   static String _$name(Book v) => v.name;
   static const Field<Book, String> _f$name = Field('name', _$name);
-  static int _$coverId(Book v) => v.coverId;
-  static const Field<Book, int> _f$coverId = Field('coverId', _$coverId);
+  static ImageModel _$cover(Book v) => v.cover;
+  static const Field<Book, ImageModel> _f$cover = Field('cover', _$cover);
   static List<String> _$genreNames(Book v) => v.genreNames;
   static const Field<Book, List<String>> _f$genreNames =
       Field('genreNames', _$genreNames);
   static List<String> _$tagNames(Book v) => v.tagNames;
   static const Field<Book, List<String>> _f$tagNames =
       Field('tagNames', _$tagNames);
-  static SimpleBookSeries _$series(Book v) => v.series;
-  static const Field<Book, SimpleBookSeries> _f$series =
-      Field('series', _$series);
   static String _$description(Book v) => v.description;
   static const Field<Book, String> _f$description =
       Field('description', _$description);
@@ -53,21 +51,24 @@ class BookMapper extends ClassMapperBase<Book> {
   static DateTime _$createdAt(Book v) => v.createdAt;
   static const Field<Book, DateTime> _f$createdAt =
       Field('createdAt', _$createdAt);
+  static SimpleBookSeries? _$series(Book v) => v.series;
+  static const Field<Book, SimpleBookSeries> _f$series =
+      Field('series', _$series, opt: true);
 
   @override
   final MappableFields<Book> fields = const {
     #id: _f$id,
     #authorId: _f$authorId,
     #name: _f$name,
-    #coverId: _f$coverId,
+    #cover: _f$cover,
     #genreNames: _f$genreNames,
     #tagNames: _f$tagNames,
-    #series: _f$series,
     #description: _f$description,
     #priceType: _f$priceType,
     #price: _f$price,
     #lastUpdate: _f$lastUpdate,
     #createdAt: _f$createdAt,
+    #series: _f$series,
   };
 
   static Book _instantiate(DecodingData data) {
@@ -75,15 +76,15 @@ class BookMapper extends ClassMapperBase<Book> {
         id: data.dec(_f$id),
         authorId: data.dec(_f$authorId),
         name: data.dec(_f$name),
-        coverId: data.dec(_f$coverId),
+        cover: data.dec(_f$cover),
         genreNames: data.dec(_f$genreNames),
         tagNames: data.dec(_f$tagNames),
-        series: data.dec(_f$series),
         description: data.dec(_f$description),
         priceType: data.dec(_f$priceType),
         price: data.dec(_f$price),
         lastUpdate: data.dec(_f$lastUpdate),
-        createdAt: data.dec(_f$createdAt));
+        createdAt: data.dec(_f$createdAt),
+        series: data.dec(_f$series));
   }
 
   @override
@@ -132,22 +133,23 @@ extension BookValueCopy<$R, $Out> on ObjectCopyWith<$R, Book, $Out> {
 
 abstract class BookCopyWith<$R, $In extends Book, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
+  ImageModelCopyWith<$R, ImageModel, ImageModel> get cover;
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get genreNames;
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get tagNames;
-  SimpleBookSeriesCopyWith<$R, SimpleBookSeries, SimpleBookSeries> get series;
+  SimpleBookSeriesCopyWith<$R, SimpleBookSeries, SimpleBookSeries>? get series;
   $R call(
       {int? id,
       int? authorId,
       String? name,
-      int? coverId,
+      ImageModel? cover,
       List<String>? genreNames,
       List<String>? tagNames,
-      SimpleBookSeries? series,
       String? description,
       PriceType? priceType,
       int? price,
       DateTime? lastUpdate,
-      DateTime? createdAt});
+      DateTime? createdAt,
+      SimpleBookSeries? series});
   BookCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
 
@@ -158,6 +160,9 @@ class _BookCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Book, $Out>
   @override
   late final ClassMapperBase<Book> $mapper = BookMapper.ensureInitialized();
   @override
+  ImageModelCopyWith<$R, ImageModel, ImageModel> get cover =>
+      $value.cover.copyWith.$chain((v) => call(cover: v));
+  @override
   ListCopyWith<$R, String, ObjectCopyWith<$R, String, String>> get genreNames =>
       ListCopyWith($value.genreNames, (v, t) => ObjectCopyWith(v, $identity, t),
           (v) => call(genreNames: v));
@@ -166,50 +171,50 @@ class _BookCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Book, $Out>
       ListCopyWith($value.tagNames, (v, t) => ObjectCopyWith(v, $identity, t),
           (v) => call(tagNames: v));
   @override
-  SimpleBookSeriesCopyWith<$R, SimpleBookSeries, SimpleBookSeries> get series =>
-      $value.series.copyWith.$chain((v) => call(series: v));
+  SimpleBookSeriesCopyWith<$R, SimpleBookSeries, SimpleBookSeries>?
+      get series => $value.series?.copyWith.$chain((v) => call(series: v));
   @override
   $R call(
           {int? id,
           int? authorId,
           String? name,
-          int? coverId,
+          ImageModel? cover,
           List<String>? genreNames,
           List<String>? tagNames,
-          SimpleBookSeries? series,
           String? description,
           PriceType? priceType,
           int? price,
           DateTime? lastUpdate,
-          DateTime? createdAt}) =>
+          DateTime? createdAt,
+          Object? series = $none}) =>
       $apply(FieldCopyWithData({
         if (id != null) #id: id,
         if (authorId != null) #authorId: authorId,
         if (name != null) #name: name,
-        if (coverId != null) #coverId: coverId,
+        if (cover != null) #cover: cover,
         if (genreNames != null) #genreNames: genreNames,
         if (tagNames != null) #tagNames: tagNames,
-        if (series != null) #series: series,
         if (description != null) #description: description,
         if (priceType != null) #priceType: priceType,
         if (price != null) #price: price,
         if (lastUpdate != null) #lastUpdate: lastUpdate,
-        if (createdAt != null) #createdAt: createdAt
+        if (createdAt != null) #createdAt: createdAt,
+        if (series != $none) #series: series
       }));
   @override
   Book $make(CopyWithData data) => Book(
       id: data.get(#id, or: $value.id),
       authorId: data.get(#authorId, or: $value.authorId),
       name: data.get(#name, or: $value.name),
-      coverId: data.get(#coverId, or: $value.coverId),
+      cover: data.get(#cover, or: $value.cover),
       genreNames: data.get(#genreNames, or: $value.genreNames),
       tagNames: data.get(#tagNames, or: $value.tagNames),
-      series: data.get(#series, or: $value.series),
       description: data.get(#description, or: $value.description),
       priceType: data.get(#priceType, or: $value.priceType),
       price: data.get(#price, or: $value.price),
       lastUpdate: data.get(#lastUpdate, or: $value.lastUpdate),
-      createdAt: data.get(#createdAt, or: $value.createdAt));
+      createdAt: data.get(#createdAt, or: $value.createdAt),
+      series: data.get(#series, or: $value.series));
 
   @override
   BookCopyWith<$R2, Book, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t) =>

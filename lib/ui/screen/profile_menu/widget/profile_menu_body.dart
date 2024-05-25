@@ -14,7 +14,7 @@ class ProfileMenuBody extends StatelessWidget {
       children: [
         SizedBox(height: bigValue,),
         ProfileMenuHeader(),
-        SizedBox(height: biggestValue,),
+        SizedBox(height: bigValue,),
         ProfileMenuList(),
       ],
     ),

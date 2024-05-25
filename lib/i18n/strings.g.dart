@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 212 (106 per locale)
+/// Strings: 222 (111 per locale)
 ///
-/// Built on 2024-05-20 at 21:51 UTC
+/// Built on 2024-05-25 at 08:02 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -309,6 +309,10 @@ class _StringsProfileEn {
 	// Translations
 	String get notAuthorized => 'Для доступа к профилю необходимо авторизоваться';
 	String get goAuth => 'Авторизоваться';
+	String get profileTab => 'Профиль';
+	String get libraryTab => 'Библиотека';
+	String get booksTab => 'Произведения';
+	String get bookSeriesTab => 'Серии книг';
 	late final _StringsProfileMenuEn menu = _StringsProfileMenuEn._(_root);
 }
 
@@ -504,6 +508,7 @@ class _StringsProfileMenuPersonalEn {
 
 	// Translations
 	String get title => 'Учетная запись';
+	String get myProfile => 'Мой профиль';
 	String get main => 'Основная информация';
 	String get contact => 'Контакты';
 	String get logout => 'Выйти из аккаунта';
@@ -731,6 +736,10 @@ class _StringsProfileRu implements _StringsProfileEn {
 	// Translations
 	@override String get notAuthorized => 'Для доступа к профилю необходимо авторизоваться';
 	@override String get goAuth => 'Авторизоваться';
+	@override String get profileTab => 'Профиль';
+	@override String get libraryTab => 'Библиотека';
+	@override String get booksTab => 'Произведения';
+	@override String get bookSeriesTab => 'Серии книг';
 	@override late final _StringsProfileMenuRu menu = _StringsProfileMenuRu._(_root);
 }
 
@@ -926,6 +935,7 @@ class _StringsProfileMenuPersonalRu implements _StringsProfileMenuPersonalEn {
 
 	// Translations
 	@override String get title => 'Учетная запись';
+	@override String get myProfile => 'Мой профиль';
 	@override String get main => 'Основная информация';
 	@override String get contact => 'Контакты';
 	@override String get logout => 'Выйти из аккаунта';
@@ -1049,7 +1059,12 @@ extension on Translations {
 			case 'addBook.fail': return 'Возникла ошибка при загрузке книги!';
 			case 'profile.notAuthorized': return 'Для доступа к профилю необходимо авторизоваться';
 			case 'profile.goAuth': return 'Авторизоваться';
+			case 'profile.profileTab': return 'Профиль';
+			case 'profile.libraryTab': return 'Библиотека';
+			case 'profile.booksTab': return 'Произведения';
+			case 'profile.bookSeriesTab': return 'Серии книг';
 			case 'profile.menu.personal.title': return 'Учетная запись';
+			case 'profile.menu.personal.myProfile': return 'Мой профиль';
 			case 'profile.menu.personal.main': return 'Основная информация';
 			case 'profile.menu.personal.contact': return 'Контакты';
 			case 'profile.menu.personal.logout': return 'Выйти из аккаунта';
@@ -1163,7 +1178,12 @@ extension on _StringsRu {
 			case 'addBook.fail': return 'Возникла ошибка при загрузке книги!';
 			case 'profile.notAuthorized': return 'Для доступа к профилю необходимо авторизоваться';
 			case 'profile.goAuth': return 'Авторизоваться';
+			case 'profile.profileTab': return 'Профиль';
+			case 'profile.libraryTab': return 'Библиотека';
+			case 'profile.booksTab': return 'Произведения';
+			case 'profile.bookSeriesTab': return 'Серии книг';
 			case 'profile.menu.personal.title': return 'Учетная запись';
+			case 'profile.menu.personal.myProfile': return 'Мой профиль';
 			case 'profile.menu.personal.main': return 'Основная информация';
 			case 'profile.menu.personal.contact': return 'Контакты';
 			case 'profile.menu.personal.logout': return 'Выйти из аккаунта';

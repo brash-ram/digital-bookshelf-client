@@ -10,10 +10,10 @@ class UserInfoBloc extends ModelBloc<UserInfo> {
   final int? id;
 
   @override
-  Stream<UserInfo> get dataStream => repository.getMyProfile();
+  Stream<UserInfo> get dataStream => repository.getUserProfile(id ?? -1);
 
   @override
-  Future<void> fetchNewData() async => repository.fetchMyProfile();
+  Future<void> fetchNewData() async => repository.fetchUserProfile(id ?? -1);
 
   bool hasRole(Role role) {
     if (state is BlocStateData) {

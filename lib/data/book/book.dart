@@ -10,23 +10,23 @@ class Book with BookMappable {
     required this.id,
     required this.authorId,
     required this.name,
-    required this.coverId,
+    required this.cover,
     required this.genreNames,
     required this.tagNames,
-    required this.series,
     required this.description,
     required this.priceType,
     required this.price,
     required this.lastUpdate,
     required this.createdAt,
+    this.series,
   });
 
   final int id;
   final int authorId;
-  final int coverId;
+  final ImageModel cover;
   final List<String> genreNames;
   final List<String> tagNames;
-  final SimpleBookSeries series;
+  final SimpleBookSeries? series;
   final String name;
   final String description;
   final PriceType priceType;

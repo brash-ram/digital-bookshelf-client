@@ -9,16 +9,16 @@ class ApiBlocRepository {
   final Repository repository;
   final ApiClient client;
 
-  Future<void> fetchMyProfile() =>
+  Future<void> fetchUserProfile(int userId) =>
       repository.wrapFetchCall(
-        (id) async => client.getMyProfileInfo(),
-        -1,
+        (id) async => id == -1 ? client.getMyProfileInfo() : client.getUserInfo(id),
+        userId,
       );
 
-  Stream<UserInfo> getMyProfile() =>
+  Stream<UserInfo> getUserProfile(int userId) =>
       repository.createDataStream(
-        (id) async => fetchMyProfile(),
-        -1,
+        (id) async => fetchUserProfile(id),
+        userId,
       );
 
   Future<void> fetchGenres() =>
@@ -60,13 +60,37 @@ class ApiBlocRepository {
   Future<void> fetchTags() =>
       repository.wrapFetchCall(
         (id) async => client.getAllTags(),
-        -2,
+        -1,
       );
 
   Stream<List<String>> getTags() =>
       repository.createDataStream(
         (id) async => fetchTags(),
-        -2,
+        -1,
+      );
+
+  Future<void> fetchBook(int id) =>
+      repository.wrapFetchCall(
+        (id) async => client.getBook(id),
+        id,
+      );
+
+  Stream<Book> getBook(int id) =>
+      repository.createDataStream(
+        (id) async => fetchBook(id),
+        id,
+      );
+
+  Future<void> fetchAuthorInfo(int id) =>
+      repository.wrapFetchCall(
+        (id) async => client.getAuthorInfo(id),
+        id,
+      );
+
+  Stream<AuthorInfo> getAuthorInfo(int id) =>
+      repository.createDataStream(
+        (id) async => fetchAuthorInfo(id),
+        id,
       );
 
 }

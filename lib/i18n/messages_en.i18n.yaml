@@ -100,9 +100,14 @@ addBook:
 profile:
   notAuthorized: Для доступа к профилю необходимо авторизоваться
   goAuth: Авторизоваться
+  profileTab: Профиль
+  libraryTab: Библиотека
+  booksTab: Произведения
+  bookSeriesTab: Серии книг
   menu:
     personal:
       title: Учетная запись
+      myProfile: Мой профиль
       main: Основная информация
       contact: Контакты
       logout: Выйти из аккаунта

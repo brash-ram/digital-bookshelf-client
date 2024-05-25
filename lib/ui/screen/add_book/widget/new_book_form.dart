@@ -33,7 +33,7 @@ class NewBookForm extends StatelessWidget {
     }
 
     if (context.mounted) {
-      await AutoRouter.of(context).navigate(BookRoute(id: bookId));
+      await AutoRouter.of(context).replace(BookRoute(id: bookId));
     }
   }
 

@@ -7,17 +7,29 @@ part 'new_book.mapper.dart';
 @MappableClass()
 class NewBook with NewBookMappable {
 
-  int id = -1;
+  NewBook({
+    required this.genres,
+    required this.tags,
+    this.id = -1,
+    this.cover = -1,
+    this.seriesId = -1,
+    this.name = '',
+    this.extension = '',
+    this.description = '',
+    this.priceType = PriceType.selling,
+    this.price = 0,
+  });
+  int id;
 
-  int cover = -1;
-  String extension = '';
+  int cover;
+  String extension;
 
-  List<String> genres = [];
-  List<String> tags = [];
+  List<String> genres;
+  List<String> tags;
 
-  int seriesId = -1;
-  String name = '';
-  String description = '';
-  PriceType priceType = PriceType.selling;
-  int price = 0;
+  int seriesId;
+  String name;
+  String description;
+  PriceType priceType;
+  int price;
 }

@@ -20,6 +20,7 @@ class UserInfo with UserInfoMappable {
     this.refTg,
     this.refSite,
     this.refEmail,
+    this.authorInfoId,
   });
 
   final int id;
@@ -47,4 +48,6 @@ class UserInfo with UserInfoMappable {
   final String? refSite;
 
   final String? refEmail;
+
+  final int? authorInfoId;
 }

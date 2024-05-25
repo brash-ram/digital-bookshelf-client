@@ -6,8 +6,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class BookItemHeader extends StatelessWidget {
-  const BookItemHeader({super.key});
+class BookItemBody extends StatelessWidget {
+  const BookItemBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +48,7 @@ class BookItemHeader extends StatelessWidget {
             ),
           ],
         ),
-      )
+      ),
     ],
   );
   }

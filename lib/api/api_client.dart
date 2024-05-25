@@ -12,6 +12,9 @@ class ApiClient {
   Future<UserInfo> getMyProfileInfo() async =>
       client.get(myProfilePath);
 
+  Future<UserInfo> getUserInfo(int id) async =>
+      client.get('$getUserInfoPath$id');
+
   Future<JwtTokens> signIn(String username, String password) async => client.post(
       signInPath,
       body: {
@@ -65,9 +68,9 @@ class ApiClient {
 
   Future<List<BookSeries>> myBookSeries() async => client.get(mySeriesPath,);
 
-  Future<List<BookSeries>> getBookSeriesByAuthor(int authorId) async => client.get('$getSeriesPath/$authorId',);
+  Future<List<BookSeries>> getBookSeriesByAuthor(int authorId) async => client.get('$getSeriesByAuthorPath$authorId',);
 
-  Future<BookSeries> getBookSeries(int id) async => client.get('$bookSeriesPath/$id',);
+  Future<BookSeries> getBookSeries(int id) async => client.get('$bookSeriesPath$id',);
 
   Future<void> deleteBookSeries(int id) async =>
       client.post(
@@ -100,7 +103,7 @@ class ApiClient {
 
   Future<List<BookListItem>> getBooksByAuthor(int authorId) async => client.get('$getAuthorBooksPath/$authorId',);
 
-  Future<Book> getBook(int id) async => client.get('$getBookPath/$id',);
+  Future<Book> getBook(int id) async => client.get('$getBookPath$id',);
 
   Future<int> addBook(NewBook book) async =>
       client.post(
@@ -125,5 +128,9 @@ class ApiClient {
     queryParameters: {
       'extension' : file.extension,
     },
+  );
+
+  Future<AuthorInfo> getAuthorInfo(int id) async => client.get(
+    '$getAuthorInfoPath$id',
   );
 }
