@@ -1,5 +1,7 @@
 import 'package:digital_bookshelf_client/api/api_client.dart';
 import 'package:digital_bookshelf_client/api/repository.dart';
+import 'package:digital_bookshelf_client/bloc/purchased_book_bloc.dart';
+import 'package:digital_bookshelf_client/data/book/purchased_book.dart';
 import 'package:digital_bookshelf_client/data/data.dart';
 
 class ApiBlocRepository {
@@ -60,13 +62,13 @@ class ApiBlocRepository {
   Future<void> fetchTags() =>
       repository.wrapFetchCall(
         (id) async => client.getAllTags(),
-        -1,
+        -2,
       );
 
   Stream<List<String>> getTags() =>
       repository.createDataStream(
         (id) async => fetchTags(),
-        -1,
+        -2,
       );
 
   Future<void> fetchBook(int id) =>
@@ -91,6 +93,30 @@ class ApiBlocRepository {
       repository.createDataStream(
         (id) async => fetchAuthorInfo(id),
         id,
+      );
+
+  Future<void> fetchLibrary(int authorId) =>
+      repository.wrapFetchCall(
+        (id) async => id < 0 ? client.getMyLibrary() : client.getUserLibrary(id),
+        authorId,
+      );
+
+  Stream<List<BookListItem>> getLibrary(int authorId) =>
+      repository.createDataStream(
+        (id) async => fetchLibrary(id),
+        authorId,
+      );
+
+  Future<void> fetchPurchasedBooks() =>
+      repository.wrapFetchCall(
+        (id) async => client.getPurchasedBooks(),
+        -1,
+      );
+
+  Stream<List<PurchasedBook>> getPurchasedBooks() =>
+      repository.createDataStream(
+        (id) async => fetchPurchasedBooks(),
+        -1,
       );
 
 }

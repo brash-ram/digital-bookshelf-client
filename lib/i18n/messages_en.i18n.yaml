@@ -63,6 +63,10 @@ book:
   priceType: Тип цены
   price: Цена
   bookSeries: Цикл
+  addToLibrary: Добавить в библиотеку
+  buy: Купить
+  isInLibrary: Уже в библиотеке
+  download: Скачать
 
 bookSeries:
   title: Цикл книг
@@ -111,6 +115,8 @@ profile:
       main: Основная информация
       contact: Контакты
       logout: Выйти из аккаунта
+      myLibrary: Моя библиотека
+      myPurchased: Мои купленные книги
     admin:
       title: Администрирование
       genres: Список жанров

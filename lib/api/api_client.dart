@@ -133,4 +133,27 @@ class ApiClient {
   Future<AuthorInfo> getAuthorInfo(int id) async => client.get(
     '$getAuthorInfoPath$id',
   );
+
+  Future<void> addToLibrary(int id) async => client.post(
+    addToLibraryPath,
+    queryParameters: {
+      'id' : id.toString(),
+    }
+  );
+
+  Future<void> buyBook(int id) async => client.post(
+      '$buyBookPath$id',
+  );
+
+  Future<List<BookListItem>> getMyLibrary() async => client.get(
+    getMyLibraryPath,
+  );
+
+  Future<List<BookListItem>> getUserLibrary(int authorId) async => client.get(
+    '$getAuthorLibraryPath$authorId',
+  );
+
+  Future<List<PurchasedBook>> getPurchasedBooks() async => client.get(
+    myPurchasedBooksPath,
+  );
 }

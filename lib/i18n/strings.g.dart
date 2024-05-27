@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 222 (111 per locale)
+/// Strings: 234 (117 per locale)
 ///
-/// Built on 2024-05-25 at 08:02 UTC
+/// Built on 2024-05-27 at 21:32 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -252,6 +252,10 @@ class _StringsBookEn {
 	String get priceType => 'Тип цены';
 	String get price => 'Цена';
 	String get bookSeries => 'Цикл';
+	String get addToLibrary => 'Добавить в библиотеку';
+	String get buy => 'Купить';
+	String get isInLibrary => 'Уже в библиотеке';
+	String get download => 'Скачать';
 }
 
 // Path: bookSeries
@@ -512,6 +516,8 @@ class _StringsProfileMenuPersonalEn {
 	String get main => 'Основная информация';
 	String get contact => 'Контакты';
 	String get logout => 'Выйти из аккаунта';
+	String get myLibrary => 'Моя библиотека';
+	String get myPurchased => 'Мои купленные книги';
 }
 
 // Path: profile.menu.admin
@@ -679,6 +685,10 @@ class _StringsBookRu implements _StringsBookEn {
 	@override String get priceType => 'Тип цены';
 	@override String get price => 'Цена';
 	@override String get bookSeries => 'Цикл';
+	@override String get addToLibrary => 'Добавить в библиотеку';
+	@override String get buy => 'Купить';
+	@override String get isInLibrary => 'Уже в библиотеке';
+	@override String get download => 'Скачать';
 }
 
 // Path: bookSeries
@@ -939,6 +949,8 @@ class _StringsProfileMenuPersonalRu implements _StringsProfileMenuPersonalEn {
 	@override String get main => 'Основная информация';
 	@override String get contact => 'Контакты';
 	@override String get logout => 'Выйти из аккаунта';
+	@override String get myLibrary => 'Моя библиотека';
+	@override String get myPurchased => 'Мои купленные книги';
 }
 
 // Path: profile.menu.admin
@@ -1033,6 +1045,10 @@ extension on Translations {
 			case 'book.priceType': return 'Тип цены';
 			case 'book.price': return 'Цена';
 			case 'book.bookSeries': return 'Цикл';
+			case 'book.addToLibrary': return 'Добавить в библиотеку';
+			case 'book.buy': return 'Купить';
+			case 'book.isInLibrary': return 'Уже в библиотеке';
+			case 'book.download': return 'Скачать';
 			case 'bookSeries.title': return 'Цикл книг';
 			case 'bookSeries.listTitle': return 'Циклы книг';
 			case 'bookSeries.numberBooks': return 'Количество книг';
@@ -1068,6 +1084,8 @@ extension on Translations {
 			case 'profile.menu.personal.main': return 'Основная информация';
 			case 'profile.menu.personal.contact': return 'Контакты';
 			case 'profile.menu.personal.logout': return 'Выйти из аккаунта';
+			case 'profile.menu.personal.myLibrary': return 'Моя библиотека';
+			case 'profile.menu.personal.myPurchased': return 'Мои купленные книги';
 			case 'profile.menu.admin.title': return 'Администрирование';
 			case 'profile.menu.admin.genres': return 'Список жанров';
 			case 'profile.menu.author.title': return 'Возможности автора';
@@ -1152,6 +1170,10 @@ extension on _StringsRu {
 			case 'book.priceType': return 'Тип цены';
 			case 'book.price': return 'Цена';
 			case 'book.bookSeries': return 'Цикл';
+			case 'book.addToLibrary': return 'Добавить в библиотеку';
+			case 'book.buy': return 'Купить';
+			case 'book.isInLibrary': return 'Уже в библиотеке';
+			case 'book.download': return 'Скачать';
 			case 'bookSeries.title': return 'Цикл книг';
 			case 'bookSeries.listTitle': return 'Циклы книг';
 			case 'bookSeries.numberBooks': return 'Количество книг';
@@ -1187,6 +1209,8 @@ extension on _StringsRu {
 			case 'profile.menu.personal.main': return 'Основная информация';
 			case 'profile.menu.personal.contact': return 'Контакты';
 			case 'profile.menu.personal.logout': return 'Выйти из аккаунта';
+			case 'profile.menu.personal.myLibrary': return 'Моя библиотека';
+			case 'profile.menu.personal.myPurchased': return 'Мои купленные книги';
 			case 'profile.menu.admin.title': return 'Администрирование';
 			case 'profile.menu.admin.genres': return 'Список жанров';
 			case 'profile.menu.author.title': return 'Возможности автора';

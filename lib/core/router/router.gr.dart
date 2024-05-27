@@ -64,10 +64,34 @@ abstract class _$AppRouter extends RootStackRouter {
         ),
       );
     },
+    EmptyRouterGenre.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const EmptyRouterGenrePage(),
+      );
+    },
     EmptyRouterHome.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const EmptyRouterHomePage(),
+      );
+    },
+    EmptyRouterLibrary.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const EmptyRouterLibraryPage(),
+      );
+    },
+    EmptyRouterProfile.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const EmptyRouterProfilePage(),
+      );
+    },
+    GenreListBooksRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const GenreListBooksScreen(),
       );
     },
     GenreListRoute.name: (routeData) {
@@ -91,6 +115,18 @@ abstract class _$AppRouter extends RootStackRouter {
           key: args.key,
           authorId: args.authorId,
         ),
+      );
+    },
+    MyLibraryRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MyLibraryScreen(),
+      );
+    },
+    MyPurchasedBooksRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const MyPurchasedBooksScreen(),
       );
     },
     PersonalDataRefsRoute.name: (routeData) {
@@ -291,6 +327,20 @@ class BookRouteArgs {
 }
 
 /// generated route for
+/// [EmptyRouterGenrePage]
+class EmptyRouterGenre extends PageRouteInfo<void> {
+  const EmptyRouterGenre({List<PageRouteInfo>? children})
+      : super(
+          EmptyRouterGenre.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'EmptyRouterGenre';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
 /// [EmptyRouterHomePage]
 class EmptyRouterHome extends PageRouteInfo<void> {
   const EmptyRouterHome({List<PageRouteInfo>? children})
@@ -300,6 +350,48 @@ class EmptyRouterHome extends PageRouteInfo<void> {
         );
 
   static const String name = 'EmptyRouterHome';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [EmptyRouterLibraryPage]
+class EmptyRouterLibrary extends PageRouteInfo<void> {
+  const EmptyRouterLibrary({List<PageRouteInfo>? children})
+      : super(
+          EmptyRouterLibrary.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'EmptyRouterLibrary';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [EmptyRouterProfilePage]
+class EmptyRouterProfile extends PageRouteInfo<void> {
+  const EmptyRouterProfile({List<PageRouteInfo>? children})
+      : super(
+          EmptyRouterProfile.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'EmptyRouterProfile';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [GenreListBooksScreen]
+class GenreListBooksRoute extends PageRouteInfo<void> {
+  const GenreListBooksRoute({List<PageRouteInfo>? children})
+      : super(
+          GenreListBooksRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'GenreListBooksRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -368,6 +460,34 @@ class ListBookSeriesRouteArgs {
   String toString() {
     return 'ListBookSeriesRouteArgs{key: $key, authorId: $authorId}';
   }
+}
+
+/// generated route for
+/// [MyLibraryScreen]
+class MyLibraryRoute extends PageRouteInfo<void> {
+  const MyLibraryRoute({List<PageRouteInfo>? children})
+      : super(
+          MyLibraryRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MyLibraryRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [MyPurchasedBooksScreen]
+class MyPurchasedBooksRoute extends PageRouteInfo<void> {
+  const MyPurchasedBooksRoute({List<PageRouteInfo>? children})
+      : super(
+          MyPurchasedBooksRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'MyPurchasedBooksRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

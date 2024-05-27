@@ -10,45 +10,31 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) => AutoTabsScaffold(
     routes: const [
       ProfileMenuRoute(),
+      GenreListBooksRoute(),
+      MyLibraryRoute(),
       ProfileMenuRoute(),
     ],
     bottomNavigationBuilder: (_, tabsRouter) => BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       currentIndex: tabsRouter.activeIndex,
       onTap: tabsRouter.setActiveIndex,
-      // selectedItemColor: primary,
-      // unselectedItemColor: black,
-      // selectedLabelStyle: Theme.of(context).textTheme.labelSmall?.copyWith(
-      //     color: primary
-      // ),
-      // unselectedLabelStyle: Theme.of(context).textTheme.labelSmall,
       items: [
         _buildBarItem(
             Icons.home,
             'Главная',
         ),
         _buildBarItem(
+            Icons.list,
+            'Жанры',
+        ),
+        _buildBarItem(
+            Icons.my_library_books_rounded,
+            'Библиотека',
+        ),
+        _buildBarItem(
             Icons.person,
             'Профиль',
         ),
-        // CustomBottomNavigationBarItem.build(
-        //     catalog, "Главная", context
-        // ),
-        // CustomBottomNavigationBarItem.build(
-        //     catalog, "Каталог", context
-        // ),
-        // CustomBottomNavigationBarItem.build(
-        //     megaphone, "Объявления", context
-        // ),
-        // CustomBottomNavigationBarItem.build(
-        //     heartEmpty, "Избранное", context
-        // ),
-        // CustomBottomNavigationBarItem.build(
-        //     cart, "Корзина", context
-        // ),
-        // CustomBottomNavigationBarItem.build(
-        //     user, "Профиль", context
-        // )
       ],
     ),
   );

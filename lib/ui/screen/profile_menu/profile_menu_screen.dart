@@ -19,7 +19,6 @@ class ProfileMenuScreen extends StatelessWidget {
             padding: const EdgeInsets.all(smallestValue),
             child: Builder(
               builder: (context) {
-                final c = context.read<AuthController>();
                 if (context.read<AuthController>().hasAuth) {
                   return BlocProvider.value(
                     value: UserInfoBloc(repository: context.read()),

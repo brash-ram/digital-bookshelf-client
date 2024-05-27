@@ -26,5 +26,10 @@ const uploadImageFilePath = '/api/private/image/book';
 const getBookPath = '/api/public/book/';
 const getMyBooksPath = '/api/private/book/my';
 const getAuthorBooksPath = '/api/private/book/author/';
+const addToLibraryPath = '/api/private/book/library/add';
+const getMyLibraryPath = '/api/private/book/library/my';
+const getAuthorLibraryPath = '/api/public/book/library/author/';
+const buyBookPath = '/api/private/book/buy/';
+const myPurchasedBooksPath = '/api/private/book/purchased';
 
 const getTagsPath = '/api/public/tag/all';

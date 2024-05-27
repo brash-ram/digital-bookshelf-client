@@ -9,6 +9,7 @@ export 'book/book.dart';
 export 'book/book_files.dart';
 export 'book/book_list_item.dart';
 export 'book/new_book.dart';
+export 'book/purchased_book.dart';
 export 'book_series/book_series.dart';
 export 'book_series/simple_book_series.dart';
 export 'enum/enums.dart';

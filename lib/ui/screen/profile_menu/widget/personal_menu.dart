@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:digital_bookshelf_client/core/router/router.dart';
 import 'package:digital_bookshelf_client/core/storages/token_storage.dart';
 import 'package:digital_bookshelf_client/styles.dart';
 import 'package:digital_bookshelf_client/ui/screen/profile_menu/widget/profile_menu_list_item.dart';
@@ -28,6 +29,16 @@ class PersonalMenu extends StatelessWidget {
         onPressed: () async => AutoRouter.of(context).navigate(ProfileRoute()),
         icon: const Icon(Icons.person),
         text: Translations.of(context).profile.menu.personal.myProfile,
+      ),
+      ProfileMenuListItem(
+        onPressed: () async => AutoRouter.of(context).navigate(const MyLibraryRoute()),
+        icon: const Icon(Icons.library_books),
+        text: Translations.of(context).profile.menu.personal.myLibrary,
+      ),
+      ProfileMenuListItem(
+        onPressed: () async => AutoRouter.of(context).navigate(const MyPurchasedBooksRoute()),
+        icon: const Icon(Icons.library_books_outlined),
+        text: Translations.of(context).profile.menu.personal.myPurchased,
       ),
       ProfileMenuListItem(
         onPressed: () async => AutoRouter.of(context).navigate(const PersonalDataRoute()),

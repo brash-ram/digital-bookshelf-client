@@ -7,8 +7,11 @@ import 'package:digital_bookshelf_client/ui/screen/auth/auth_screen.dart';
 import 'package:digital_bookshelf_client/ui/screen/book/book_screen.dart';
 import 'package:digital_bookshelf_client/ui/screen/book_list/book_list_screen.dart';
 import 'package:digital_bookshelf_client/ui/screen/genre_list/genre_list_screen.dart';
+import 'package:digital_bookshelf_client/ui/screen/genre_list_books/genre_list_books_screen.dart';
 import 'package:digital_bookshelf_client/ui/screen/home/home_screen.dart';
 import 'package:digital_bookshelf_client/ui/screen/list_book_series/list_book_series_screen.dart';
+import 'package:digital_bookshelf_client/ui/screen/my_library/my_library_screen.dart';
+import 'package:digital_bookshelf_client/ui/screen/my_purchased_books/my_purchased_books_screen.dart';
 import 'package:digital_bookshelf_client/ui/screen/personal_data/personal_data_screen.dart';
 import 'package:digital_bookshelf_client/ui/screen/personal_data_refs/personal_data_refs_screen.dart';
 import 'package:digital_bookshelf_client/ui/screen/profile/profile_screen.dart';
@@ -38,6 +41,35 @@ class AppRouter extends _$AppRouter {
           AutoRoute(page: ListBookSeriesRoute.page, path: 'bookSeries'),
           AutoRoute(page: AddBookRoute.page, path: 'addBook'),
           AutoRoute(page: BookListRoute.page, path: 'books'),
+          AutoRoute(page: BookRoute.page, path: 'book'),
+          AutoRoute(page: ProfileRoute.page, path: 'profile'),
+          AutoRoute(page: MyLibraryRoute.page, path: 'library'),
+          AutoRoute(page: MyPurchasedBooksRoute.page, path: 'purchased'),
+        ],
+        ),
+        AutoRoute(page: EmptyRouterProfile.page, path: 'profile', children: [
+          AutoRoute(page: ProfileMenuRoute.page, path: '', initial: true),
+          AutoRoute(page: PersonalDataRoute.page, path: 'personal'),
+          AutoRoute(page: PersonalDataRefsRoute.page, path: 'personal_refs'),
+          AutoRoute(page: GenreListRoute.page, path: 'genres'),
+          AutoRoute(page: AddBookSeriesRoute.page, path: 'addBookSeries'),
+          AutoRoute(page: ListBookSeriesRoute.page, path: 'bookSeries'),
+          AutoRoute(page: AddBookRoute.page, path: 'addBook'),
+          AutoRoute(page: BookListRoute.page, path: 'books'),
+          AutoRoute(page: BookRoute.page, path: 'book'),
+          AutoRoute(page: ProfileRoute.page, path: 'profile'),
+          AutoRoute(page: MyLibraryRoute.page, path: 'library'),
+          AutoRoute(page: MyPurchasedBooksRoute.page, path: 'purchased'),
+        ],
+        ),
+        AutoRoute(page: EmptyRouterGenre.page, path: 'genre', children: [
+          AutoRoute(page: GenreListBooksRoute.page, path: '', initial: true),
+          AutoRoute(page: BookRoute.page, path: 'book'),
+          AutoRoute(page: ProfileRoute.page, path: 'profile'),
+        ],
+        ),
+        AutoRoute(page: EmptyRouterLibrary.page, path: 'myLibrary', children: [
+          AutoRoute(page: MyLibraryRoute.page, path: '', initial: true),
           AutoRoute(page: BookRoute.page, path: 'book'),
           AutoRoute(page: ProfileRoute.page, path: 'profile'),
         ],

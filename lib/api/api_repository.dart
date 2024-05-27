@@ -70,6 +70,19 @@ class ApiRepository {
     return Future.value(true);
   }
 
+  Future<int> addBook(NewBook book, BookFiles files) async {
+    final imageId = await client.uploadImageFile(files.coverFile);
+    book
+      ..cover = imageId
+      ..extension = files.bookFile.extension;
+
+    final bookId = await client.addBook(book);
+
+    await client.uploadBookFile(files.bookFile, bookId);
+
+    return bookId;
+  }
+
   Future<bool> changeUserInfo(PersonalData data) async =>
     repository.sendVoidRequest(() => client.changeUserData(data));
 
@@ -94,16 +107,9 @@ class ApiRepository {
   Future<bool> deleteBookSeries(int id) async =>
     repository.sendVoidRequest(() => client.deleteBookSeries(id));
 
-  Future<int> addBook(NewBook book, BookFiles files) async {
-    final imageId = await client.uploadImageFile(files.coverFile);
-    book
-      ..cover = imageId
-      ..extension = files.bookFile.extension;
+  Future<bool> addToLibrary(int id) async =>
+    repository.sendVoidRequest(() => client.addToLibrary(id));
 
-    final bookId = await client.addBook(book);
-
-    await client.uploadBookFile(files.bookFile, bookId);
-
-    return bookId;
-  }
+  Future<bool> buyBook(int id) async =>
+    repository.sendVoidRequest(() => client.buyBook(id));
 }
