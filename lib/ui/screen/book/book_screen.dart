@@ -1,9 +1,9 @@
 import 'package:auto_route/annotations.dart';
 import 'package:digital_bookshelf_client/bloc/author_info_bloc.dart';
 import 'package:digital_bookshelf_client/bloc/book_bloc.dart';
+import 'package:digital_bookshelf_client/bloc/similar_books_bloc.dart';
 import 'package:digital_bookshelf_client/bloc/user_info_bloc.dart';
 import 'package:digital_bookshelf_client/styles.dart';
-import 'package:digital_bookshelf_client/ui/screen/add_book_series/widget/add_series_body.dart';
 import 'package:digital_bookshelf_client/ui/screen/book/widget/book_body.dart';
 import 'package:digital_bookshelf_client/ui/widget/model_bloc_data_selector.dart';
 import 'package:flutter/material.dart';
@@ -30,18 +30,21 @@ class BookScreen extends StatelessWidget {
                 ),
               ),
             ),
-            body: ModelBlocDataSelector<BookBloc, Book, int>(
-              selector: (e) => e.authorId,
-              builder: (context, data) => BlocProvider(
-                create: (context) => AuthorInfoBloc(repository: context.read(), id: data),
+            body: ModelBlocDataSelector<BookBloc, Book, Book>(
+              selector: (e) => e,
+              builder: (context, book) => BlocProvider(
+                create: (context) => AuthorInfoBloc(repository: context.read(), id: book.authorId),
                 child: ModelBlocDataSelector<AuthorInfoBloc, AuthorInfo, int>(
                   selector: (e) => e.userId,
                   builder: (context, data) => BlocProvider(
                   create: (context) => UserInfoBloc(repository: context.read(), id: data),
-                  child: const SafeArea(
-                    child: Padding(
-                      padding: EdgeInsets.all(smallestValue),
-                      child: BookBody(),
+                  child: BlocProvider(
+                    create: (context) => SimilarBooksBloc(repository: context.read(), id: book.id),
+                    child: const SafeArea(
+                      child: Padding(
+                        padding: EdgeInsets.all(smallestValue),
+                        child: BookBody(),
+                      ),
                     ),
                   ),
                 ),

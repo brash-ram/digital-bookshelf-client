@@ -1,8 +1,6 @@
-import 'package:digital_bookshelf_client/bloc/user_info_bloc.dart';
 import 'package:digital_bookshelf_client/styles.dart';
 import 'package:digital_bookshelf_client/ui/screen/profile_menu/widget/profile_menu_header.dart';
 import 'package:digital_bookshelf_client/ui/screen/profile_menu/widget/profile_menu_list.dart';
-import 'package:digital_bookshelf_client/ui/widget/model_bloc_data_selector.dart';
 import 'package:flutter/material.dart';
 
 class ProfileMenuBody extends StatelessWidget {

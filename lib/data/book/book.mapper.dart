@@ -54,6 +54,9 @@ class BookMapper extends ClassMapperBase<Book> {
   static bool _$isInLibrary(Book v) => v.isInLibrary;
   static const Field<Book, bool> _f$isInLibrary =
       Field('isInLibrary', _$isInLibrary, key: 'inLibrary');
+  static int _$numberPurchase(Book v) => v.numberPurchase;
+  static const Field<Book, int> _f$numberPurchase =
+      Field('numberPurchase', _$numberPurchase);
   static SimpleBookSeries? _$series(Book v) => v.series;
   static const Field<Book, SimpleBookSeries> _f$series =
       Field('series', _$series, opt: true);
@@ -72,6 +75,7 @@ class BookMapper extends ClassMapperBase<Book> {
     #lastUpdate: _f$lastUpdate,
     #createdAt: _f$createdAt,
     #isInLibrary: _f$isInLibrary,
+    #numberPurchase: _f$numberPurchase,
     #series: _f$series,
   };
 
@@ -89,6 +93,7 @@ class BookMapper extends ClassMapperBase<Book> {
         lastUpdate: data.dec(_f$lastUpdate),
         createdAt: data.dec(_f$createdAt),
         isInLibrary: data.dec(_f$isInLibrary),
+        numberPurchase: data.dec(_f$numberPurchase),
         series: data.dec(_f$series));
   }
 
@@ -155,6 +160,7 @@ abstract class BookCopyWith<$R, $In extends Book, $Out>
       DateTime? lastUpdate,
       DateTime? createdAt,
       bool? isInLibrary,
+      int? numberPurchase,
       SimpleBookSeries? series});
   BookCopyWith<$R2, $In, $Out2> $chain<$R2, $Out2>(Then<$Out2, $R2> t);
 }
@@ -193,6 +199,7 @@ class _BookCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Book, $Out>
           DateTime? lastUpdate,
           DateTime? createdAt,
           bool? isInLibrary,
+          int? numberPurchase,
           Object? series = $none}) =>
       $apply(FieldCopyWithData({
         if (id != null) #id: id,
@@ -207,6 +214,7 @@ class _BookCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Book, $Out>
         if (lastUpdate != null) #lastUpdate: lastUpdate,
         if (createdAt != null) #createdAt: createdAt,
         if (isInLibrary != null) #isInLibrary: isInLibrary,
+        if (numberPurchase != null) #numberPurchase: numberPurchase,
         if (series != $none) #series: series
       }));
   @override
@@ -223,6 +231,7 @@ class _BookCopyWithImpl<$R, $Out> extends ClassCopyWithBase<$R, Book, $Out>
       lastUpdate: data.get(#lastUpdate, or: $value.lastUpdate),
       createdAt: data.get(#createdAt, or: $value.createdAt),
       isInLibrary: data.get(#isInLibrary, or: $value.isInLibrary),
+      numberPurchase: data.get(#numberPurchase, or: $value.numberPurchase),
       series: data.get(#series, or: $value.series));
 
   @override

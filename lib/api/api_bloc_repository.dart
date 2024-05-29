@@ -1,7 +1,5 @@
 import 'package:digital_bookshelf_client/api/api_client.dart';
 import 'package:digital_bookshelf_client/api/repository.dart';
-import 'package:digital_bookshelf_client/bloc/purchased_book_bloc.dart';
-import 'package:digital_bookshelf_client/data/book/purchased_book.dart';
 import 'package:digital_bookshelf_client/data/data.dart';
 
 class ApiBlocRepository {
@@ -117,6 +115,104 @@ class ApiBlocRepository {
       repository.createDataStream(
         (id) async => fetchPurchasedBooks(),
         -1,
+      );
+
+  Future<void> fetchBooksFromGenre(String genre) =>
+      repository.wrapFetchCall(
+        (id) async => client.getBooksByGenre(genre),
+        -3,
+      );
+
+  Stream<List<BookListItem>> getBooksFromGenre(String genre) =>
+      repository.createDataStream(
+        (id) async => fetchBooksFromGenre(genre),
+        -3,
+      );
+
+  Future<void> fetchBookNames() =>
+      repository.wrapFetchCall(
+        (id) async => client.getBookNames(),
+        -1,
+      );
+
+  Stream<List<BookName>> getBookNames() =>
+      repository.createDataStream(
+        (id) async => fetchBookNames(),
+        -1,
+      );
+
+  Future<void> fetchLastBooks() =>
+      repository.wrapFetchCall(
+        (id) async => client.getLastBooks(),
+        -4,
+      );
+
+  Stream<List<BookListItem>> getLastBooks() =>
+      repository.createDataStream(
+        (id) async => fetchLastBooks(),
+        -4,
+      );
+
+  Future<void> fetchHomeLastBooks() =>
+      repository.wrapFetchCall(
+        (id) async => client.getHomeLastBooks(),
+        -5,
+      );
+
+  Stream<List<BookListItem>> getHomeLastBooks() =>
+      repository.createDataStream(
+        (id) async => fetchHomeLastBooks(),
+        -5,
+      );
+
+  Future<void> fetchSearchBooks(String name) =>
+      repository.wrapFetchCall(
+        (id) async => client.search(name),
+        -6,
+      );
+
+  Stream<List<BookListItem>> getSearchBooks(String name) =>
+      repository.createDataStream(
+        (id) async => fetchSearchBooks(name),
+        -6,
+      );
+
+  Future<void> fetchRecommendedBooks() =>
+      repository.wrapFetchCall(
+        (id) async => client.getRecBooks(),
+        -7,
+      );
+
+  Stream<List<BookListItem>> getRecommendedBooks() =>
+      repository.createDataStream(
+        (id) async => fetchRecommendedBooks(),
+        -7,
+      );
+
+
+  Future<void> fetchHomeRecommendedBooks() =>
+      repository.wrapFetchCall(
+        (id) async => client.getHomeRecBooks(),
+        -8,
+      );
+
+  Stream<List<BookListItem>> getHomeRecommendedBooks() =>
+      repository.createDataStream(
+        (id) async => fetchHomeRecommendedBooks(),
+        -8,
+      );
+
+
+  Future<void> fetchSimilarBooks(int id) =>
+      repository.wrapFetchCall(
+        (id) async => client.getSimilarBooks(id),
+        id,
+      );
+
+  Stream<List<BookListItem>> getSimilarBooks(int id) =>
+      repository.createDataStream(
+        (id) async => fetchSimilarBooks(id),
+        id,
       );
 
 }

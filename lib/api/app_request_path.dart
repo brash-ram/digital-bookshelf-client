@@ -31,5 +31,13 @@ const getMyLibraryPath = '/api/private/book/library/my';
 const getAuthorLibraryPath = '/api/public/book/library/author/';
 const buyBookPath = '/api/private/book/buy/';
 const myPurchasedBooksPath = '/api/private/book/purchased';
+const booksFromGenrePath = '/api/public/book/genre';
+const getBookNamesPath = '/api/public/book/names';
+const getLastBooksPath = '/api/public/book/last/all';
+const getHomeLastBooksPath = '/api/public/book/last/home';
+const searchBooksPath = '/api/public/book/search';
+const getRecBooksPath = '/api/private/book/rec/all';
+const getHomeRecBooksPath = '/api/private/book/rec/home';
+const getSimilarBooksPath = '/api/public/book/similar';
 
 const getTagsPath = '/api/public/tag/all';

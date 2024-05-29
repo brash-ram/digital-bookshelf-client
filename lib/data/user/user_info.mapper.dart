@@ -17,6 +17,7 @@ class UserInfoMapper extends ClassMapperBase<UserInfo> {
       ShowBirthTypeMapper.ensureInitialized();
       GenderMapper.ensureInitialized();
       RoleMapper.ensureInitialized();
+      BookListItemMapper.ensureInitialized();
     }
     return _instance!;
   }
@@ -38,6 +39,9 @@ class UserInfoMapper extends ClassMapperBase<UserInfo> {
   static const Field<UserInfo, Gender> _f$gender = Field('gender', _$gender);
   static List<Role> _$roles(UserInfo v) => v.roles;
   static const Field<UserInfo, List<Role>> _f$roles = Field('roles', _$roles);
+  static List<BookListItem> _$library(UserInfo v) => v.library;
+  static const Field<UserInfo, List<BookListItem>> _f$library =
+      Field('library', _$library);
   static DateTime? _$birth(UserInfo v) => v.birth;
   static const Field<UserInfo, DateTime> _f$birth =
       Field('birth', _$birth, opt: true);
@@ -71,6 +75,7 @@ class UserInfoMapper extends ClassMapperBase<UserInfo> {
     #showBirthType: _f$showBirthType,
     #gender: _f$gender,
     #roles: _f$roles,
+    #library: _f$library,
     #birth: _f$birth,
     #lifeStatus: _f$lifeStatus,
     #about: _f$about,
@@ -89,6 +94,7 @@ class UserInfoMapper extends ClassMapperBase<UserInfo> {
         showBirthType: data.dec(_f$showBirthType),
         gender: data.dec(_f$gender),
         roles: data.dec(_f$roles),
+        library: data.dec(_f$library),
         birth: data.dec(_f$birth),
         lifeStatus: data.dec(_f$lifeStatus),
         about: data.dec(_f$about),
@@ -150,6 +156,8 @@ abstract class UserInfoCopyWith<$R, $In extends UserInfo, $Out>
     implements ClassCopyWith<$R, $In, $Out> {
   ImageModelCopyWith<$R, ImageModel, ImageModel> get profileImage;
   ListCopyWith<$R, Role, ObjectCopyWith<$R, Role, Role>> get roles;
+  ListCopyWith<$R, BookListItem,
+      BookListItemCopyWith<$R, BookListItem, BookListItem>> get library;
   $R call(
       {int? id,
       ImageModel? profileImage,
@@ -157,6 +165,7 @@ abstract class UserInfoCopyWith<$R, $In extends UserInfo, $Out>
       ShowBirthType? showBirthType,
       Gender? gender,
       List<Role>? roles,
+      List<BookListItem>? library,
       DateTime? birth,
       String? lifeStatus,
       String? about,
@@ -184,6 +193,11 @@ class _UserInfoCopyWithImpl<$R, $Out>
       ListCopyWith($value.roles, (v, t) => ObjectCopyWith(v, $identity, t),
           (v) => call(roles: v));
   @override
+  ListCopyWith<$R, BookListItem,
+          BookListItemCopyWith<$R, BookListItem, BookListItem>>
+      get library => ListCopyWith($value.library,
+          (v, t) => v.copyWith.$chain(t), (v) => call(library: v));
+  @override
   $R call(
           {int? id,
           ImageModel? profileImage,
@@ -191,6 +205,7 @@ class _UserInfoCopyWithImpl<$R, $Out>
           ShowBirthType? showBirthType,
           Gender? gender,
           List<Role>? roles,
+          List<BookListItem>? library,
           Object? birth = $none,
           Object? lifeStatus = $none,
           Object? about = $none,
@@ -206,6 +221,7 @@ class _UserInfoCopyWithImpl<$R, $Out>
         if (showBirthType != null) #showBirthType: showBirthType,
         if (gender != null) #gender: gender,
         if (roles != null) #roles: roles,
+        if (library != null) #library: library,
         if (birth != $none) #birth: birth,
         if (lifeStatus != $none) #lifeStatus: lifeStatus,
         if (about != $none) #about: about,
@@ -223,6 +239,7 @@ class _UserInfoCopyWithImpl<$R, $Out>
       showBirthType: data.get(#showBirthType, or: $value.showBirthType),
       gender: data.get(#gender, or: $value.gender),
       roles: data.get(#roles, or: $value.roles),
+      library: data.get(#library, or: $value.library),
       birth: data.get(#birth, or: $value.birth),
       lifeStatus: data.get(#lifeStatus, or: $value.lifeStatus),
       about: data.get(#about, or: $value.about),

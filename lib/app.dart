@@ -7,6 +7,7 @@ if (dart.library.js) 'core/http/client_web.dart';
 import 'package:digital_bookshelf_client/core/router/router.dart';
 import 'package:digital_bookshelf_client/core/storages/secure_storage.dart';
 import 'package:digital_bookshelf_client/core/storages/token_storage.dart';
+import 'package:digital_bookshelf_client/core/theme_bloc/theme_bloc.dart';
 import 'package:digital_bookshelf_client/init_auth.dart';
 import 'package:digital_bookshelf_client/logging.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
@@ -15,6 +16,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:talker_flutter/talker_flutter.dart';
+
+import 'styles.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -60,27 +63,33 @@ class MyApp extends StatelessWidget {
         RepositoryProvider(
           create: (context) => ApiBlocRepository(context.read(), context.read()),
         ),
+        BlocProvider.value(
+          value: ThemeBloc(),
+        ),
       ],
       child: Builder(
         builder: (context) => InitAuth(
-          child: MaterialApp.router(
-            debugShowCheckedModeBanner: false,
-            title: 'Digital bookshelf',
-            theme: FlexThemeData.light(
-              scheme: FlexScheme.purpleM3,
-              useMaterial3: true,
-            ),
-            // darkTheme: FlexThemeData.dark(
-            //   scheme: FlexScheme.purpleM3,
-            //   useMaterial3: true,
-            // ),
-            localizationsDelegates: GlobalMaterialLocalizations.delegates,
-            // locale: TranslationProvider.of(context).flutterLocale,
-            routerConfig: AppRouter().config(
-              navigatorObservers: () =>
-              [
-                TalkerRouteObserver(talker),
-              ],
+          child: BlocBuilder<ThemeBloc, ThemeState>(
+            builder: (context, state) => MaterialApp.router(
+              debugShowCheckedModeBanner: false,
+              title: 'Digital bookshelf',
+              theme: FlexThemeData.light(
+                scheme: FlexScheme.purpleM3,
+                useMaterial3: true,
+              ),
+              darkTheme: FlexThemeData.dark(
+                scheme: FlexScheme.purpleM3,
+                useMaterial3: true,
+              ),
+              themeMode: state.mode,
+              localizationsDelegates: GlobalMaterialLocalizations.delegates,
+              locale: TranslationProvider.of(context).flutterLocale,
+              routerConfig: AppRouter().config(
+                navigatorObservers: () =>
+                [
+                  TalkerRouteObserver(talker),
+                ],
+              ),
             ),
           ),
         ),

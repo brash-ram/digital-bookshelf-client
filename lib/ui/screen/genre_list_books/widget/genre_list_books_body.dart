@@ -1,8 +1,8 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:digital_bookshelf_client/bloc/genre_list_bloc.dart';
 import 'package:digital_bookshelf_client/styles.dart';
 import 'package:digital_bookshelf_client/ui/widget/model_bloc_data_selector.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 class GenreListBooksBody extends StatelessWidget {
   const GenreListBooksBody({super.key});
@@ -13,6 +13,9 @@ class GenreListBooksBody extends StatelessWidget {
     builder: (context, data) => ListView.separated(
       itemCount: data.length,
       itemBuilder: (context, i) => ListTile(
+        onTap: () async {
+          await AutoRouter.of(context).navigate(GenreBooksRoute(genre: data[i]));
+        },
         title: Text(
           data[i],
           style: Theme.of(context).textTheme.bodyMedium?.copyWith(

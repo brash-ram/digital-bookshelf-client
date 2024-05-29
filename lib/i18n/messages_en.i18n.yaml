@@ -3,158 +3,174 @@ app:
 
 alert:
   unavailable:
-    title: Недоступен
-    content: Выбранный функционал пока недоступен.
+    title: Unavailable
+    content: The selected functionality is currently unavailable.
   confirm:
-    title: Подтвердите действие
-  confirmBecomeAuthor: Подтвердите переход аккаунта в статус "Автор".\nОбратный переход невозможен!
-  confirmDelete: Подтвердите что хотите удалить данный ресурс.
-  helloAuthor: Теперь вы Автор!
+    title: Confirm action
+  confirmBecomeAuthor: Confirm switching account to "Author" status.\nReverting back is not possible!
+  confirmDelete: Confirm that you want to delete this resource.
+  helloAuthor: You are now an Author!
 
 validation:
-  IsValidEmail: Неверный формат адреса электронной почты
-  IsValidPhone: Неверный формат адреса номера телефона
-  NotBlank: Должно быть не пустое значение
-  IsValidCardCvv: Неверный формат CVV карты.
-  IsValidDateFormat: Неверный формат даты
-  IsValidCardExpiry: Срок действия карты истек
-  IsValidCardNumber: Неверный формат номера карты
+  IsValidEmail: Invalid email address format
+  IsValidPhone: Invalid phone number format
+  NotBlank: Must not be empty
+  IsValidCardCvv: Invalid card CVV format
+  IsValidDateFormat: Invalid date format
+  IsValidCardExpiry: Card expiration date has passed
+  IsValidCardNumber: Invalid card number format
+
 
 utils:
-  ok: ОК
-  no: Нет
-  failAuth: Неверный логин или пароль
-  fail: Упс... Что-то пошло не так.
-  save: Сохранить
-  cancel: Отмена
-  becomeAuthor: Стать автором
-  price: Цена
+  ok: OK
+  no: No
+  failAuth: Incorrect login or password
+  fail: Oops... Something went wrong.
+  save: Save
+  cancel: Cancel
+  becomeAuthor: Become an author
+  price: Price
   datePicker:
-    helpText: Выберете день рождения
-    confirmText: Сохранить
-    errorFormatText: Дата не входит в допустимый диапазон
-    errorInvalidText: Неверный формат
-    fieldHintText: Введите дату рождения
-    fieldLabelText: День рождения
-
+    helpText: Choose date of birth
+    confirmText: Save
+    errorFormatText: Date is not within the valid range
+    errorInvalidText: Invalid format
+    fieldHintText: Enter date of birth
+    fieldLabelText: Date of birth
+    
 user:
   person:
-    name: Имя
-    lastName: Фамилия
-    middleName: Отчество
-    birth: Дата рождения
-    gender: Пол
+    name: Name
+    lastName: Last Name
+    middleName: Middle Name
+    birth: Date of Birth
+    gender: Gender
   email: Email
-  phone: Телефон
-  password: Пароль
+  phone: Phone
+  password: Password
   contact:
-    vk: ВК
-    email: Почта
+    vk: VK
+    email: Email
     tg: Telegram
-    site: Сайт
+    site: Website
 
 book:
-  name: Название
-  description: Описание
-  tag: Тег
-  genre: Жанр
-  tags: Теги
-  genres: Жанры
-  priceType: Тип цены
-  price: Цена
-  bookSeries: Цикл
-  addToLibrary: Добавить в библиотеку
-  buy: Купить
-  isInLibrary: Уже в библиотеке
-  download: Скачать
+  name: Title
+  description: Description
+  tag: Tag
+  genre: Genre
+  tags: Tags
+  genres: Genres
+  priceType: Price Type
+  price: Price
+  bookSeries: Series
+  addToLibrary: Add to library
+  buy: Buy
+  isInLibrary: Already in library
+  download: Download
+  numberPurchase: Number of copies sold
+  similar: Similar books
 
 bookSeries:
-  title: Цикл книг
-  listTitle: Циклы книг
-  numberBooks: Количество книг
-  name: Название
-  description: Описание
+  title: Book series
+  listTitle: Book series
+  numberBooks: Number of books
+  name: Title
+  description: Description
 
 enums:
   showBirthType:
-    show: Показывать
-    showWithoutYear: Показывать без года
-    notShow: Не показывать
+    show: Show
+    showWithoutYear: Show without year
+    notShow: Do not show
   gender:
-    male: Мужской
-    female: Женский
-    notShow: Не показывать
+    male: Male
+    female: Female
+    notShow: Do not show
   priceType:
-    selling: Продажа
-    free: Бесплатно
+    selling: Selling
+    free: Free
 
 addBook:
-  title: Добавить книгу
-  changeTitle: Обновить книгу
-  addBookFile: Выбрать файл книги
-  addBookCover: Выбрать обложку для книги
-  changeBookFile: Изменить файл книги
-  changeBookCover: Изменить обложку для книги
-  bookUploaded: (Книга загружена)
-  imageExtensions: Доступные расширения изображений - JPG, JPEG, PNG
-  bookExtensions: Доступные расширения файлов книг - FB2, EPUB, PDF
-  invalidBookExtension: Выбран файл с недоступным расширением
-  fail: Возникла ошибка при загрузке книги!
+  title: Add book
+  changeTitle: Update book
+  addBookFile: Choose book file
+  addBookCover: Choose book cover
+  changeBookFile: Change book file
+  changeBookCover: Change book cover
+  bookUploaded: (Book uploaded)
+  imageExtensions: Available image extensions - JPG, JPEG, PNG
+  bookExtensions: Available book file extensions - FB2, EPUB, PDF
+  invalidBookExtension: Selected file has an invalid extension
+  fail: Error occurred while uploading the book!
 
 profile:
-  notAuthorized: Для доступа к профилю необходимо авторизоваться
-  goAuth: Авторизоваться
-  profileTab: Профиль
-  libraryTab: Библиотека
-  booksTab: Произведения
-  bookSeriesTab: Серии книг
+  notAuthorized: Authorization is required to access the profile
+  goAuth: Authorize
+  profileTab: Profile
+  libraryTab: Library
+  booksTab: Works
+  bookSeriesTab: Book Series
+  settings:
+    lang: Language
+    en: English
+    ru: Russian
+    theme: Theme
+    dark: Dark
+    light: Light
   menu:
     personal:
-      title: Учетная запись
-      myProfile: Мой профиль
-      main: Основная информация
-      contact: Контакты
-      logout: Выйти из аккаунта
-      myLibrary: Моя библиотека
-      myPurchased: Мои купленные книги
+      title: Account
+      myProfile: My profile
+      main: Main information
+      contact: Contacts
+      logout: Log out
+      myLibrary: My library
+      myPurchased: My purchased books
+      settings: Settings
     admin:
-      title: Администрирование
-      genres: Список жанров
+      title: Administration
+      genres: List of genres
     author:
-      title: Возможности автора
-      bookSeries: Мои циклы книг
-      addBookSeries: Добавить цикл книг
-      books: Мои книги
-      addBook: Добавить книгу
+      title: Author capabilities
+      bookSeries: My book series
+      addBookSeries: Add book series
+      books: My books
+      addBook: Add book
 
 personalData:
-  mainInfo: Основная информация
-  name: Имя и фамилия или псевдоним
-  status: Статус
-  birth: День рождения
-  selectDateBirth: Выбрать день рождения
-  sex: Пол
-  about: О себе
-  aboutInfo: Вашим подписчикам будет интересно узнать о вас...
-  contact: Контакты
+  mainInfo: Main information
+  name: Name and last name or nickname
+  status: Status
+  birth: Date of birth
+  selectDateBirth: Select date of birth
+  sex: Gender
+  about: About
+  aboutInfo: Your followers will be interested to learn about you...
+  contact: Contacts
 
 auth:
   header:
-    welcome: Добро пожаловать
-    info: Введите адрес электронной почты и пароль
+    welcome: Welcome
+    info: Enter email address and password
     appBar:
-      signIn: Авторизация
-      signUp: Регистрация
-      personalData: Личные данные
+      signIn: Sign in
+      signUp: Sign up
+      personalData: Personal data
 
   button:
-    logIn: Войти
-    logUp: Зарегистрироваться
+    logIn: Log in
+    logUp: Sign up
+
+general:
+  lastBooks: Last publications
+  recommendedBooks: Recommended books
+  view: All
 
 genre:
-  newGenre: Новый жанр
-  title: Жанр
-  menuTitle: Список жанров
+  newGenre: New genre
+  title: Genre
+  menuTitle: List of genres
 
 currency:
   RUB: ₽

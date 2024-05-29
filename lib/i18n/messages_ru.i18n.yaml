@@ -67,6 +67,8 @@ book:
   buy: Купить
   isInLibrary: Уже в библиотеке
   download: Скачать
+  numberPurchase: Количество проданных копий
+  similar: Похожие книги
 
 bookSeries:
   title: Цикл книг
@@ -108,6 +110,13 @@ profile:
   libraryTab: Библиотека
   booksTab: Произведения
   bookSeriesTab: Серии книг
+  settings:
+    lang: Язык
+    en: Английский
+    ru: Русский
+    theme: Тема
+    dark: Темная
+    light: Светлая
   menu:
     personal:
       title: Учетная запись
@@ -117,6 +126,7 @@ profile:
       logout: Выйти из аккаунта
       myLibrary: Моя библиотека
       myPurchased: Мои купленные книги
+      settings: Настройки
     admin:
       title: Администрирование
       genres: Список жанров
@@ -150,6 +160,11 @@ auth:
   button:
     logIn: Войти
     logUp: Зарегистрироваться
+
+general:
+  lastBooks: Последние публикации
+  recommendedBooks: Рекомендованные книги
+  view: Все
 
 genre:
   newGenre: Новый жанр

@@ -13,6 +13,7 @@ class UserInfo with UserInfoMappable {
     required this.showBirthType,
     required this.gender,
     required this.roles,
+    required this.library,
     this.birth,
     this.lifeStatus,
     this.about,
@@ -50,4 +51,6 @@ class UserInfo with UserInfoMappable {
   final String? refEmail;
 
   final int? authorInfoId;
+
+  final List<BookListItem> library;
 }

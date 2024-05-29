@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:digital_bookshelf_client/core/router/router.dart';
+import 'package:digital_bookshelf_client/styles.dart';
 import 'package:flutter/material.dart';
 
 @RoutePage()
@@ -9,7 +10,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => AutoTabsScaffold(
     routes: const [
-      ProfileMenuRoute(),
+      GeneralRoute(),
       GenreListBooksRoute(),
       MyLibraryRoute(),
       ProfileMenuRoute(),

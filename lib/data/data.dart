@@ -8,6 +8,7 @@ export 'author/author_info.dart';
 export 'book/book.dart';
 export 'book/book_files.dart';
 export 'book/book_list_item.dart';
+export 'book/book_name.dart';
 export 'book/new_book.dart';
 export 'book/purchased_book.dart';
 export 'book_series/book_series.dart';

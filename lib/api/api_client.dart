@@ -156,4 +156,45 @@ class ApiClient {
   Future<List<PurchasedBook>> getPurchasedBooks() async => client.get(
     myPurchasedBooksPath,
   );
+
+  Future<List<BookListItem>> getBooksByGenre(String genre) async => client.get(
+    booksFromGenrePath,
+    queryParameters: {
+      'genre' : genre,
+    },
+  );
+
+  Future<List<BookName>> getBookNames() async => client.get(
+    getBookNamesPath,
+  );
+
+  Future<List<BookListItem>> getLastBooks() async => client.get(
+    getLastBooksPath,
+  );
+
+  Future<List<BookListItem>> getHomeLastBooks() async => client.get(
+    getHomeLastBooksPath,
+  );
+
+  Future<List<BookListItem>> search(String name) async => client.get(
+    searchBooksPath,
+    queryParameters: {
+      'name' : name,
+    },
+  );
+
+  Future<List<BookListItem>> getRecBooks() async => client.get(
+    getRecBooksPath,
+  );
+
+  Future<List<BookListItem>> getHomeRecBooks() async => client.get(
+    getHomeRecBooksPath,
+  );
+
+  Future<List<BookListItem>> getSimilarBooks(int id) async => client.get(
+    getSimilarBooksPath,
+    queryParameters: {
+      'bookId' : id.toString()
+    }
+  );
 }

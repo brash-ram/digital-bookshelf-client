@@ -88,6 +88,22 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const EmptyRouterProfilePage(),
       );
     },
+    GeneralRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const GeneralScreen(),
+      );
+    },
+    GenreBooksRoute.name: (routeData) {
+      final args = routeData.argsAs<GenreBooksRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: GenreBooksScreen(
+          genre: args.genre,
+          key: args.key,
+        ),
+      );
+    },
     GenreListBooksRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -104,6 +120,12 @@ abstract class _$AppRouter extends RootStackRouter {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const HomeScreen(),
+      );
+    },
+    LastBooksRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const LastBooksScreen(),
       );
     },
     ListBookSeriesRoute.name: (routeData) {
@@ -156,6 +178,28 @@ abstract class _$AppRouter extends RootStackRouter {
           key: args.key,
           userId: args.userId,
         ),
+      );
+    },
+    RecommendedBooksRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const RecommendedBooksScreen(),
+      );
+    },
+    SearchBookListRoute.name: (routeData) {
+      final args = routeData.argsAs<SearchBookListRouteArgs>();
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: SearchBookListScreen(
+          name: args.name,
+          key: args.key,
+        ),
+      );
+    },
+    SettingsRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const SettingsScreen(),
       );
     },
   };
@@ -383,6 +427,58 @@ class EmptyRouterProfile extends PageRouteInfo<void> {
 }
 
 /// generated route for
+/// [GeneralScreen]
+class GeneralRoute extends PageRouteInfo<void> {
+  const GeneralRoute({List<PageRouteInfo>? children})
+      : super(
+          GeneralRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'GeneralRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [GenreBooksScreen]
+class GenreBooksRoute extends PageRouteInfo<GenreBooksRouteArgs> {
+  GenreBooksRoute({
+    required String genre,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          GenreBooksRoute.name,
+          args: GenreBooksRouteArgs(
+            genre: genre,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'GenreBooksRoute';
+
+  static const PageInfo<GenreBooksRouteArgs> page =
+      PageInfo<GenreBooksRouteArgs>(name);
+}
+
+class GenreBooksRouteArgs {
+  const GenreBooksRouteArgs({
+    required this.genre,
+    this.key,
+  });
+
+  final String genre;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'GenreBooksRouteArgs{genre: $genre, key: $key}';
+  }
+}
+
+/// generated route for
 /// [GenreListBooksScreen]
 class GenreListBooksRoute extends PageRouteInfo<void> {
   const GenreListBooksRoute({List<PageRouteInfo>? children})
@@ -420,6 +516,20 @@ class HomeRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'HomeRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [LastBooksScreen]
+class LastBooksRoute extends PageRouteInfo<void> {
+  const LastBooksRoute({List<PageRouteInfo>? children})
+      : super(
+          LastBooksRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'LastBooksRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
@@ -568,4 +678,70 @@ class ProfileRouteArgs {
   String toString() {
     return 'ProfileRouteArgs{key: $key, userId: $userId}';
   }
+}
+
+/// generated route for
+/// [RecommendedBooksScreen]
+class RecommendedBooksRoute extends PageRouteInfo<void> {
+  const RecommendedBooksRoute({List<PageRouteInfo>? children})
+      : super(
+          RecommendedBooksRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'RecommendedBooksRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [SearchBookListScreen]
+class SearchBookListRoute extends PageRouteInfo<SearchBookListRouteArgs> {
+  SearchBookListRoute({
+    required String name,
+    Key? key,
+    List<PageRouteInfo>? children,
+  }) : super(
+          SearchBookListRoute.name,
+          args: SearchBookListRouteArgs(
+            name: name,
+            key: key,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'SearchBookListRoute';
+
+  static const PageInfo<SearchBookListRouteArgs> page =
+      PageInfo<SearchBookListRouteArgs>(name);
+}
+
+class SearchBookListRouteArgs {
+  const SearchBookListRouteArgs({
+    required this.name,
+    this.key,
+  });
+
+  final String name;
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'SearchBookListRouteArgs{name: $name, key: $key}';
+  }
+}
+
+/// generated route for
+/// [SettingsScreen]
+class SettingsRoute extends PageRouteInfo<void> {
+  const SettingsRoute({List<PageRouteInfo>? children})
+      : super(
+          SettingsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SettingsRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }

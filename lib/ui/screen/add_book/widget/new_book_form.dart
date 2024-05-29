@@ -8,7 +8,6 @@ import 'package:digital_bookshelf_client/ui/screen/add_book/widget/upload_book_w
 import 'package:digital_bookshelf_client/ui/screen/add_book/widget/upload_image_widget.dart';
 import 'package:digital_bookshelf_client/ui/widget/dropdown_widget.dart';
 import 'package:digital_bookshelf_client/ui/widget/form_widget/named_field.dart';
-import 'package:digital_bookshelf_client/ui/widget/loading_button.dart';
 import 'package:digital_bookshelf_client/ui/widget/model_bloc_data_selector.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

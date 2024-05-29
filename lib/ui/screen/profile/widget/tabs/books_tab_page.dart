@@ -1,5 +1,4 @@
 import 'package:digital_bookshelf_client/bloc/author_info_bloc.dart';
-import 'package:digital_bookshelf_client/bloc/books_list_bloc.dart';
 import 'package:digital_bookshelf_client/styles.dart';
 import 'package:digital_bookshelf_client/ui/widget/book_list_item/book_list_item_widget.dart';
 import 'package:digital_bookshelf_client/ui/widget/model_bloc_data_selector.dart';

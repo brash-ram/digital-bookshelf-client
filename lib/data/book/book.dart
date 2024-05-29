@@ -19,6 +19,7 @@ class Book with BookMappable {
     required this.lastUpdate,
     required this.createdAt,
     required this.isInLibrary,
+    required this.numberPurchase,
     this.series,
   });
 
@@ -37,4 +38,6 @@ class Book with BookMappable {
 
   @MappableField(key: 'inLibrary')
   final bool isInLibrary;
+
+  final int numberPurchase;
 }

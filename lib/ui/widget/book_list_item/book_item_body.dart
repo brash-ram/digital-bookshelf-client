@@ -1,8 +1,6 @@
 import 'package:digital_bookshelf_client/styles.dart';
-import 'package:digital_bookshelf_client/ui/screen/add_book/widget/price_widget.dart';
 import 'package:digital_bookshelf_client/ui/widget/blurhash_image.dart';
 import 'package:digital_bookshelf_client/ui/widget/book_price_wdget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

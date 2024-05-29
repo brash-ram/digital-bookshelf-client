@@ -1,9 +1,7 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:digital_bookshelf_client/bloc/author_info_bloc.dart';
 import 'package:digital_bookshelf_client/bloc/book_bloc.dart';
 import 'package:digital_bookshelf_client/bloc/user_info_bloc.dart';
 import 'package:digital_bookshelf_client/styles.dart';
-import 'package:digital_bookshelf_client/ui/screen/add_book/widget/price_widget.dart';
 import 'package:digital_bookshelf_client/ui/widget/book_price_wdget.dart';
 import 'package:digital_bookshelf_client/ui/widget/model_bloc_data_selector.dart';
 import 'package:flutter/material.dart';
