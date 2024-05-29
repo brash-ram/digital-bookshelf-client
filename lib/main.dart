@@ -7,8 +7,8 @@ import 'package:global_configuration/global_configuration.dart';
 void main() async {
   initializeMappers();
   WidgetsFlutterBinding.ensureInitialized();
-  // LocaleSettings.setLocale(AppLocale.ru);
-  LocaleSettings.useDeviceLocale();
+  LocaleSettings.setLocale(AppLocale.ru);
+  // LocaleSettings.useDeviceLocale();
   await GlobalConfiguration().loadFromAsset('GlobalConfig');
   runApp(
       TranslationProvider(child: const MyApp()),

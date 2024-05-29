@@ -37,8 +37,7 @@ class MyApp extends StatelessWidget {
         RepositoryProvider(
           create: (context) => Client(
             baseUri: Uri.http('10.0.2.2:8080'),
-            // baseUri: Uri.http('10.0.2.2:8080'),
-            // baseUri: Uri.http('127.0.0.1:8080', 'api/v1'),
+            // baseUri: Uri.http('127.0.0.1:8080'),
             client: context.read(),
             authController: context.read(),
           ),

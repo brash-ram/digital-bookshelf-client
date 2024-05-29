@@ -48,16 +48,15 @@ class BookInfoText extends StatelessWidget {
             priceType: data.priceType
           ) else const SizedBox(),
           const SizedBox(height: smallValue,),
-          Row(
+          Wrap(
             children: [
               const Icon(
-                Icons.tag
+                Icons.tag,
               ),
               const SizedBox(width: smallValue,),
-              Text(
-                data.tagNames.join(', '),
-              ),
-            ],
+              for (final tag in data.tagNames)
+                Text('$tag, '),
+            ]
           ),
         ],
       );

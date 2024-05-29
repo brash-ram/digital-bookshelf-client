@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 258 (129 per locale)
+/// Strings: 266 (133 per locale)
 ///
-/// Built on 2024-05-29 at 07:55 UTC
+/// Built on 2024-05-29 at 11:23 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -163,6 +163,7 @@ class Translations implements BaseTranslations<AppLocale, Translations> {
 	late final _StringsGeneralEn general = _StringsGeneralEn._(_root);
 	late final _StringsGenreEn genre = _StringsGenreEn._(_root);
 	late final _StringsCurrencyEn currency = _StringsCurrencyEn._(_root);
+	late final _StringsMenuEn menu = _StringsMenuEn._(_root);
 }
 
 // Path: app
@@ -385,6 +386,19 @@ class _StringsCurrencyEn {
 
 	// Translations
 	String get RUB => '₽';
+}
+
+// Path: menu
+class _StringsMenuEn {
+	_StringsMenuEn._(this._root);
+
+	final Translations _root; // ignore: unused_field
+
+	// Translations
+	String get home => 'Home';
+	String get genre => 'Genres';
+	String get library => 'Library';
+	String get profile => 'Profile';
 }
 
 // Path: alert.unavailable
@@ -628,6 +642,7 @@ class _StringsRu implements Translations {
 	@override late final _StringsGeneralRu general = _StringsGeneralRu._(_root);
 	@override late final _StringsGenreRu genre = _StringsGenreRu._(_root);
 	@override late final _StringsCurrencyRu currency = _StringsCurrencyRu._(_root);
+	@override late final _StringsMenuRu menu = _StringsMenuRu._(_root);
 }
 
 // Path: app
@@ -850,6 +865,19 @@ class _StringsCurrencyRu implements _StringsCurrencyEn {
 
 	// Translations
 	@override String get RUB => '₽';
+}
+
+// Path: menu
+class _StringsMenuRu implements _StringsMenuEn {
+	_StringsMenuRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get home => 'Главная';
+	@override String get genre => 'Жанры';
+	@override String get library => 'Библиотека';
+	@override String get profile => 'Профиль';
 }
 
 // Path: alert.unavailable
@@ -1189,6 +1217,10 @@ extension on Translations {
 			case 'genre.title': return 'Genre';
 			case 'genre.menuTitle': return 'List of genres';
 			case 'currency.RUB': return '₽';
+			case 'menu.home': return 'Home';
+			case 'menu.genre': return 'Genres';
+			case 'menu.library': return 'Library';
+			case 'menu.profile': return 'Profile';
 			default: return null;
 		}
 	}
@@ -1326,6 +1358,10 @@ extension on _StringsRu {
 			case 'genre.title': return 'Жанр';
 			case 'genre.menuTitle': return 'Список жанров';
 			case 'currency.RUB': return '₽';
+			case 'menu.home': return 'Главная';
+			case 'menu.genre': return 'Жанры';
+			case 'menu.library': return 'Библиотека';
+			case 'menu.profile': return 'Профиль';
 			default: return null;
 		}
 	}

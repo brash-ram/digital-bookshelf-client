@@ -79,6 +79,9 @@ class _BookSearchState extends State<BookSearch> {
             if (widget.values.where((e) => e.name.toLowerCase() == controller.text.toLowerCase()).isNotEmpty) {
               final name = widget.values.where((e) => e.name.toLowerCase().contains(controller.text.toLowerCase())).first;
               await AutoRouter.of(context).navigate(BookRoute(id: name.id));
+            } else if (controller.text == '') {
+              final name = widget.values.where((e) => e.name.toLowerCase().contains(value.toLowerCase())).first;
+              await AutoRouter.of(context).navigate(BookRoute(id: name.id));
             } else {
               await AutoRouter.of(context).navigate(SearchBookListRoute(name: controller.text));
             }

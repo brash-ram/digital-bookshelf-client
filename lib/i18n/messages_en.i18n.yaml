@@ -174,3 +174,9 @@ genre:
 
 currency:
   RUB: ₽
+
+menu:
+  home: Home
+  genre: Genres
+  library: Library
+  profile: Profile
